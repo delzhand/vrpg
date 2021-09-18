@@ -1,0 +1,549 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="./style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+<script src="./party.js"></script>
+<script src="./input.js"></script>
+<script src="./lib.js"></script>
+
+<script>
+  const q = getUrlVars();
+  const data = input[q.data];
+  const seedRand = new Math.seedrandom(JSON.stringify(data.moves));
+  let interval = null;
+  const combat = {
+    turn: 0,
+    allyIndex: 0,
+    enemyIndex: 0,
+    allyInputs: shuffle(data.moves),
+    enemyInputs: shuffle(data.enemies),
+    enemyDeck: shuffle(['attack', 'special', 'defend', 'assist']),
+  };
+  const queue = [];
+
+  function unitInit(unit) {
+    unit.chp = getStat('mhp', unit);
+    unit.effects = [];
+  }
+
+  function nextEnemyAction() {
+    if (combat.enemyDeck.length === 0) {
+      combat.enemyDeck = shuffle(['attack', 'special', 'defend', 'assist']);
+    }
+    return combat.enemyDeck.pop();
+  }
+
+  function nextEnemy() {
+    for (combat.enemyIndex; combat.enemyIndex < combat.enemyInputs.length + combat.enemyIndex; combat.enemyIndex++) {
+      const unit = combat.enemyInputs[combat.enemyIndex % combat.enemyInputs.length];
+      if (unit.effects.indexOf('down') < 0) {
+        return unit; 
+      }
+    }
+    return false;
+  }
+
+  function findAlly(name) {
+    for (let i = 0; i < party.members.length; i++) {
+      if (party.members[i].name.toUpperCase() === name.toUpperCase()) {
+        return party.members[i];
+      }
+    }
+  }
+
+  function findEnemy(name) {
+    for (let i = 0; i < data.enemies.length; i++) {
+      if (data.enemies[i].name.toUpperCase() === name.toUpperCase()) {
+        return data.enemies[i];
+      }
+    }
+  }
+
+  function getTeamList(unit) {
+    let list = data.enemies;
+    if (findAlly(unit.name)) {
+      list = party.members;
+    }
+    return list;
+  }
+
+  function setStatus(unit, status) {
+    const index = unit.effects.indexOf(status);
+    if (status === 'disadvantage') {
+      if (cancelStatus(unit, 'advantage')) {
+        return;
+      }
+    }
+    else if (status === 'advantage') {
+      if (cancelStatus(unit, 'disadvantage')) {
+        return;
+      }
+    }
+    if (index < 0) {
+      unit.effects.push(status);
+    }
+  }
+
+  function cancelStatus(unit, status) {
+    const index = unit.effects.indexOf(status);
+    if (index >= 0) {
+      unit.effects.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+
+  function setTeamStatus(unit, status) {
+    const list = getTeamList(unit);
+    for (let i = 0; i < list.length; i++) {
+      setStatus(list[i], status);        
+    }
+  }
+
+  function init() {
+    for (let i = 0; i < party.members.length; i++) {
+      unitInit(party.members[i]);
+      $('#party-profiles').append(drawProfile(party.members[i]));
+    }  
+    for (let i = 0; i < data.enemies.length; i++) {
+      unitInit(data.enemies[i]);
+      $('#enemy-profiles').append(drawProfile(data.enemies[i]));
+    }
+    interval = setInterval(dequeue, 300);
+  }
+
+  function enqueue(unit, type, team = false) {
+    queue.push({unit, type, team});
+  }
+
+  function dequeue() {
+    if (queue.length > 0) {
+      const item = queue.shift();
+      if (!item.team) {
+        removeEffect(item.unit, 'a-shake');
+        removeEffect(item.unit, 'a-dodge');
+        removeEffect(item.unit, 'a-attack');
+        updateUnit(item.unit);
+        switch (item.type) {
+          case 'takeDamage':
+            addEffect(item.unit, 'a-shake');
+            break;
+          case 'dodge':
+            addEffect(item.unit, 'a-dodge');
+            break;
+          case 'attack':
+            addEffect(item.unit, 'a-attack');
+            break;
+        }
+      }
+      else {
+        const list = getTeamList(item.unit);
+        for (let i = 0; i < list.length; i++) {
+          updateUnit(list[i]);
+        }
+      }
+    }
+  }
+
+  function removeEffect(unit, effect) {
+    $unit = $(`.unit-${unit.name.safeCSS()}`);
+    $unit.removeClass(effect);
+  }
+
+  function addEffect(unit, effect) {
+    $unit = $(`.unit-${unit.name.safeCSS()}`);
+    $new = $unit.clone(true);
+
+    $unit.before($new);
+    $unit.remove();
+    $new.addClass(effect);
+  }
+
+  function tick() {
+    if (queue.length > 0) {
+      return;
+    }
+    const participantIndex = combat.turn % combat.allyInputs.length;
+    const playerTurn = splitCommand(combat.allyInputs[participantIndex].actions[combat.allyIndex]);
+    playerTurn.unit = findAlly(playerTurn.unitName);
+    const enemy = nextEnemy();
+    if (!enemy) {
+      console.log("Victory!");
+      return;
+    }
+    const enemyTurn = {action: nextEnemyAction(), unit: enemy};
+    combat.allyIndex++;
+    if (combat.allyIndex === combat.allyInputs[participantIndex].actions.length - 1) {
+      combat.turn++;
+      combat.allyIndex = 0;
+    }
+    combat.enemyIndex++;
+    if (combat.enemyIndex >= combat.enemyInputs.length) {
+      combat.enemyIndex = 0;
+    }
+
+    compareMap()[playerTurn.action][enemyTurn.action](playerTurn.unit, enemyTurn.unit);
+  }
+
+  function compareMessage(aName, aAction, aSuccesses, bName, bAction, bSuccesses) {
+    console.log(`${aName}'s ${aAction} (${aSuccesses}) vs ${bName}'s ${bAction} (${bSuccesses})`);
+  }
+
+  function compareMap() {
+    const map = [];
+    map['attack'] = [];
+    map['defend'] = [];
+    map['special'] = [];
+    map['assist'] = [];
+    map['attack']['attack']  = function(a, b)  { compareAttackAttack(a, b); };
+    map['attack']['defend']  = function(a, b)  { compareAttackDefend(a, b); };
+    map['attack']['special'] = function(a, b)  { compareAttackSpecial(a, b); };
+    map['attack']['assist']  = function(a, b)  { compareAttackAssist(a, b); };
+    map['defend']['attack']  = function(a, b)  { compareAttackDefend(b, a); };
+    map['defend']['defend']  = function(a, b)  { compareDefendDefend(a, b); };
+    map['defend']['special'] = function(a, b)  { compareDefendSpecial(a, b); };
+    map['defend']['assist']  = function(a, b)  { compareDefendAssist(a, b); };
+    map['special']['attack']  = function(a, b)  { compareAttackSpecial(b, a); };
+    map['special']['defend']  = function(a, b)  { compareDefendSpecial(b, a); };
+    map['special']['special'] = function(a, b)  { compareSpecialSpecial(a, b); };
+    map['special']['assist']  = function(a, b)  { compareSpecialAssist(a, b); };
+    map['assist']['attack']  = function(a, b)  { compareAttackAssist(b, a); };
+    map['assist']['defend']  = function(a, b)  { compareDefendAssist(b, a); };
+    map['assist']['special'] = function(a, b)  { compareSpecialAssist(b, a); };
+    map['assist']['assist']  = function(a, b)  { compareAssistAssist(a, b) };
+    return map;
+  }
+
+  function compareAttackAttack(a, b) {
+    let aStat = getStat('attack', a);
+    let bStat = getStat('attack', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'attack', aSuccesses, b.name, 'attack', bSuccesses);
+    enqueue(a, 'attack');
+    enqueue(b, 'attack');
+    if (aSuccesses > 0) {
+      takeDamage(b, aSuccesses);
+    }
+    else {
+      evadeDamage(b);
+    }
+    if (bSuccesses > 0) {
+      takeDamage(a, bSuccesses);
+    }
+    else {
+      evadeDamage(a);
+    }
+  }
+
+  function compareAttackDefend(a, b) {
+    let aStat = getStat('attack', a);
+    let bStat = getStat('defend', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'attack', aSuccesses, b.name, 'defend', bSuccesses);
+    enqueue(a, 'attack');
+    if (aSuccesses > bSuccesses) {
+      takeDamage(b, aSuccesses - bSuccesses);
+    }
+    else if (bSuccesses > aSuccesses) {
+      evadeDamage(b);
+      healDamage(b, bSuccesses - aSuccesses);
+    }
+    else {
+      evadeDamage(b);
+    }
+  }
+
+  function compareAttackSpecial(a, b) {
+    let aStat = getStat('attack', a);
+    let bStat = getStat('special', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'attack', aSuccesses, b.name, 'special', bSuccesses);
+    enqueue(a, 'attack');
+    enqueue(b, 'attack');
+    interruptSpecial(a, b);
+    if (aSuccesses > 0) {
+      takeDamage(b, aSuccesses);
+    }
+  }
+
+  function compareAttackAssist(a, b) {
+    let aStat = getStat('attack', a);
+    let bStat = getStat('assist', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'attack', aSuccesses, b.name, 'assist', bSuccesses);
+    enqueue(a, 'attack');
+    if (aSuccesses > bSuccesses) {
+      takeDamage(b, aSuccesses - bSuccesses);
+    }
+    else if (bSuccesses > aSuccesses + 1) {
+      gainAdvantage(b);
+      gainDisadvantage(a);
+    }
+    else if (bSuccesses > aSuccesses) {
+      gainDisadvantage(a);
+    }
+    else {
+      evadeDamage(b);
+    }
+  }
+
+  function compareDefendDefend(a, b) {
+    let aStat = getStat('defend', a);
+    let bStat = getStat('defend', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat) - 3;
+    let bSuccesses = getSuccesses(bStat) - 3;
+    compareMessage(a.name, 'defend', aSuccesses, b.name, 'defend', bSuccesses);
+    if (aSuccesses > 0) {
+      healDamage(a, aSuccesses);
+    }
+    else {
+      healFail(a);
+    }
+    if (bSuccesses > 0) {
+      healDamage(b, bSuccesses);
+    }
+    else {
+      healFail(b);
+    }
+  }
+
+  function compareDefendSpecial(a, b) {
+    let aStat = getStat('defend', a);
+    let bStat = getStat('special', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'defend', aSuccesses, b.name, 'special', bSuccesses);
+    enqueue(b, 'attack');
+    if (bSuccesses > 0) {
+      pierceDefense(b, a);
+      takeDamage(a, bSuccesses);
+    }
+  }
+
+  function compareDefendAssist(a, b) {
+    let aStat = getStat('defend', a);
+    let bStat = getStat('assist', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat) - 3;
+    let bSuccesses = getSuccesses(bStat) - 3;
+    compareMessage(a.name, 'defend', aSuccesses, b.name, 'assist', bSuccesses);
+    if (aSuccesses > 0) {
+      healDamage(a, aSuccesses);
+    }
+    else {
+      healFail(a);
+    }
+    if (bSuccesses > 1) {
+      gainAdvantage(b);
+      gainDisadvantage(a);
+    }
+    else if (bSuccesses > 0) {
+      gainDisadvantage(a);
+    }
+  }
+
+  function compareSpecialSpecial(a, b) {
+    let aStat = getStat('special', a);
+    let bStat = getStat('special', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'special', aSuccesses, b.name, 'special', bSuccesses);
+    enqueue(a, 'attack');
+    enqueue(b, 'attack');
+    if (aSuccesses > bSuccesses) {
+      takeDamage(b, aSuccesses - bSuccesses);
+    }
+    else if (bSuccesses > aSuccesses) {
+      takeDamage(a, bSuccesses - aSuccesses);
+    }
+    else {
+      specialCancel();
+    }
+  }
+
+  function compareSpecialAssist(a, b) {
+    let aStat = getStat('special', a);
+    let bStat = getStat('assist', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat) - 3;
+    compareMessage(a.name, 'special', aSuccesses, b.name, 'assist', bSuccesses);
+    enqueue(a, 'attack');
+    if (aSuccesses > 0) {
+      takeDamage(b, aSuccesses);
+    }
+    else {
+      evadeDamage(b);
+    }
+    if (bSuccesses > 1) {
+      gainAdvantage(b);
+      gainDisadvantage(a);
+    }
+    else if (bSuccesses > 0) {
+      gainDisadvantage(a);
+    }
+  }
+
+  function compareAssistAssist(a, b) {
+    let aStat = getStat('special', a);
+    let bStat = getStat('assist', b);
+    consumeAdvantage(a, b);
+    let aSuccesses = getSuccesses(aStat);
+    let bSuccesses = getSuccesses(bStat);
+    compareMessage(a.name, 'assist', aSuccesses, b.name, 'assist', bSuccesses);
+    if (aSuccesses > bSuccesses + 1) {
+      gainAdvantage(a);
+      gainDisadvantage(b);
+    }
+    else if (aSuccesses > bSuccesses) {
+      gainDisadvantage(b);
+    }
+    else if (bSuccesses > aSuccesses + 1) {
+      gainAdvantage(b);
+      gainDisadvantage(a);
+    }
+    else if (bSuccesses > aSuccesses) {
+      gainDisadvantage(a);
+    }
+    else {
+      noAdvantage();
+    }
+  }
+
+  function consumeAdvantage(a, b) {
+    if (cancelStatus(a, 'advantage') || cancelStatus(a, 'disadvantage')) {
+      enqueue(a, 'setStatus', false);
+    }
+    if (cancelStatus(b, 'advantage') || cancelStatus(b, 'disadvantage')) {
+      enqueue(b, 'setStatus');
+    }
+  }
+
+  function takeDamage(unit, value) {
+    console.log(`${unit.name} took ${value} damage.`);
+    unit.chp -= value;
+    if (unit.chp <= 0) {
+      unit.chp = 0;
+    }
+    enqueue(unit, 'takeDamage', false);
+    if (unit.chp === 0) {
+      console.log(`${unit.name} is downed!`);
+      setStatus(unit, 'down');
+      enqueue(unit, 'setStatus', false);
+    }
+  }
+
+  function healFail(unit) {
+    console.log(`${unit.name} failed to heal any damage.`);
+  }
+
+  function healDamage(unit, value) {
+    if (unit.chp < getStat('mhp', unit)) {
+      console.log(`${unit.name} healed ${value} damage.`);
+      unit.chp += value;
+      if (unit.chp > getStat('mhp', unit)) {
+        unit.chp = getStat('mhp', unit);
+      }
+      enqueue(unit, 'healDamage', false);
+    }
+    else {
+      console.log(`${unit.name}'s hp is full.`);
+    }
+  }
+
+  function evadeDamage(unit) {
+    console.log(`${unit.name} evaded.`);
+    enqueue(unit, 'dodge', false);
+  }
+
+  function interruptSpecial(a, b) {
+    console.log(`${a.name} interrupted ${b.name}'s special!`);
+  }
+
+  function pierceDefense(a, b) {
+    console.log(`${a.name} pierced ${b.name}'s defense!`);
+  }
+
+  function specialCancel() {
+    console.log('The specials cancelled each other out!');
+  }
+
+  function noAdvantage() {
+    console.log('Neither side gained any advantage.');
+  }
+
+  function gainAdvantage(unit) {
+    console.log(`${unit.name}'s allies gain the advantage!`);
+    setTeamStatus(unit, 'advantage');
+    enqueue(unit, 'setStatus', true);
+  }
+
+  function gainDisadvantage(unit) {
+    console.log(`${unit.name}'s allies are disadvantaged!`);
+    setTeamStatus(unit, 'disadvantage');
+    enqueue(unit, 'setStatus', true);
+  }
+
+  function updateUnit(unit) {
+    // HP
+    $unit = $(`.unit-${unit.name.safeCSS()}`);
+    $unit.find(`.meter.hp .curmax .current`).html(unit.chp);
+    $unit.find(`.meter.hp .bar .inner`).css('width', unit.chp / getStat('mhp', unit) * 100 + '%');
+
+    // XP
+    $unit.find(`.meter.xp .curmax .current`).html(unit.xp);
+    $unit.find(`.meter.xp .bar .inner`).css('width', Math.min(unit.xp / level(unit) * 5, 1) * 100 + '%');
+
+    // Status
+    if ($unit.find('.status').length > 0) {
+      $unit.find('.status').replaceWith(drawStatus(unit));
+    }
+    else {
+      $unit.append(drawStatus(unit));
+    }
+
+    // Stats
+    $unit.find('.stat.attack').replaceWith(drawStat('Attack', unit.attack, getBonus('attack', unit), 8));
+    $unit.find('.stat.special').replaceWith(drawStat('Special', unit.special, getBonus('special', unit), 8));
+    $unit.find('.stat.assist').replaceWith(drawStat('Assist', unit.assist, getBonus('assist', unit), 8));
+    $unit.find('.stat.defend').replaceWith(drawStat('Defend', unit.defend, getBonus('defend', unit), 8));
+  }
+
+  
+</script>
+<title>V-RPG 2</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="buttons">
+    <a onclick="tick()" class="btn btn-primary">Tick</a>
+  </div>
+  <div id="party-profiles"></div>
+  <div id="enemy-profiles"></div>
+</div>
+<script>
+  init();
+</script>
+</body>
+</html>
