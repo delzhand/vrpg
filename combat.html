@@ -4,13 +4,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-<link href="./style.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+src="https://code.jquery.com/jquery-2.2.4.min.js"
+integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+<link href="./styles-combat.css" rel="stylesheet">
 <script src="./party.js"></script>
 <script src="./input.js"></script>
 <script src="./lib.js"></script>
@@ -66,6 +66,19 @@
         return data.enemies[i];
       }
     }
+  }
+
+  function findLowestHPTeammate(unit) {
+    let low = unit;
+    const teamList = getTeamList(unit);
+    for (let i = 0; i < teamList.length; i++) {
+      lowHpPercent = unit.chp / getStat('mhp', unit);
+      uHpPercent = teamList[i].chp / getStat('mhp', teamList[i]);
+      if (uHpPercent < lowHpPercent) {
+        low = teamList[i];
+      }
+    }
+    return low;
   }
 
   function getTeamList(unit) {
@@ -194,8 +207,21 @@
     compareMap()[playerTurn.action][enemyTurn.action](playerTurn.unit, enemyTurn.unit);
   }
 
-  function compareMessage(aName, aAction, aSuccesses, bName, bAction, bSuccesses) {
-    console.log(`${aName}'s ${aAction} (${aSuccesses}) vs ${bName}'s ${bAction} (${bSuccesses})`);
+  function compareMessage(aName, aAction, aSuccesses, aStat, bName, bAction, bSuccesses, bStat) {
+    console.log(`${aName}'s ${aAction} (${drawSuccesses(aSuccesses, aStat)}) vs ${bName}'s ${bAction} (${drawSuccesses(bSuccesses, bStat)})`);
+  }
+
+  function drawSuccesses(number, total) {
+    let output = '';
+    for (let i = 0; i < total; i++) {
+      if (i < number) {
+        output += '+';
+      }
+      else {
+        output += '-';
+      }
+    }
+    return output;
   }
 
   function compareMap() {
@@ -229,7 +255,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'attack', aSuccesses, b.name, 'attack', bSuccesses);
+    compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'attack', bSuccesses, bStat);
     enqueue(a, 'attack');
     enqueue(b, 'attack');
     if (aSuccesses > 0) {
@@ -252,7 +278,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'attack', aSuccesses, b.name, 'defend', bSuccesses);
+    compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'defend', bSuccesses, bStat);
     enqueue(a, 'attack');
     if (aSuccesses > bSuccesses) {
       takeDamage(b, aSuccesses - bSuccesses);
@@ -272,7 +298,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'attack', aSuccesses, b.name, 'special', bSuccesses);
+    compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'special', bSuccesses, bStat);
     enqueue(a, 'attack');
     enqueue(b, 'attack');
     interruptSpecial(a, b);
@@ -287,7 +313,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'attack', aSuccesses, b.name, 'assist', bSuccesses);
+    compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
     enqueue(a, 'attack');
     if (aSuccesses > bSuccesses) {
       takeDamage(b, aSuccesses - bSuccesses);
@@ -310,7 +336,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat) - 3;
     let bSuccesses = getSuccesses(bStat) - 3;
-    compareMessage(a.name, 'defend', aSuccesses, b.name, 'defend', bSuccesses);
+    compareMessage(a.name, 'defend', aSuccesses, aStat, b.name, 'defend', bSuccesses, bStat);
     if (aSuccesses > 0) {
       healDamage(a, aSuccesses);
     }
@@ -331,11 +357,14 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'defend', aSuccesses, b.name, 'special', bSuccesses);
+    compareMessage(a.name, 'defend', aSuccesses, aStat, b.name, 'special', bSuccesses, bStat);
     enqueue(b, 'attack');
+    pierceDefense(b, a);
     if (bSuccesses > 0) {
-      pierceDefense(b, a);
       takeDamage(a, bSuccesses);
+    }
+    else {
+      evadeDamage(a);
     }
   }
 
@@ -345,7 +374,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat) - 3;
     let bSuccesses = getSuccesses(bStat) - 3;
-    compareMessage(a.name, 'defend', aSuccesses, b.name, 'assist', bSuccesses);
+    compareMessage(a.name, 'defend', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
     if (aSuccesses > 0) {
       healDamage(a, aSuccesses);
     }
@@ -367,7 +396,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'special', aSuccesses, b.name, 'special', bSuccesses);
+    compareMessage(a.name, 'special', aSuccesses, aStat, b.name, 'special', bSuccesses, bStat);
     enqueue(a, 'attack');
     enqueue(b, 'attack');
     if (aSuccesses > bSuccesses) {
@@ -387,7 +416,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat) - 3;
-    compareMessage(a.name, 'special', aSuccesses, b.name, 'assist', bSuccesses);
+    compareMessage(a.name, 'special', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
     enqueue(a, 'attack');
     if (aSuccesses > 0) {
       takeDamage(b, aSuccesses);
@@ -410,7 +439,7 @@
     consumeAdvantage(a, b);
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
-    compareMessage(a.name, 'assist', aSuccesses, b.name, 'assist', bSuccesses);
+    compareMessage(a.name, 'assist', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
     if (aSuccesses > bSuccesses + 1) {
       gainAdvantage(a);
       gainDisadvantage(b);
@@ -458,16 +487,22 @@
   }
 
   function healDamage(unit, value) {
-    if (unit.chp < getStat('mhp', unit)) {
-      console.log(`${unit.name} healed ${value} damage.`);
-      unit.chp += value;
-      if (unit.chp > getStat('mhp', unit)) {
-        unit.chp = getStat('mhp', unit);
+    const target = findLowestHPTeammate(unit);
+    if (target.chp < getStat('mhp', target)) {
+      if (unit === target) {
+        console.log(`${unit.name} healed ${value} damage.`);
       }
-      enqueue(unit, 'healDamage', false);
+      else {
+        console.log(`${unit.name} healed ${target.name} of ${value} damage.`);
+      }
+      target.chp += value;
+      if (target.chp > getStat('mhp', target)) {
+        target.chp = getStat('mhp', target);
+      }
+      enqueue(target, 'healDamage', false);
     }
     else {
-      console.log(`${unit.name}'s hp is full.`);
+      console.log(`${target.name}'s hp is full.`);
     }
   }
 
@@ -531,16 +566,15 @@
 
   
 </script>
-<title>V-RPG 2</title>
+<title>V-RPG | Combat</title>
 </head>
-<body>
+<body onclick="tick()">
 
 <div class="container">
-  <div class="buttons">
-    <a onclick="tick()" class="btn btn-primary">Tick</a>
+  <div id="combat">
+    <div id="party-profiles"></div>
+    <div id="enemy-profiles"></div>
   </div>
-  <div id="party-profiles"></div>
-  <div id="enemy-profiles"></div>
 </div>
 <script>
   init();

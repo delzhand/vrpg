@@ -3,7 +3,8 @@ const input = {
       xpMultiplier: 1,
       moves: [
         {user: '@delzhand', actions: ['saoirse:attack', 'garven:defend', 'hanya:special']},
-        {user: '@dummy', actions: ['arezal:special', 'hanya:assist', 'garven:defend']},    
+        {user: '@dummy1', actions: ['parzeval:special', 'hanya:assist', 'garven:defend']},    
+        {user: '@dummy2', actions: ['parzeval:defend', 'hanya:attack', 'garven:special']},    
       ],
       enemies: [
         {

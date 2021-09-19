@@ -150,7 +150,7 @@ function getBonus(stat, unit) {
       if (unit.effects && unit.effects.indexOf('down') > -1) {
         bonus -= 3;
       }
-      break;  
+      break;
     case 'mhp':
       bonus += unit.armor ? unit.armor.hp : 0;
       break;

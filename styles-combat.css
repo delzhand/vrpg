@@ -14,16 +14,24 @@
 
 @keyframes dodge {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: perspective(14cm) rotateY(25deg); }
   100% { transform: translateY(0px); }
 }
 
-@keyframes attack {
+@keyframes attack-a {
   0% { transform: translateY(0px); }
   60% { transform: translateY(-10px); }
   80% { transform: translateY(30px); }
   100% { transform: translateY(0px); }
 }
+
+@keyframes attack-b {
+  0% { transform: translateY(0px); }
+  60% { transform: translateY(10px); }
+  80% { transform: translateY(-30px); }
+  100% { transform: translateY(0px); }
+}
+
 
 .a-shake {
   animation: shake .3s;
@@ -34,12 +42,36 @@
   animation-iteration-count: 1;
 }
 .a-attack {
-  animation: attack .45s;
+  animation: attack-a .45s;
   animation-iteration-count: 1;
+}
+#enemy-profiles .a-attack {
+  animation: attack-b .45s;
+}
+
+body {
+  background: url(./images/bg.png);
+  font-family: 'Titillium Web', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#combat {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 620px;
+  background: #FFF;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
 }
 
 .profile {
-  font-family: 'Titillium Web', sans-serif;
   background: #000;
   color: #FFF;
   margin-bottom: 10px;
@@ -85,7 +117,7 @@
   z-index: 2;
 }
 .profile .name {
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: bold;
   text-shadow: 1px -1px 2px black;
 }
@@ -204,4 +236,81 @@
   right: 18px;
   font-size: 10px;
   font-variant: small-caps;
+}
+
+#story {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 450px;
+  background: #FFF;
+}
+#story .line {
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#story .line:first-child {
+  margin-top: 0;
+  padding-top: 20px;
+}
+#story .line.scene {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+.pinned {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 375px) {
+  #combat {
+    padding: 4px;
+  }
+  .profile {
+    width: 24%;
+    padding: 4px 4px 14px;
+    border-radius: 14px;
+  }
+  .profile .picture {
+    margin-bottom: -15px;
+  }
+  .profile .data {
+    font-size: .5rem;
+  }
+  .profile .name {
+    font-size: .8rem;
+  }
+  .profile .arms,
+  .profile .armor {
+    font-size: .4rem;
+  }
+  .profile .arms img,
+  .profile .armor img {
+    height: 8px;
+    width: 8px;
+  }
+  .profile .meter .bar {
+    height: 6px;
+  }
+  .profile .stat .label {
+    width: 30px;
+  }
+  .profile .stat .bar {
+    height: 10px;
+    width: 4px;
+    margin-left: 1px;
+    margin-top: 2px;
+  }
+  .profile .status .effect {
+    font-size: .4rem;
+  }
+  #enemy-profiles .profile::before {
+    top: 2px;
+    right: 10px;
+  }
 }
