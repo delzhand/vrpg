@@ -27,6 +27,7 @@ crossorigin="anonymous"></script>
     allyInputs: shuffle(data.moves),
     enemyInputs: shuffle(data.enemies),
     enemyDeck: shuffle(['attack', 'special', 'defend', 'assist']),
+    done: false,
   };
   const queue = [];
 
@@ -43,7 +44,8 @@ crossorigin="anonymous"></script>
   }
 
   function nextEnemy() {
-    for (combat.enemyIndex; combat.enemyIndex < combat.enemyInputs.length + combat.enemyIndex; combat.enemyIndex++) {
+    let fullCount = combat.enemyInputs.length + combat.enemyIndex;
+    for (combat.enemyIndex; combat.enemyIndex < fullCount; combat.enemyIndex++) {
       const unit = combat.enemyInputs[combat.enemyIndex % combat.enemyInputs.length];
       if (unit.effects.indexOf('down') < 0) {
         return unit; 
@@ -182,7 +184,7 @@ crossorigin="anonymous"></script>
   }
 
   function tick() {
-    if (queue.length > 0) {
+    if (queue.length > 0 || combat.done) {
       return;
     }
     const participantIndex = combat.turn % combat.allyInputs.length;
@@ -191,6 +193,8 @@ crossorigin="anonymous"></script>
     const enemy = nextEnemy();
     if (!enemy) {
       console.log("Victory!");
+      combat.done = true;
+      clearInterval(interval);
       return;
     }
     const enemyTurn = {action: nextEnemyAction(), unit: enemy};

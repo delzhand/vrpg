@@ -267,7 +267,7 @@ body {
   text-align: center;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 412px) {
   #combat {
     padding: 4px;
   }
