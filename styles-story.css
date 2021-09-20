@@ -10,6 +10,11 @@
   100% { opacity: 1; }
 }
 
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
 body {
   background: url(./images/bg.png);
   font-family: 'Titillium Web', sans-serif;
@@ -32,6 +37,7 @@ body {
   position: relative;
 }
 .line {
+  position: relative;
   clear: both;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -57,6 +63,7 @@ body {
   text-align: center;
 }
 .line.music .inner {
+  position: relative;
   display: inline-block;
   background: #333;
   color: #fff;
@@ -68,6 +75,8 @@ body {
 .line.music .title {
   padding: 4px 8px;
   display: inline-block;
+  margin-right: 40px;
+  line-height: 1em;
 }
 .line.music a {
   background: green;
@@ -75,10 +84,18 @@ body {
   text-decoration: none;
   padding: 4px 8px;
   display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  right: 0;
+  top: 0;
 }
 .line.music a img {
   height: 13px;
   width: 13px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .line.action {
@@ -138,11 +155,13 @@ body {
 .line.dialog .text {
   padding: 35px 30px 10px 10px;
 }
-.line:last-child::after {
+
+.line.scene:last-child::after,
+.line.dialog:last-child::after {
   font-style: normal;
   content: 'tap';
   position: absolute;
-  bottom: 25px;
+  bottom: 5px;
   right: 5px;
   z-index: 2;
   background: #333;
@@ -154,8 +173,22 @@ body {
   animation: tap 2s;
   animation-iteration-count: infinite;
 }
-.line.dialog:last-child:after {
-  bottom: 5px;
+.line.scene:last-child::after {
+  bottom: -25px;
+}
+
+.line.temp {
+  height: 200px;
+}
+.line.temp span{
+  animation: spin 1s;
+  animation-iteration-count: infinite;
+  height: 20px;
+  width: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #333;
 }
 
 .line.vote .title {

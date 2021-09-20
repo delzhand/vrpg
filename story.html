@@ -19,9 +19,15 @@ crossorigin="anonymous"></script>
   q = getUrlVars();
   let scene = scenes[q.scene];
   let index = 0;
-  console.log(scene);
   let lines = scene.split('\n');
-  console.log(lines);
+  let interval = null;
+  
+  function rescroll() {
+    clearInterval(interval);
+    $('.line.temp').remove();
+    $('.twitter-tweet').last()[0].scrollIntoView(false);
+    console.log("foo");
+  }
 
   function advance() {
     if (index > lines.length - 1) {
@@ -44,7 +50,9 @@ crossorigin="anonymous"></script>
         $('#story').append(`<div class="line music"><span class="inner"><span class="title">♪ ${link[0]}</span><a href="${link[1]}" target="_blank"><img src="./images/play.svg"></a></span></div>`);
         break;
       case 'VOTE-TW':
+        $('#story').append('<div class="line temp"><span class="spinner"></span></div>')
         $('#story').append(line[1]);
+        interval = setInterval(rescroll, 2000);
         break;
       case 'VOTE-OPEN':
       case 'VOTE-CLOSED':
