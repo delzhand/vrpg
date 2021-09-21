@@ -1,10 +1,11 @@
 const input = {
   0: {
+      music: 'Sanova - the time has come|https://www.youtube.com/watch?v=dP2_8Gt4fIk',
       xpMultiplier: 1,
       moves: [
-        {user: '@delzhand', actions: ['saoirse:attack', 'garven:defend', 'hanya:special']},
-        {user: '@dummy1', actions: ['parzeval:special', 'hanya:assist', 'garven:defend']},    
-        {user: '@dummy2', actions: ['parzeval:defend', 'hanya:attack', 'garven:special']},    
+        {user: '@delzhand', actions: ['Saoirse:assist', 'Garven:defend', 'Hanya:special']},
+        {user: '@dummy1', actions: ['Parzeval:special', 'Hanya:assist', 'Garven:defend']},    
+        {user: '@dummy2', actions: ['Parzeval:defend', 'Hanya:attack', 'Garven:special']},    
       ],
       enemies: [
         {

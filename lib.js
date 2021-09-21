@@ -17,9 +17,18 @@ function getUrlVars() {
   return vars;
 }
 
-function drawProfile(unit) {
+function drawIcon(unit) {
   return `
-    <div class="profile unit-${unit.name.safeCSS()}">
+    <div class="icon icon-${unit.name.safeCSS()}">
+      ${drawPicture(unit)}
+      ${drawCurvedMeter(unit.chp ? unit.chp : null, unit.mhp + getBonus('mhp', unit))}
+    </div>
+    `;
+}
+
+function drawProfile(unit, h = false) {
+  return `
+    <div class="profile ${h ? 'hz' : ''} unit-${unit.name.safeCSS()}">
       ${drawPicture(unit)}
       <div class="data">
         <div class="name">${unit.name}</div>
@@ -37,6 +46,16 @@ function drawProfile(unit) {
       </div>
     </div>
   `;
+}
+
+function drawCurvedMeter(c, m) {
+  return `      
+    <div class="hp numeric"><span class="current">${c}</span>/${m}</div>
+    <div class="hp meter">
+      <div class="inner" style="transform: rotateZ(${(1-(c / m)) * 180 + 180}deg);"></div>
+      <div class="inner alt" style="transform: rotateZ(${(1-(c / m)) * 180 + 180}deg);"></div>
+    </div>
+  `;  
 }
 
 function drawPicture(unit) {

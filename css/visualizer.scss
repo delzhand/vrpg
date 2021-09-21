@@ -1,0 +1,104 @@
+#field {
+  height: 400px;
+  width: 100%;
+  background: #000;
+  position: relative;
+  margin-bottom: 20px;
+  /* transform: perspective(14cm) rotateX(25deg);
+  transform-origin: bottom;
+  margin-top: -105px; */
+}
+#field .party {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 30%;
+}
+#field .enemy {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 30%;
+}
+
+.icon {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 0;
+  width: 0;
+  transition-duration: .1s;
+  transition-timing-function: linear;
+}
+.icon:nth-child(2) {
+  top: 40%;
+}
+.icon:nth-child(3) {
+  top: 60%;
+}
+.icon:nth-child(4) {
+  top: 80%;
+}
+.party .icon.active {
+  left: 70%;
+}
+.enemy .icon.active {
+  right: 70%;
+}
+.icon .picture {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  position: absolute;
+  left: -32px;
+  bottom: -32px;
+  overflow: hidden;
+  z-index: 3;
+}
+.icon .picture img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.icon .hp.numeric {
+  font-weight: bold;
+  color: #FFF;
+  z-index: 4;
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  font-size: 10px;
+}
+.icon .hp.meter {
+  height: 40px;
+  width: 80px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  overflow: hidden;
+  background-color: rgb(77, 77, 255);
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  z-index: 2;
+}
+.icon .hp.meter .inner.alt,
+.icon .hp.meter .inner {
+  height: 100%;
+  width: 100%;
+  transform: rotateZ(198deg); /* (percent * 180) + 180 */
+  transform-origin: top center;
+  background: rgb(255, 0, 0);
+  transition-duration: .2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.icon .hp.meter .inner.alt {
+  background: #333;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  z-index: 2;
+}

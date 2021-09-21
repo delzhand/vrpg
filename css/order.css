@@ -1,0 +1,56 @@
+#order .round {
+  border-radius: 20px;
+  background: #333;
+  color: #FFF;
+  font-weight: bold;
+  overflow: hidden;
+  font-size: 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#order .round:last-child {
+  margin-bottom: 0;
+}
+
+#order .round:first-child {
+  margin-top: 0;
+}
+
+#order .skew {
+  -webkit-transform: skewX(20deg);
+          transform: skewX(20deg);
+}
+
+#order .skew span {
+  display: inline-block;
+  -webkit-transform: skewX(-20deg);
+          transform: skewX(-20deg);
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 11px;
+}
+
+#order .name,
+#order .turns,
+#order .turn {
+  display: inline-block;
+}
+
+#order .name {
+  background: #8a8a8a;
+  margin-left: -1px;
+}
+
+#order .turn {
+  border-left: 2px solid #FFF;
+}
+
+#order .round.active .name {
+  background-color: #4d4dff;
+}
+
+#order .turn.active {
+  background-color: #2e8b2e;
+}
+/*# sourceMappingURL=order.css.map */

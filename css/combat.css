@@ -1,0 +1,84 @@
+body {
+  background: url(../images/bg.png);
+  font-family: 'Titillium Web', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.container {
+  background: #FFF;
+}
+
+#enemy-profiles {
+  text-align: right;
+}
+
+#order,
+.music {
+  margin-bottom: 12px;
+}
+
+.music {
+  padding-top: 12px;
+}
+
+/* #tiles {
+  height: 44px;
+  margin-top: 24px;
+} */
+
+#log {
+  height: 550px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 412px) {
+  #combat {
+    padding: 4px;
+  }
+  .profile {
+    width: 24%;
+    padding: 4px 4px 14px;
+    border-radius: 14px;
+  }
+  .profile .picture {
+    margin-bottom: -15px;
+  }
+  .profile .data {
+    font-size: .5rem;
+  }
+  .profile .name {
+    font-size: .8rem;
+  }
+  .profile .arms,
+  .profile .armor {
+    font-size: .4rem;
+  }
+  .profile .arms img,
+  .profile .armor img {
+    height: 8px;
+    width: 8px;
+  }
+  .profile .meter .bar {
+    height: 6px;
+  }
+  .profile .stat .label {
+    width: 30px;
+  }
+  .profile .stat .bar {
+    height: 10px;
+    width: 4px;
+    margin-left: 1px;
+    margin-top: 2px;
+  }
+  .profile .status .effect {
+    font-size: .4rem;
+  }
+  #enemy-profiles .profile::before {
+    top: 2px;
+    right: 10px;
+  }
+}

@@ -1,0 +1,204 @@
+@keyframes forward {
+  0% { left: 0px; }
+  100% { left: 20px; }
+}
+@keyframes forward-b {
+  0% { left: 0px; }
+  100% { left: -20px; }
+}
+// .a-forward {
+//   animation: forward;
+//   animation-duration: .25s;
+//   animation-iteration-count: 1;
+//   animation-fill-mode: forwards;
+// }
+// #enemy-profiles .a-forward {
+//   animation-name: forward-b;
+// }
+
+// @keyframes shake {
+//   0% { transform: translate(1px, 1px) rotate(0deg); }
+//   10% { transform: translate(-1px, -2px) rotate(-1deg); }
+//   20% { transform: translate(-3px, 0px) rotate(1deg); }
+//   30% { transform: translate(3px, 2px) rotate(0deg); }
+//   40% { transform: translate(1px, -1px) rotate(1deg); }
+//   50% { transform: translate(-1px, 2px) rotate(-1deg); }
+//   60% { transform: translate(-3px, 1px) rotate(0deg); }
+//   70% { transform: translate(3px, 1px) rotate(-1deg); }
+//   80% { transform: translate(-1px, -1px) rotate(1deg); }
+//   90% { transform: translate(1px, 2px) rotate(0deg); }
+//   100% { transform: translate(1px, -2px) rotate(-1deg); }
+// }
+
+// @keyframes dodge {
+//   0% { transform: translateY(0px); }
+//   50% { transform: perspective(14cm) rotateY(25deg); }
+//   100% { transform: translateY(0px); }
+// }
+
+@keyframes attack-a {
+  0% { transform: translateX(0px); }
+  60% { transform: translateX(-10px); }
+  80% { transform: translateX(30px); }
+  100% { transform: translateX(0px); }
+}
+@keyframes attack-b {
+  0% { transform: translateX(0px); }
+  60% { transform: translateX(10px); }
+  80% { transform: translateX(-30px); }
+  100% { transform: translateX(0px); }
+}
+.a-attack {
+  animation: attack-a .45s;
+  animation-iteration-count: 1;
+}
+#enemy-profiles .a-attack {
+    animation-name: attack-b;
+}
+
+@keyframes special-a {
+  0% { transform: translateX(0px); }
+  60% { transform: rotateZ(10deg) translateX(-10px); }
+  80% { transform: rotateZ(-0deg) translateX(30px); }
+  100% { transform: translateX(0px); }
+}
+@keyframes special-b {
+  0% { transform: translateX(0px); }
+  60% { transform: rotateZ(-10deg) translateX(10px); }
+  80% { transform: rotateZ(0deg) translateX(-30px); }
+  100% { transform: translateX(0px); }
+}
+.a-special {
+  animation: special-a .45s;
+  animation-iteration-count: 1;
+}
+#enemy-profiles .a-special {
+    animation-name: special-b;
+}
+
+.a-defend {
+  transform: perspective(14cm) rotateY(20deg);
+}
+#enemy-profiles .a-defend {
+  transform: perspective(14cm) rotateY(-20deg);
+}
+
+@keyframes assist-a {
+  0% { transform: translateY(0px); }
+  60% { transform: translateY(10px); }
+  80% { transform: translateY(-30px); }
+  100% { transform: translateY(0px); }
+}
+.a-assist {
+  animation: assist-a .45s;
+  animation-iteration-count: 1;
+}
+
+.a-shake {
+  animation: shake .3s;
+  animation-iteration-count: 1;
+}
+.a-dodge {
+  animation: dodge .3s;
+  animation-iteration-count: 1;
+}
+
+#tiles {
+  display: flex;
+}
+
+.tile {
+  display: flex;
+  flex: 0 1 auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: bold;
+  color: #FFF;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+
+  .successes,
+  .dice,
+  .text {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  .successes {
+    margin-left: 10px;
+    .dice {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #FFF;
+      border-radius: 4px;
+      margin-left: 2px;
+      margin-right: 2px;
+      line-height: 12px;
+      font-size: 34px;
+      text-align: center;  
+      transition-duration: .25s;
+      &.success {
+        color: rgba(255, 255, 255, 1);
+      }
+      &.fail {
+        color: rgba(255, 255, 255, 1);;
+      }
+      &.hidden {
+        color: rgba(255, 255, 255, 0);
+      }
+    }
+  }
+}
+
+@keyframes popIn {
+  0% { top: 20px; opacity: 0; }
+  100% { top: 0px; opacity: 1 }
+}
+.tile {
+  animation: popIn .25s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes textDrop {
+  0% { top: 0; }
+  90% {top: 64px; opacity: 1;}
+  100% { top: 64px; opacity: 0; }
+}
+@keyframes textPop {
+  0% { top: 64px; }
+  90% {top: 0px; opacity: 1;}
+  100% { top: 0px; opacity: 0; }
+}
+@keyframes textBump {
+  0% { top: 40px; }
+  50% { top: 0px; }
+  100% { top: 40px; }
+}
+.pop-text,
+.drop-text {
+  // color: rgb(255, 154, 154);
+  color: #FFF;
+  opacity: 1;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  text-shadow: 1px 1px 0px black;
+  z-index: 4;
+  top: 0;
+  left: 72px;
+  transform: translateX(-50%);
+  animation: textBump .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+// .pop-text {
+//   top: 64px;
+//   color: rgb(175, 255, 175);
+//   animation-name: textPop;
+// }

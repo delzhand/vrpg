@@ -16,7 +16,7 @@
 }
 
 body {
-  background: url(./images/bg.png);
+  background: url(../images/bg.png);
   font-family: 'Titillium Web', sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -57,45 +57,6 @@ body {
 
 .line.expo {
   font-style: italic;
-}
-
-.line.music {
-  text-align: center;
-}
-.line.music .inner {
-  position: relative;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  border-radius: 10px;
-  line-height: 10px;
-  display: inline-block;
-  overflow: hidden;
-}
-.line.music .title {
-  padding: 4px 8px;
-  display: inline-block;
-  margin-right: 40px;
-  line-height: 1em;
-}
-.line.music a {
-  background: green;
-  color: #fff;
-  text-decoration: none;
-  padding: 4px 8px;
-  display: inline-block;
-  position: absolute;
-  height: 100%;
-  width: 40px;
-  right: 0;
-  top: 0;
-}
-.line.music a img {
-  height: 13px;
-  width: 13px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .line.action {

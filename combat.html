@@ -10,7 +10,11 @@ src="https://code.jquery.com/jquery-2.2.4.min.js"
 integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
-<link href="./styles-combat.css" rel="stylesheet">
+<link href="./css/shared.css" rel="stylesheet">
+<link href="./css/combat.css" rel="stylesheet">
+<link href="./css/profile.css" rel="stylesheet">
+<link href="./css/order.css" rel="stylesheet">
+<link href="./css/animations.css" rel="stylesheet">
 <script src="./party.js"></script>
 <script src="./input.js"></script>
 <script src="./lib.js"></script>
@@ -20,6 +24,7 @@ crossorigin="anonymous"></script>
   const data = input[q.data];
   const seedRand = new Math.seedrandom(JSON.stringify(data.moves));
   let interval = null;
+  let ticks = 0;
   const combat = {
     turn: 0,
     allyIndex: 0,
@@ -29,7 +34,7 @@ crossorigin="anonymous"></script>
     enemyDeck: shuffle(['attack', 'special', 'defend', 'assist']),
     done: false,
   };
-  const queue = [];
+  let queue = [];
 
   function unitInit(unit) {
     unit.chp = getStat('mhp', unit);
@@ -92,6 +97,9 @@ crossorigin="anonymous"></script>
   }
 
   function setStatus(unit, status) {
+    if (unit.effects.indexOf('down') > -1) {
+      return;
+    }
     const index = unit.effects.indexOf(status);
     if (status === 'disadvantage') {
       if (cancelStatus(unit, 'advantage')) {
@@ -124,49 +132,91 @@ crossorigin="anonymous"></script>
     }
   }
 
+  function drawRound(round) {
+    let output = '';
+    output += `
+      <div class="round">
+        <div class="skew">
+          <div class="name"><span>${round.user}</span></div>
+          <div class="turns">`;
+    for (let i = 0; i < round.actions.length; i++) {
+      let split = round.actions[i].split(':');
+      output += `<div class="turn"><span>${split[0]} (${split[1]})</span></div>`;
+    }
+    output += ` 
+          </div>
+        </div>
+      </div>
+    `;
+    return output;
+  }
+
   function init() {
+    let link = data.music.split('|');
+    $('#order').before(`<div class="line music"><span class="inner"><span class="title">♪ ${link[0]}</span><a href="${link[1]}" target="_blank"><img src="./images/play.svg"></a></span></div>`);
+
+    for (let i = 0; i < combat.allyInputs.length; i++) {
+      $('#order').append(drawRound(combat.allyInputs[i]));
+    }
+    updateOrder(combat.turn % combat.allyInputs.length, combat.allyIndex);
+    
     for (let i = 0; i < party.members.length; i++) {
       unitInit(party.members[i]);
-      $('#party-profiles').append(drawProfile(party.members[i]));
+      $('#party-profiles').append(drawProfile(party.members[i], true));
     }  
     for (let i = 0; i < data.enemies.length; i++) {
       unitInit(data.enemies[i]);
-      $('#enemy-profiles').append(drawProfile(data.enemies[i]));
+      $('#enemy-profiles').append(drawProfile(data.enemies[i], true));
     }
-    interval = setInterval(dequeue, 300);
   }
 
-  function enqueue(unit, type, team = false) {
-    queue.push({unit, type, team});
-  }
-
-  function dequeue() {
-    if (queue.length > 0) {
-      const item = queue.shift();
-      if (!item.team) {
-        removeEffect(item.unit, 'a-shake');
-        removeEffect(item.unit, 'a-dodge');
-        removeEffect(item.unit, 'a-attack');
-        updateUnit(item.unit);
-        switch (item.type) {
-          case 'takeDamage':
-            addEffect(item.unit, 'a-shake');
+  function tick() {
+    for (let i = 0; i < queue.length; i++) {
+      if (queue[i].done) {
+        continue;
+      }
+      if (!queue[i].delay || ticks >= queue[i].delay) {
+        queue[i].done = true;
+        switch(queue[i].type) {
+          case 'animate':
+            addEffect(queue[i].unit, `a-${queue[i].animation}`);
             break;
-          case 'dodge':
-            addEffect(item.unit, 'a-dodge');
+          case 'showAction':
+            // $('#tiles').append(drawTile(queue[i].name, queue[i].success, queue[i].rolls));
             break;
-          case 'attack':
-            addEffect(item.unit, 'a-attack');
+          case 'textDrop':
+            $(`.unit-${queue[i].unit.name.safeCSS()}`).prepend(`<div class="drop-text">${queue[i].text}</div>`);
+            updateUnitProfile(queue[i].unit);
+            break;
+          case 'textPop':
+            $(`.unit-${queue[i].unit.name.safeCSS()}`).prepend(`<div class="pop-text">${queue[i].text}</div>`);
+            updateUnitProfile(queue[i].unit);
+            break;
+          case 'revealRolls':
+            $('.dice').removeClass('hidden');
+            break;
+          case 'finish':
+            $('.tile').remove();
+            $('.profile').removeClass('a-forward');
+            $('.profile').removeClass('a-attack');
+            $('.profile').removeClass('a-defend');
+            $('.profile').removeClass('a-special');
+            $('.profile').removeClass('a-assist');
+            $('.drop-text').remove();
+            $('.pop-text').remove();
+            updateAllUnitProfiles();
+            clearInterval(interval);
+            ticks = -1;
+            queue = [];
+            startTurn();
+            break;
+          default:
+            console.log(queue[i].type);
             break;
         }
       }
-      else {
-        const list = getTeamList(item.unit);
-        for (let i = 0; i < list.length; i++) {
-          updateUnit(list[i]);
-        }
-      }
     }
+    ticks++;
   }
 
   function removeEffect(unit, effect) {
@@ -177,29 +227,36 @@ crossorigin="anonymous"></script>
   function addEffect(unit, effect) {
     $unit = $(`.unit-${unit.name.safeCSS()}`);
     $new = $unit.clone(true);
-
     $unit.before($new);
     $unit.remove();
     $new.addClass(effect);
   }
 
-  function tick() {
+  function log(message) {
+    $('#log').prepend(`<div>${message}</div>`);
+  }
+
+  function startTurn() {
     if (queue.length > 0 || combat.done) {
       return;
     }
     const participantIndex = combat.turn % combat.allyInputs.length;
     const playerTurn = splitCommand(combat.allyInputs[participantIndex].actions[combat.allyIndex]);
+    updateOrder(participantIndex, combat.allyIndex);
     playerTurn.unit = findAlly(playerTurn.unitName);
+    playerTurn.unit.xp += 5 * data.xpMultiplier;
     const enemy = nextEnemy();
+    queue.push({type: 'animate', unit: playerTurn.unit, animation: 'forward'});
+    queue.push({type: 'animate', unit: enemy, animation: 'forward'});
     if (!enemy) {
-      console.log("Victory!");
+      queue.push({type: 'victory'});
       combat.done = true;
       clearInterval(interval);
       return;
     }
     const enemyTurn = {action: nextEnemyAction(), unit: enemy};
     combat.allyIndex++;
-    if (combat.allyIndex === combat.allyInputs[participantIndex].actions.length - 1) {
+    if (combat.allyIndex === combat.allyInputs[participantIndex].actions.length) {
       combat.turn++;
       combat.allyIndex = 0;
     }
@@ -209,10 +266,14 @@ crossorigin="anonymous"></script>
     }
 
     compareMap()[playerTurn.action][enemyTurn.action](playerTurn.unit, enemyTurn.unit);
+    queue.push({type: 'finish', delay: 4});
+    interval = setInterval(tick, 500);
   }
 
   function compareMessage(aName, aAction, aSuccesses, aStat, bName, bAction, bSuccesses, bStat) {
-    console.log(`${aName}'s ${aAction} (${drawSuccesses(aSuccesses, aStat)}) vs ${bName}'s ${bAction} (${drawSuccesses(bSuccesses, bStat)})`);
+    queue.push({type: 'showAction', delay: 0, name: `${aName}'s ${aAction}`, success: aSuccesses, rolls: aStat});
+    queue.push({type: 'showAction', delay: 0, name: `${bName}'s ${bAction}`, success: bSuccesses, rolls: bStat});
+    log(`${aName}'s ${aAction} (${drawSuccesses(aSuccesses, aStat)}) vs ${bName}'s ${bAction} (${drawSuccesses(bSuccesses, bStat)})`);
   }
 
   function drawSuccesses(number, total) {
@@ -225,6 +286,26 @@ crossorigin="anonymous"></script>
         output += '-';
       }
     }
+    return output;
+  }
+
+  function drawTile(name, number, total) {
+    let output = `
+      <div class="tile">
+        <div class="text">${name}</div>
+        <div class="successes">`;
+    for (let i = 0; i < total; i++) {
+      if (i < number) {
+        output += '<div class="dice success">+</div>';
+      }
+      else {
+        output += '<div class="dice fail">-</div>';
+      }
+    }
+    output += `
+        </div>
+      </div>
+    `;    
     return output;
   }
 
@@ -260,8 +341,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'attack', bSuccesses, bStat);
-    enqueue(a, 'attack');
-    enqueue(b, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'attack'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'attack'});
     if (aSuccesses > 0) {
       takeDamage(b, aSuccesses);
     }
@@ -283,12 +364,12 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'defend', bSuccesses, bStat);
-    enqueue(a, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'attack'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'defend'});
     if (aSuccesses > bSuccesses) {
       takeDamage(b, aSuccesses - bSuccesses);
     }
     else if (bSuccesses > aSuccesses) {
-      evadeDamage(b);
       healDamage(b, bSuccesses - aSuccesses);
     }
     else {
@@ -303,8 +384,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'special', bSuccesses, bStat);
-    enqueue(a, 'attack');
-    enqueue(b, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'attack'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'special'});
     interruptSpecial(a, b);
     if (aSuccesses > 0) {
       takeDamage(b, aSuccesses);
@@ -318,7 +399,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'attack', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
-    enqueue(a, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'attack'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'assist'});
     if (aSuccesses > bSuccesses) {
       takeDamage(b, aSuccesses - bSuccesses);
     }
@@ -341,6 +423,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat) - 3;
     let bSuccesses = getSuccesses(bStat) - 3;
     compareMessage(a.name, 'defend', aSuccesses, aStat, b.name, 'defend', bSuccesses, bStat);
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'defend'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'defend'});
     if (aSuccesses > 0) {
       healDamage(a, aSuccesses);
     }
@@ -362,7 +446,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'defend', aSuccesses, aStat, b.name, 'special', bSuccesses, bStat);
-    enqueue(b, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'defend'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'special'});
     pierceDefense(b, a);
     if (bSuccesses > 0) {
       takeDamage(a, bSuccesses);
@@ -379,6 +464,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat) - 3;
     let bSuccesses = getSuccesses(bStat) - 3;
     compareMessage(a.name, 'defend', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'defend'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'assist'});
     if (aSuccesses > 0) {
       healDamage(a, aSuccesses);
     }
@@ -401,8 +488,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'special', aSuccesses, aStat, b.name, 'special', bSuccesses, bStat);
-    enqueue(a, 'attack');
-    enqueue(b, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'special'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'special'});
     if (aSuccesses > bSuccesses) {
       takeDamage(b, aSuccesses - bSuccesses);
     }
@@ -421,7 +508,8 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat) - 3;
     compareMessage(a.name, 'special', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
-    enqueue(a, 'attack');
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'special'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'assist'});
     if (aSuccesses > 0) {
       takeDamage(b, aSuccesses);
     }
@@ -444,6 +532,9 @@ crossorigin="anonymous"></script>
     let aSuccesses = getSuccesses(aStat);
     let bSuccesses = getSuccesses(bStat);
     compareMessage(a.name, 'assist', aSuccesses, aStat, b.name, 'assist', bSuccesses, bStat);
+    queue.push({type: 'animate', delay: 1, unit: a, animation: 'assist'});
+    queue.push({type: 'animate', delay: 1, unit: b, animation: 'assist'});
+
     if (aSuccesses > bSuccesses + 1) {
       gainAdvantage(a);
       gainDisadvantage(b);
@@ -464,94 +555,101 @@ crossorigin="anonymous"></script>
   }
 
   function consumeAdvantage(a, b) {
-    if (cancelStatus(a, 'advantage') || cancelStatus(a, 'disadvantage')) {
-      enqueue(a, 'setStatus', false);
-    }
-    if (cancelStatus(b, 'advantage') || cancelStatus(b, 'disadvantage')) {
-      enqueue(b, 'setStatus');
-    }
+    cancelStatus(a, 'advantage');
+    cancelStatus(a, 'disadvantage');
+    cancelStatus(b, 'advantage');
+    cancelStatus(b, 'disadvantage');
   }
 
   function takeDamage(unit, value) {
-    console.log(`${unit.name} took ${value} damage.`);
+    log(`${unit.name} took ${value} damage.`);
     unit.chp -= value;
     if (unit.chp <= 0) {
       unit.chp = 0;
     }
-    enqueue(unit, 'takeDamage', false);
+    queue.push({type: 'textDrop', delay: 2, unit, text: `-${value} HP`});
     if (unit.chp === 0) {
-      console.log(`${unit.name} is downed!`);
+      log(`${unit.name} is downed!`);
       setStatus(unit, 'down');
-      enqueue(unit, 'setStatus', false);
     }
   }
 
   function healFail(unit) {
-    console.log(`${unit.name} failed to heal any damage.`);
+    log(`${unit.name} failed to heal any damage.`);
+    queue.push({type: 'textPop', delay: 2, unit, text: `+0 HP`});
   }
 
   function healDamage(unit, value) {
     const target = findLowestHPTeammate(unit);
     if (target.chp < getStat('mhp', target)) {
       if (unit === target) {
-        console.log(`${unit.name} healed ${value} damage.`);
+        log(`${unit.name} healed ${value} damage.`);
+        queue.push({type: 'textPop', delay: 2, unit: target, text: `+${value} HP`});
       }
       else {
-        console.log(`${unit.name} healed ${target.name} of ${value} damage.`);
+        log(`${unit.name} healed ${target.name} of ${value} damage.`);
+        queue.push({type: 'textPop', delay: 2, unit: target, text: `+${value} HP`});
       }
       target.chp += value;
       if (target.chp > getStat('mhp', target)) {
         target.chp = getStat('mhp', target);
       }
-      enqueue(target, 'healDamage', false);
     }
     else {
-      console.log(`${target.name}'s hp is full.`);
+      log(`${target.name}'s hp is full.`);
+      queue.push({type: 'textPop', delay: 2, unit: target, text: `+0 HP`});
     }
   }
 
   function evadeDamage(unit) {
-    console.log(`${unit.name} evaded.`);
-    enqueue(unit, 'dodge', false);
+    log(`${unit.name} evaded.`);
+    queue.push({type: 'textPop', delay: 2, unit, text: `EVADE`});
   }
 
   function interruptSpecial(a, b) {
-    console.log(`${a.name} interrupted ${b.name}'s special!`);
+    log(`${a.name} interrupted ${b.name}'s special!`);
   }
 
   function pierceDefense(a, b) {
-    console.log(`${a.name} pierced ${b.name}'s defense!`);
+    log(`${a.name} pierced ${b.name}'s defense!`);
   }
 
   function specialCancel() {
-    console.log('The specials cancelled each other out!');
+    log('The specials cancelled each other out!');
   }
 
   function noAdvantage() {
-    console.log('Neither side gained any advantage.');
+    log('Neither side gained any advantage.');
   }
 
   function gainAdvantage(unit) {
-    console.log(`${unit.name}'s allies gain the advantage!`);
+    log(`${unit.name}'s allies gain the advantage!`);
     setTeamStatus(unit, 'advantage');
-    enqueue(unit, 'setStatus', true);
   }
 
   function gainDisadvantage(unit) {
-    console.log(`${unit.name}'s allies are disadvantaged!`);
+    log(`${unit.name}'s allies are disadvantaged!`);
     setTeamStatus(unit, 'disadvantage');
-    enqueue(unit, 'setStatus', true);
   }
 
-  function updateUnit(unit) {
+  function updateAllUnitProfiles() {
+    for (let i = 0; i < party.members.length; i++) {
+      updateUnitProfile(party.members[i]);
+    }  
+    for (let i = 0; i < data.enemies.length; i++) {
+      updateUnitProfile(data.enemies[i]);
+    }  
+  }
+
+  function updateUnitProfile(unit) {
     // HP
-    $unit = $(`.unit-${unit.name.safeCSS()}`);
+    $unit = $(`.profile.unit-${unit.name.safeCSS()}`);
     $unit.find(`.meter.hp .curmax .current`).html(unit.chp);
     $unit.find(`.meter.hp .bar .inner`).css('width', unit.chp / getStat('mhp', unit) * 100 + '%');
 
     // XP
     $unit.find(`.meter.xp .curmax .current`).html(unit.xp);
-    $unit.find(`.meter.xp .bar .inner`).css('width', Math.min(unit.xp / level(unit) * 5, 1) * 100 + '%');
+    $unit.find(`.meter.xp .bar .inner`).css('width', Math.min(unit.xp / (level(unit) * 5), 1) * 100 + '%');
 
     // Status
     if ($unit.find('.status').length > 0) {
@@ -568,16 +666,29 @@ crossorigin="anonymous"></script>
     $unit.find('.stat.defend').replaceWith(drawStat('Defend', unit.defend, getBonus('defend', unit), 8));
   }
 
+  function updateOrder(player, unit) {
+    $('#order .active').removeClass('active');
+    $(`#order .round:nth-child(${player+1})`).addClass('active');
+    $(`#order .round:nth-child(${player+1}) .turn:nth-child(${unit+1})`).addClass('active');
+  }
   
 </script>
 <title>V-RPG | Combat</title>
 </head>
-<body onclick="tick()">
+<body onclick="startTurn()">
 
 <div class="container">
-  <div id="combat">
-    <div id="party-profiles"></div>
-    <div id="enemy-profiles"></div>
+  <div id="tiles"></div>
+
+  <div class="row">
+    <div id="combat" class="col col-sm-8 row">
+      <div id="party-profiles" class="col col-6"></div>
+      <div id="enemy-profiles" class="col col-6"></div>  
+    </div>
+    <div class="col col-sm-4">
+      <div id="order"></div>
+      <div id="log"></div>
+    </div>
   </div>
 </div>
 <script>

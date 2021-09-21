@@ -1,0 +1,38 @@
+.music {
+  text-align: center;
+  .inner {
+    position: relative;
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    border-radius: 10px;
+    line-height: 10px;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .title {
+    padding: 3px 8px 4px;
+    display: inline-block;
+    margin-right: 40px;
+    line-height: 1em;
+  }
+  a {
+    background: green;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 8px;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    right: 0;
+    top: 0;
+    img {
+      height: 13px;
+      width: 13px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
