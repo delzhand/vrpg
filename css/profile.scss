@@ -118,8 +118,7 @@
       }
     }
   }
-  .arms,
-  .armor {
+  .equip {
     font-size: 12px;
     vertical-align: middle;
     margin-top: 4px;
@@ -156,13 +155,12 @@
     }
   }
   &.hz {
-    width: 290px;
+    width: auto;
     .picture {
       width: 124px;
       height: 124px;
       vertical-align: top;
       padding-top: 0;
-      margin-right: 10px;
     }
     .name,
     .level {
@@ -176,6 +174,15 @@
     }
     .data {
       display: inline-block;
+      width: 120px;
+      vertical-align:top; 
+      margin-left: 12px;
+    }
+    .loadout {
+      display: inline-block;
+      width: 200px;
+      vertical-align:top; 
+      margin-left: 12px;
     }
   }
 }
@@ -206,5 +213,11 @@
   }
   &.passive {
     background-image: url('../images/passive.png');
+  }
+  &.support {
+    background-image: url('../images/support.png');
+  }
+  &.hybrid {
+    background-image: url('../images/hybrid.png');
   }
 }

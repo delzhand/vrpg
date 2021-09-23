@@ -142,8 +142,7 @@
   background: #690000;
 }
 
-.profile .arms,
-.profile .armor {
+.profile .equip {
   font-size: 12px;
   vertical-align: middle;
   margin-top: 4px;
@@ -152,8 +151,7 @@
   line-height: 1;
 }
 
-.profile .arms img,
-.profile .armor img {
+.profile .equip img {
   border: 1px solid #FFF;
   border-radius: 50%;
   height: 16px;
@@ -187,7 +185,7 @@
 }
 
 .profile.hz {
-  width: 290px;
+  width: auto;
 }
 
 .profile.hz .picture {
@@ -195,7 +193,6 @@
   height: 124px;
   vertical-align: top;
   padding-top: 0;
-  margin-right: 10px;
 }
 
 .profile.hz .name,
@@ -212,6 +209,16 @@
 
 .profile.hz .data {
   display: inline-block;
+  width: 120px;
+  vertical-align: top;
+  margin-left: 12px;
+}
+
+.profile.hz .loadout {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+  margin-left: 12px;
 }
 
 .icon {
@@ -247,5 +254,13 @@
 
 .icon.passive {
   background-image: url("../images/passive.png");
+}
+
+.icon.support {
+  background-image: url("../images/support.png");
+}
+
+.icon.hybrid {
+  background-image: url("../images/hybrid.png");
 }
 /*# sourceMappingURL=profile.css.map */
