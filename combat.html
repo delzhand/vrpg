@@ -31,7 +31,7 @@ crossorigin="anonymous"></script>
     enemyIndex: 0,
     allyInputs: shuffle(data.moves),
     enemyInputs: shuffle(data.enemies),
-    enemyDeck: shuffle(['attack', 'special', 'defend', 'assist']),
+    enemyDeck: shuffle(JSON.parse(JSON.stringify(data.actionDistribution))),
     done: false,
   };
   let queue = [];
@@ -43,7 +43,7 @@ crossorigin="anonymous"></script>
 
   function nextEnemyAction() {
     if (combat.enemyDeck.length === 0) {
-      combat.enemyDeck = shuffle(['attack', 'special', 'defend', 'assist']);
+      combat.enemyDeck = shuffle(JSON.parse(JSON.stringify(data.actionDistribution)));
     }
     return combat.enemyDeck.pop();
   }
@@ -693,7 +693,7 @@ crossorigin="anonymous"></script>
 </div>
 <script>
   init();
-  startTurn();
+  // startTurn();
 </script>
 </body>
 </html>

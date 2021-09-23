@@ -56,7 +56,6 @@
 
 .profile .data {
   z-index: 2;
-  display: inline-block;
 }
 
 .profile .meter {
@@ -113,6 +112,12 @@
   display: inline-block;
   width: 60px;
   line-height: 1;
+}
+
+.profile .stat .num {
+  display: inline-block;
+  width: calc(100% - 60px);
+  text-align: right;
 }
 
 .profile .stat .bar {
@@ -203,5 +208,44 @@
 
 .profile.hz .name {
   top: 96px;
+}
+
+.profile.hz .data {
+  display: inline-block;
+}
+
+.icon {
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #FFF;
+  height: 20px;
+  width: 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.icon.weapon {
+  background-image: url("../images/sword.png");
+}
+
+.icon.armor {
+  background-image: url("../images/armor.png");
+}
+
+.icon.attack {
+  background-image: url("../images/arms.png");
+}
+
+.icon.magic {
+  background-image: url("../images/magic.png");
+}
+
+.icon.reaction {
+  background-image: url("../images/reaction.png");
+}
+
+.icon.passive {
+  background-image: url("../images/passive.png");
 }
 /*# sourceMappingURL=profile.css.map */

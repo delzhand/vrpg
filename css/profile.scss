@@ -48,7 +48,6 @@
   }
   .data {
     z-index: 2;
-    display: inline-block;
   }
   .meter {
     position: relative;
@@ -90,12 +89,16 @@
       font-weight: bold;
     }
   }
-
   .stat {
     .label {
       display: inline-block;
       width: 60px;
       line-height: 1;
+    }
+    .num {
+      display: inline-block;
+      width: calc(100% - 60px);
+      text-align: right;
     }
     .bar {
       height: 12px;
@@ -171,5 +174,37 @@
     .name {
       top: 96px;
     }
+    .data {
+      display: inline-block;
+    }
+  }
+}
+
+.icon {
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #FFF;
+  height: 20px;
+  width: 20px;
+  background-size: cover;
+  background-position: center;
+  &.weapon {
+    background-image: url('../images/sword.png');
+  }
+  &.armor {
+    background-image: url('../images/armor.png');
+  }
+  &.attack {
+    background-image: url('../images/arms.png');
+  }
+  &.magic {
+    background-image: url('../images/magic.png');
+  }
+  &.reaction {
+    background-image: url('../images/reaction.png');
+  }
+  &.passive {
+    background-image: url('../images/passive.png');
   }
 }

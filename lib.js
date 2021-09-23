@@ -81,7 +81,9 @@ function drawMeter(label, c, m) {
       <span class="inner" style="width: ${c / m * 100}%"></span>
       <span class="inner alt" style="width: ${c / m * 100}%"></span>
     </div>
-    <div class="curmax"><span class="current">${c}</span>/<span class="max">${m}</span></div>
+    <div class="curmax">
+      <span class="current">${c}</span>/<span class="max">${m}</span>
+    </div>
   </div>
   `;
 }
