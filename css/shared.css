@@ -1,3 +1,32 @@
+body {
+  background: url(../images/bg.png);
+  font-family: 'Titillium Web', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.container {
+  background: #FFF;
+}
+
+.log-1 > div.active,
+.log-2 > div.active {
+  outline: 2px solid blue;
+}
+
+.log-1 > div:nth-child(odd),
+.log-2 > div:nth-child(odd) {
+  background: #AAA;
+}
+
+.log-1 > div:nth-child(odd),
+.log-2 > div:nth-child(odd) {
+  background: #DDD;
+}
+
 .music {
   text-align: center;
 }

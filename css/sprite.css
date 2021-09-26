@@ -1,0 +1,201 @@
+@-webkit-keyframes sprite {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -48px;
+  }
+}
+
+@keyframes sprite {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -48px;
+  }
+}
+
+.visualizer {
+  position: relative;
+  height: 200px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background: skyblue;
+}
+
+.visualizer .battlefield {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: perspective(14cm) rotateX(65deg);
+          transform: perspective(14cm) rotateX(65deg);
+  background: #695526;
+}
+
+.visualizer .sprite {
+  position: absolute;
+  left: 70px;
+  bottom: 30px;
+  height: 24px;
+  width: 24px;
+  -webkit-transform: translate(-50%, 0%) scale(-5, 5);
+          transform: translate(-50%, 0%) scale(-5, 5);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+.visualizer .sprite .image {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/hero-sprite.png");
+  -webkit-animation-name: sprite;
+          animation-name: sprite;
+  -webkit-animation-duration: 1.25s;
+          animation-duration: 1.25s;
+  -webkit-animation-timing-function: steps(2);
+          animation-timing-function: steps(2);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.visualizer .sprite.right {
+  left: auto;
+  right: 70px;
+  -webkit-transform: translate(50%, 0%) scale(5, 5);
+          transform: translate(50%, 0%) scale(5, 5);
+}
+
+@-webkit-keyframes attack-left {
+  0% {
+    left: 70px;
+    z-index: 1;
+  }
+  50% {
+    left: 100px;
+    z-index: 2;
+  }
+  100% {
+    left: 70px;
+    z-index: 1;
+  }
+}
+
+@keyframes attack-left {
+  0% {
+    left: 70px;
+    z-index: 1;
+  }
+  50% {
+    left: 100px;
+    z-index: 2;
+  }
+  100% {
+    left: 70px;
+    z-index: 1;
+  }
+}
+
+@-webkit-keyframes attack-right {
+  0% {
+    left: 0px;
+    z-index: 1;
+  }
+  50% {
+    left: -30px;
+    z-index: 2;
+  }
+  100% {
+    left: 0px;
+    z-index: 1;
+  }
+}
+
+@keyframes attack-right {
+  0% {
+    left: 0px;
+    z-index: 1;
+  }
+  50% {
+    left: -30px;
+    z-index: 2;
+  }
+  100% {
+    left: 0px;
+    z-index: 1;
+  }
+}
+
+@-webkit-keyframes support {
+  0% {
+    bottom: 0px;
+    z-index: 1;
+  }
+  20% {
+    bottom: -10px;
+    z-index: 2;
+  }
+  90% {
+    bottom: 20px;
+    z-index: 2;
+  }
+  100% {
+    bottom: 0px;
+    z-index: 1;
+  }
+}
+
+@keyframes support {
+  0% {
+    bottom: 0px;
+    z-index: 1;
+  }
+  20% {
+    bottom: -10px;
+    z-index: 2;
+  }
+  90% {
+    bottom: 20px;
+    z-index: 2;
+  }
+  100% {
+    bottom: 0px;
+    z-index: 1;
+  }
+}
+
+.sprite.attack, .sprite.support, .sprite.counter {
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: .25s;
+          animation-duration: .25s;
+}
+
+.sprite.attack.left, .sprite.counter.left {
+  -webkit-animation-name: attack-left;
+          animation-name: attack-left;
+}
+
+.sprite.attack.right, .sprite.counter.right {
+  -webkit-animation-name: attack-right;
+          animation-name: attack-right;
+}
+
+.sprite.support {
+  -webkit-animation-name: support;
+          animation-name: support;
+}
+/*# sourceMappingURL=sprite.css.map */

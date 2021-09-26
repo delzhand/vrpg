@@ -1,4 +1,8 @@
 const gear = {
+  'rusted sword': {
+    name: 'Rusted Sword',
+    atk: 2
+  },
   'estoc': {
     name: 'Estoc',
     atk: 4,
@@ -19,15 +23,15 @@ const gear = {
   },
   'doublet': {
     name: 'Doublet',
-    hp: 10,
+    mhp: 10,
   },
   'tunic': {
     name: 'Tunic',
-    hp: 6,
+    mhp: 6,
   },
   'chainmail': {
     name: 'Chainmail',
-    hp: 14,
+    mhp: 14,
     spd: -1
   },
 };
