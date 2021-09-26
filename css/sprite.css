@@ -89,7 +89,6 @@
 }
 
 .frame {
-  border-top: 10px solid #FFF;
   width: 100%;
   height: 0;
   padding-top: 90%;
@@ -110,6 +109,24 @@
           transform-origin: top center;
   overflow: hidden;
   border: 2px solid black;
+}
+
+.visualizer .tap-msg,
+.visualizer .final {
+  color: #FFF;
+  font-weight: bold;
+  background: blue;
+  border: 1px solid #FFF;
+  border-radius: 2px;
+  font-size: 6px;
+  text-align: center;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  z-index: 6;
 }
 
 .visualizer .battlefield {

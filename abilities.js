@@ -90,7 +90,7 @@ const abilities = {
       log(`<div>${unit.name} targets ${target.name} with Ice Spear for ${dmg}</div>`);
       target.react(unit, animate);
       if (animate) {
-        animateStandardAttack(0, unit, 'Ice Spear', target, dmg + ' | ATK -1');
+        animateStandardAttack(0, unit, 'Ice Spear', target, dmg + ', ATK -1');
       }
     },
   },
@@ -395,4 +395,12 @@ function finishAnimate() {
   $('.sprite').removeClass('active attack');
   $('.pop-text').remove();
   $('.skill').remove();
+  if (isVictory()) {
+    $('.visualizer').append('<div class="final">Victory!</div>');
+    $('.queue .item').remove();
+  }
+  if (isDefeat()) {
+    $('.visualizer').append('<div class="final">Defeated...</div>');
+    $('.queue .item').remove();
+  }
 }

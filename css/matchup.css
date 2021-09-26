@@ -1,8 +1,16 @@
+.container.ptb {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .queue {
+  margin-top: 2px;
+  background: black;
+  border-top: 2px solid blue;
   white-space: nowrap;
   font-size: 0;
+  height: 54px;
   overflow: hidden;
-  padding-bottom: 10px;
 }
 
 .queue .item {

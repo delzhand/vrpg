@@ -520,6 +520,7 @@ crossorigin="anonymous"></script>
     width /= 160;
     if (width > 5) {
       width = 5;
+      $('.frame').css('padding-top', '720px');
     }
     $('.visualizer').css('transform', `translateX(-50%) scale(${width})`);
 
@@ -549,6 +550,7 @@ crossorigin="anonymous"></script>
   let index = 0;
   let animationLocks = 0;
   function advance() {
+    $('.tap-msg').remove();
     if (index >= queue.length) {
       return;
     }
@@ -599,10 +601,11 @@ crossorigin="anonymous"></script>
 </head>
 <body onclick="advance()">
 
-<div class="container">
+<div class="container ptb">
 
   <div class="frame">
     <div class="visualizer">
+      <div class="tap-msg">Tap!</div>
       <div class="battlefield"></div>
       <div class="saoirse sprite left" style="top: 35%;">    <div class="hp"></div><div class="image"></div></div>
       <div class="parzeval sprite left" style="top: 50%;">   <div class="hp"></div><div class="image"></div></div>
