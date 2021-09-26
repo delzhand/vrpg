@@ -16,13 +16,100 @@
   }
 }
 
-.visualizer {
+@-webkit-keyframes skill-left {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 4px;
+  }
+}
+
+@keyframes skill-left {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 4px;
+  }
+}
+
+@-webkit-keyframes skill-right {
+  0% {
+    right: -100px;
+  }
+  100% {
+    right: 4px;
+  }
+}
+
+@keyframes skill-right {
+  0% {
+    right: -100px;
+  }
+  100% {
+    right: 4px;
+  }
+}
+
+@-webkit-keyframes down {
+  0% {
+    opacity: 1;
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+}
+
+@keyframes down {
+  0% {
+    opacity: 1;
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+}
+
+.frame {
+  border-top: 10px solid #FFF;
+  width: 100%;
+  height: 0;
+  padding-top: 90%;
   position: relative;
-  height: 200px;
-  width: 300px;
+}
+
+.visualizer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 160px;
+  height: 144px;
+  margin-bottom: 144px;
   margin-left: auto;
   margin-right: auto;
   background: skyblue;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  overflow: hidden;
+  border: 2px solid black;
 }
 
 .visualizer .battlefield {
@@ -35,21 +122,88 @@
           transform-origin: bottom;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transform: perspective(14cm) rotateX(65deg);
-          transform: perspective(14cm) rotateX(65deg);
-  background: #695526;
+  -webkit-transform: perspective(14cm) rotateX(44deg);
+          transform: perspective(14cm) rotateX(44deg);
+  background: #a99057;
+}
+
+.visualizer .skill {
+  color: #FFF;
+  font-weight: bold;
+  background: blue;
+  border: 1px solid #FFF;
+  border-radius: 2px;
+  font-size: 6px;
+  text-align: center;
+  width: 40%;
+  position: absolute;
+  top: 4px;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: .25s;
+          animation-duration: .25s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.visualizer .skill.left {
+  left: -100px;
+  -webkit-animation-name: skill-left;
+          animation-name: skill-left;
+}
+
+.visualizer .skill.right {
+  right: -100px;
+  -webkit-animation-name: skill-right;
+          animation-name: skill-right;
 }
 
 .visualizer .sprite {
   position: absolute;
-  left: 70px;
-  bottom: 30px;
+  left: 30px;
+  top: 0px;
   height: 24px;
   width: 24px;
-  -webkit-transform: translate(-50%, 0%) scale(-5, 5);
-          transform: translate(-50%, 0%) scale(-5, 5);
+  -webkit-transform: translate(-50%, 0%) scaleX(-1);
+          transform: translate(-50%, 0%) scaleX(-1);
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+  opacity: 1;
+}
+
+.visualizer .sprite.down {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-name: down;
+          animation-name: down;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+.visualizer .sprite .hp {
+  position: absolute;
+  left: 24px;
+  bottom: 2px;
+  width: 3px;
+  height: calc(14px * 1);
+  background-color: #5ebfff;
+}
+
+.visualizer .sprite .hp::after {
+  content: "";
+  width: 3px;
+  height: 14px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  z-index: -1;
 }
 
 .visualizer .sprite .image {
@@ -72,69 +226,120 @@
   image-rendering: crisp-edges;
 }
 
+.visualizer .sprite.saoirse .image {
+  background-image: url("../images/saoirse-sprite.png");
+}
+
+.visualizer .sprite.hanya .image {
+  background-image: url("../images/hanya-sprite.png");
+}
+
+.visualizer .sprite.garven .image {
+  background-image: url("../images/garven-sprite.png");
+}
+
+.visualizer .sprite.parzeval .image {
+  background-image: url("../images/parzeval-sprite.png");
+}
+
+.visualizer .sprite.ichor .image {
+  background-image: url("../images/slime-sprite.png");
+}
+
+.visualizer .sprite.bonewraith .image {
+  background-image: url("../images/skeleton-sprite.png");
+}
+
+.visualizer .sprite.hit {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.visualizer .sprite.hit .image {
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-duration: .25s;
+          animation-duration: .25s;
+  background-image: url("../images/hit-sprite.png");
+}
+
 .visualizer .sprite.right {
   left: auto;
-  right: 70px;
-  -webkit-transform: translate(50%, 0%) scale(5, 5);
-          transform: translate(50%, 0%) scale(5, 5);
+  right: 30px;
+  -webkit-transform: translate(50%, 0%);
+          transform: translate(50%, 0%);
+}
+
+.visualizer .sprite.right .hp {
+  background-color: #ff5039;
+}
+
+.visualizer .sprite.active {
+  left: 50px;
+}
+
+.visualizer .sprite.right.active {
+  left: auto;
+  right: 50px;
 }
 
 @-webkit-keyframes attack-left {
   0% {
-    left: 70px;
+    left: 50px;
     z-index: 1;
   }
   50% {
-    left: 100px;
+    left: 60px;
     z-index: 2;
   }
   100% {
-    left: 70px;
+    left: 50px;
     z-index: 1;
   }
 }
 
 @keyframes attack-left {
   0% {
-    left: 70px;
+    left: 50px;
     z-index: 1;
   }
   50% {
-    left: 100px;
+    left: 60px;
     z-index: 2;
   }
   100% {
-    left: 70px;
+    left: 50px;
     z-index: 1;
   }
 }
 
 @-webkit-keyframes attack-right {
   0% {
-    left: 0px;
+    right: 50px;
     z-index: 1;
   }
   50% {
-    left: -30px;
+    right: 60px;
     z-index: 2;
   }
   100% {
-    left: 0px;
+    right: 50px;
     z-index: 1;
   }
 }
 
 @keyframes attack-right {
   0% {
-    left: 0px;
+    right: 50px;
     z-index: 1;
   }
   50% {
-    left: -30px;
+    right: 60px;
     z-index: 2;
   }
   100% {
-    left: 0px;
+    right: 50px;
     z-index: 1;
   }
 }
@@ -197,5 +402,90 @@
 .sprite.support {
   -webkit-animation-name: support;
           animation-name: support;
+}
+
+@-webkit-keyframes pop {
+  0% {
+    top: 14px;
+    opacity: 1;
+  }
+  10% {
+    top: -12px;
+  }
+  20% {
+    top: 14px;
+  }
+  25% {
+    top: 0px;
+  }
+  30% {
+    top: 14px;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 14px;
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  0% {
+    top: 14px;
+    opacity: 1;
+  }
+  10% {
+    top: -12px;
+  }
+  20% {
+    top: 14px;
+  }
+  25% {
+    top: 0px;
+  }
+  30% {
+    top: 14px;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 14px;
+    opacity: 0;
+  }
+}
+
+.pop-text {
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: inline-block;
+  font-weight: bold;
+  color: #FFF;
+  text-align: center;
+  -webkit-animation-name: pop;
+          animation-name: pop;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  font-size: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1px;
+  padding: 1px 2px;
+  line-height: 1;
+}
+
+.sprite.left .pop-text {
+  -webkit-transform: translateX(-50%) scaleX(-1);
+          transform: translateX(-50%) scaleX(-1);
 }
 /*# sourceMappingURL=sprite.css.map */

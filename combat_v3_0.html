@@ -85,12 +85,22 @@ crossorigin="anonymous"></script>
       }  
       return false;
     }
-    react(target) {
-      console.log(this.abilities);
+    hasReaction() {
       for (let i = 0; i < this.abilities.length; i++) {
         const ability = abilities[this.abilities[i]];
         if (ability.type === 'reaction') {
-          ability.fn(this, target);
+          return true;
+        }
+      }
+      return false;
+    }
+    react(target, animate) {
+      if (this.chp > 0) {
+        for (let i = 0; i < this.abilities.length; i++) {
+          const ability = abilities[this.abilities[i]];
+          if (ability.type === 'reaction') {
+            ability.fn(this, target, animate);
+          }
         }
       }
     }
@@ -284,7 +294,7 @@ crossorigin="anonymous"></script>
         output += `<div class="equip"><span class="icon weapon"></span> ${gear[this.arms].name}</div>`;
       }
       if (this.armor) {
-        output += `<div class="equip"><span class="icon weapon"></span> ${gear[this.armor].name}</div>`;
+        output += `<div class="equip"><span class="icon armor"></span> ${gear[this.armor].name}</div>`;
       }
       return output;
     }
@@ -361,7 +371,6 @@ crossorigin="anonymous"></script>
         arms: 'estoc',
         armor: 'doublet',
         xp: 0,
-        hp: 25,
       },
       {
         name: 'Parzeval',
@@ -506,6 +515,14 @@ crossorigin="anonymous"></script>
       const unit = input.units[i];
       units.push(new Unit(unit.name, unit.level, unit.job, unit.picture, unit.team, unit.hp, unit.vit, unit.atk, unit.def, unit.res, unit.spd, unit.xp, unit.pool, unit.abilities, unit.arms, unit.armor));
     }
+    width = $('.frame').outerWidth();
+    console.log(width);
+    width /= 160;
+    if (width > 5) {
+      width = 5;
+    }
+    $('.visualizer').css('transform', `translateX(-50%) scale(${width})`);
+
   }
 
   function drawInit() {
@@ -530,8 +547,12 @@ crossorigin="anonymous"></script>
   }
 
   let index = 0;
+  let animationLocks = 0;
   function advance() {
     if (index >= queue.length) {
+      return;
+    }
+    if (animationLocks > 0) {
       return;
     }
     $('.queue .item.active').addClass('done');
@@ -541,7 +562,7 @@ crossorigin="anonymous"></script>
     const item = queue[index];
     unit = findUnit(item.unit);
     unit.chooseAbility(); // just to increment seedrandom to match queue
-    abilities[item.ability].fn(unit);
+    abilities[item.ability].fn(unit, true);
     unit.endRound();
     index++;
     updateAllProfiles();
@@ -580,64 +601,19 @@ crossorigin="anonymous"></script>
 
 <div class="container">
 
-  <!-- <div class="matchup ally">
-    <div class="left attack">
-      <div class="picture"><img src="./images/surtia.jpeg"></div>
-      <div class="name">Saoirse</div>
-      <div class="action"><span class="icon attack"></span> Thrust</div>
-      <div class="outcomes">
-        <div>22 dmg</div>
-        <div>+ ATK Up</div>
-      </div>
-    </div>
-    <div class="right counter">
-      <div class="outcomes">2 dmg</div>
-      <div class="action"><span class="icon reaction"></span> Counter</div>
-      <div class="name">Bone Wraith</div>
-      <div class="picture" style="background-color: #cc4141;"></div>
+  <div class="frame">
+    <div class="visualizer">
+      <div class="battlefield"></div>
+      <div class="saoirse sprite left" style="top: 35%;">    <div class="hp"></div><div class="image"></div></div>
+      <div class="parzeval sprite left" style="top: 50%;">   <div class="hp"></div><div class="image"></div></div>
+      <div class="garven sprite left" style="top: 65%;">     <div class="hp"></div><div class="image"></div></div>
+      <div class="hanya sprite left" style="top: 80%;">      <div class="hp"></div><div class="image"></div></div>
+      <div class="bonewraith sprite right" style="top: 40%;"><div class="hp"></div><div class="image"></div></div>
+      <div class="ichor sprite right" style="top: 65%;">     <div class="hp"></div><div class="image"></div></div>
+      <div class="skills"></div>
     </div>
   </div>
-
-  <div class="matchup enemy">
-    <div class="left">
-      <div class="picture"><img src="./images/graven.jpeg"></div>
-      <div class="name">Garven</div>
-      <div class="action"><span class="icon reaction"></span> Block</div>
-      <div class="outcomes">
-        <div>-10% dmg</div>
-      </div>
-    </div>
-    <div class="right">
-      <div class="outcomes">0 dmg</div>
-      <div class="action"><span class="icon magic"></span> Attack</div>
-      <div class="name">Bone Wraith</div>
-      <div class="picture" style="background-color: #cc4141;"></div>
-    </div>
-  </div>
-
-  <div class="matchup ally">
-    <div class="left support">
-      <div class="picture"><img src="./images/hanya.jpeg"></div>
-      <div class="name">Hanya</div>
-      <div class="action"><span class="icon magic"></span> Mantra</div>
-      <div class="outcomes">
-        <div class="pos">-10 dmg</div>
-      </div>
-    </div>
-    <div class="right">
-      <div class="outcomes"></div>
-      <div class="action"></div>
-      <div class="name">Allies</div>
-      <div class="picture" style="background-color: #4d4dff;"></div>
-    </div>
-  </div> -->
-
   <div class="queue"></div>
-  <div class="visualizer">
-    <div class="battlefield"></div>
-    <div class="sprite left"><div class="image"></div></div>
-    <div class="sprite right"><div class="image"></div></div>
-  </div>
 
   <div class="profiles"></div>
   <div class="row logs">
@@ -651,7 +627,7 @@ crossorigin="anonymous"></script>
   fillQueue();
   drawQueue();
   logIndex++;
-  drawInit();
+  // drawInit();
 </script>
 </body>
 </html>
