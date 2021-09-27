@@ -223,6 +223,18 @@
   z-index: -1;
 }
 
+.visualizer .sprite .hp .num {
+  display: inline-block;
+  position: absolute;
+  bottom: -2px;
+  left: 1px;
+  font-size: 4px;
+  font-weight: bold;
+  color: #FFF;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
 .visualizer .sprite .image {
   height: 100%;
   width: 100%;
@@ -290,6 +302,11 @@
 
 .visualizer .sprite.right .hp {
   background-color: #ff5039;
+}
+
+.visualizer .sprite.right .hp .num {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 .visualizer .sprite.active {

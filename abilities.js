@@ -138,8 +138,12 @@ const abilities = {
       dmg *= 5;
       dmg = target.mitigateDef(dmg);
       target.takeDamage(dmg);
+      target.addStatus('DEF -1', 1);
       log(`<div>${unit.name} targets ${target.name} with Crushing Blow for ${dmg}</div>`);
       target.react(unit, animate);
+      if (animate) {
+        animateStandardAttack(0, unit, 'Crushing Blow', target, dmg + ', DEF -1');
+      }
     },
   },
   'protect': {
@@ -188,7 +192,7 @@ const abilities = {
   'mantra': {
     name: 'Mantra',
     type: 'support',
-    desc: 'Restores 10 hp to all allies',
+    desc: 'Restores 10 HP to all allies',
     fn: function(unit, animate = false) {
       const targets = [];
       for (let i = 0; i < units.length; i++) {
@@ -250,8 +254,11 @@ const abilities = {
     name: 'Parry',
     type: 'reaction',
     desc: 'Inflict ATK -2 on attacker for next turn',
-    fn: function(unit, target) {
+    fn: function(unit, target, animate) {
       target.addStatus('atk -2', 2);
+      if (animate) {
+        animateStandardAttack(1500, unit, 'Parry', target, 'ATK -2');
+      }
     }
   },
   'absorb': {
@@ -359,6 +366,7 @@ function animateStandardAttack(timer, unit, ability,  target, text) {
     $('.hit.sprite').remove();
     $(`.sprite.${target.name.safeCSS()}`).append(`<div class="pop-text">${text}</div>`);
     $(`.sprite.${target.name.safeCSS()} .hp`).css('height', `calc(14px * ${target.chp / target.mhp})`);
+    $(`.sprite.${target.name.safeCSS()} .hp .num`).html(target.chp);
     if (target.chp <= 0) {
       $(`.sprite.${target.name.safeCSS()}`).addClass('down');
     }
@@ -375,7 +383,9 @@ function animateStandardAttack(timer, unit, ability,  target, text) {
 function animateMultiple(timer, unit, ability,  targets, isAttack) {
   startAnimate(unit, ability);
   setTimeout(() => {
-    $(`.sprite.${unit.name.safeCSS()}`).addClass('attack');
+    if (isAttack) {
+      $(`.sprite.${unit.name.safeCSS()}`).addClass('attack');
+    }
   }, 1000);
   setTimeout(() => {
     if (isAttack) {
@@ -389,6 +399,7 @@ function animateMultiple(timer, unit, ability,  targets, isAttack) {
     for (let i = 0; i < targets.length; i++) {
       $(`.sprite.${targets[i].unit.name.safeCSS()}`).append(`<div class="pop-text">${targets[i].text}</div>`);
       $(`.sprite.${targets[i].unit.name.safeCSS()} .hp`).css('height', `calc(14px * ${targets[i].unit.chp/targets[i].unit.mhp})`);
+      $(`.sprite.${targets[i].unit.name.safeCSS()} .hp .num`).html(targets[i].unit.chp);
       if (targets[i].unit.chp <= 0) {
         $(`.sprite.${targets[i].unit.name.safeCSS()}`).addClass('down');
       }  

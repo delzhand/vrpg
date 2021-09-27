@@ -276,16 +276,25 @@
 }
 
 .profile.ability-list .equip {
-  font-size: 16px;
+  position: relative;
+  height: 32px;
+  margin-top: 0;
+  font-size: 13px;
   padding-left: 40px;
-  text-indent: -40px;
   padding-right: 10px;
-  padding-bottom: 9px;
+  line-height: 32px;
 }
 
 .profile.ability-list .equip .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 32px;
   width: 32px;
   margin-right: 6px;
+}
+
+.profile.ability-list .equip + .equip {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=profile.css.map */
