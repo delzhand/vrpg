@@ -223,7 +223,7 @@
 
 .profile.hz .loadout {
   display: inline-block;
-  width: 200px;
+  width: 400px;
   vertical-align: top;
   margin-left: 12px;
 }
@@ -269,5 +269,23 @@
 
 .icon.hybrid {
   background-image: url("../images/hybrid.png");
+}
+
+.profile.ability-list {
+  width: 500px;
+}
+
+.profile.ability-list .equip {
+  font-size: 16px;
+  padding-left: 40px;
+  text-indent: -40px;
+  padding-right: 10px;
+  padding-bottom: 9px;
+}
+
+.profile.ability-list .equip .icon {
+  height: 32px;
+  width: 32px;
+  margin-right: 6px;
 }
 /*# sourceMappingURL=profile.css.map */

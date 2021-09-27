@@ -17,6 +17,28 @@ const scenes = [
   
   `VOTE-OPEN: Yuvalt Monastery|Fort Bellheim|City of Andrahar`,
 
+  `SCENE: Southeast Granvista - Oxcorn Plains
+  MUSIC: Final Fantasy III - Eternal Wind|https://www.youtube.com/watch?v=_VRWlmXuv8E
+  EXPO: Saoirse wiped the sweat from her brow. Patrolling the main road through the Oxcorn Plains wasn't difficult work by any means, but today the sun beat down relentlessly. It didn't bother Parzival of course, his ice magic was enough to keep him cool with little effort. Hanya wore only a light tunic befitting the monks of her order. Garven, in his chainmail, seemed on the verge of passing out. Saoirse empathized.
+  EXPO: The golden grass of the plain was stirred gently by some breeze she couldn't feel. It rippled across the miles of open land. Nary a cart was visible in either direction. Soairse put up a hand to block the sun. All it accomplished was that her hand began to feel as warm as her brow.
+  GARVEN|L: I need a rest. Parzeval, can you conjure up some cold water?
+  PARZEVAL|R: Fine, but this is not what I trained for.
+  GARVEN|L: I'm aware. You mention it every time I ask.
+  HANYA|L: Why did you train in-
+  EXPO: Saoirse caught Hanya's attention, shaking her head just subtly enough to avoid Parzeval's attention, but it was too late.
+  PARZEVAL|R: Water is the strongest of the elements! The most readily channeled! I expected that after my training I'd be placed on the front lines, where I could smite the foes of the kingdom and bring glory to my family name!
+  GARVEN|L: Yet here you are, making your captain a refreshing drink.
+  SAOIRSE|R: And, when you're lucky, using your gift to ensure that no passengers are molested by cursed skeletons or aggressive slimes!
+  EXPO: Parzeval scowled. He liked Saoirse well enough, but could never tell if she was being enthusiastic or patronizing.
+  HANYA|L: Speaking of which...
+  EXPO: A human skull emerged from the grass and bobbed gently towards them. Hanya swatted it away with an open palm. It clattered to the ground.
+  HANYA|L: Wait for it...
+  EXPO: The company of guards looked on expectantly. Nothing happened.
+  GARVEN|L: Must be a weak one.
+  EXPO: Garven hefted his halberd, and as he did so, red light flared in the previously empty eye sockets. The skull darted quickly into the air out of Garven's reach and oriented itself facing the group. The remainder of a skeleton materialized, corkscrewing out from the brainpan as if its component matter had been stashed inside.
+  SAOIRSE|R: And as sure as the sunrise, here comes the slime.
+  EXPO: The skeleton bent over and disgorged a wet hunk of viscous semi-solid material. Whatever weird symbiotic relationship there was between slimes and cursed skeletons was a matter for scholars. The guard company tasked with keeping the road safe had a responsibility to get rid of both, wherever they appeared.
+  VOTE-OPEN: Saoirse - Thrust|Saoirse - Flank|Parzeval - Ice Spear|Parzeval - Hailstorm|Garven - Crushing Blow |Garven - Protect|Hanya - Blazing Fist|Hanya - Mantra`,
 ];
 const actors = {
   'SAOIRSE': {
@@ -27,4 +49,13 @@ const actors = {
     name: 'Parzeval',
     picture: 'areval.jpeg',
   },
+  'GARVEN': {
+    name: 'Garven',
+    picture: 'graven.jpeg',
+  },
+  'HANYA': {
+    name: 'Hanya',
+    picture: 'hanya.jpeg',
+  },
+
 }

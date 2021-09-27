@@ -2,6 +2,7 @@ const abilities = {
   'weapon': {
     name: 'Attack',
     type: 'attack',
+    desc: 'Deals 100% damage vs DEF',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -22,6 +23,7 @@ const abilities = {
   'magic': {
     name: 'Attack',
     type: 'magic',
+    desc: 'Deals 100% damage vs RES',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -42,6 +44,7 @@ const abilities = {
   'thrust': {
     name: 'Thrust',
     type: 'attack',
+    desc: 'Deals 150% damage vs DEF',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -63,6 +66,7 @@ const abilities = {
   'flank': {
     name: 'Flank',
     type: 'attack',
+    desc: `Causes target's next action to fail`,
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -76,6 +80,7 @@ const abilities = {
   'ice spear': {
     name: 'Ice Spear',
     type: 'magic',
+    desc: 'Deals 100% damage vs RES and inflicts ATK -1 for 1 turn',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -97,6 +102,7 @@ const abilities = {
   'hailstorm': {
     name: 'Hailstorm',
     type: 'magic',
+    desc: 'Deals 30% damage to all foes and ignores reaction abilities',
     fn: function(unit, animate = false) {
       let dmg = unit.getStat('atk');
       let targets = [];
@@ -121,6 +127,7 @@ const abilities = {
   'crushing blow': {
     name: 'Crushing Blow',
     type: 'attack',
+    desc: 'Deals 100% damage vs DEF and inflicts DEF -1 for 1 turn',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -138,6 +145,7 @@ const abilities = {
   'protect': {
     name: 'Protect',
     type: 'support',
+    desc: 'Grants ally with lowest HP a shield that absorbs up to 15 damage',
     fn: function(unit, animate = false) {
       const target = unit.chooseLowestHpAlly();
       target.addStatus('shield 15', false);
@@ -150,6 +158,7 @@ const abilities = {
   'blazing fist': {
     name: 'Blazing Fist',
     type: 'hybrid',
+    desc: 'Deals 120% damage vs lower of DEF or RES',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -159,13 +168,13 @@ const abilities = {
       if (target.getStat('res') < target.getStat('def')) {
         dmg = Math.max(0, dmg - target.getStat('res'));
         dmg *= 5;
-        dmg *= 2;
+        dmg *= 1.2;
         dmg = target.mitigateRes(dmg);
       }
       else {
         dmg = Math.max(0, dmg - target.getStat('def'));
         dmg *= 5;
-        dmg *= 2;
+        dmg *= 1.2;
         dmg = target.mitigateDef(dmg);
       }
       target.takeDamage(dmg);
@@ -179,6 +188,7 @@ const abilities = {
   'mantra': {
     name: 'Mantra',
     type: 'support',
+    desc: 'Restores 10 hp to all allies',
     fn: function(unit, animate = false) {
       const targets = [];
       for (let i = 0; i < units.length; i++) {
@@ -196,6 +206,7 @@ const abilities = {
   'grave dirt': {
     name: 'Grave Dirt',
     type: 'support',
+    desc: 'Increases own ATK +2 for next turn',
     fn: function(unit, animate = false) {
       unit.addStatus('atk +2', 2);
       log(`<div>${unit.name} uses Grave Dirt - ATK increased`);
@@ -207,6 +218,7 @@ const abilities = {
   'bootslop': {
     name: 'Bootslop',
     type: 'magic',
+    desc: 'Inflicts SPD -1 on target for 2 turns',
     fn: function(unit, animate = false) {
       const target = unit.chooseFoe();
       if (!target) {
@@ -220,6 +232,7 @@ const abilities = {
   'counter': {
     name: 'Counter',
     type: 'reaction',
+    desc: 'Deal 50% damage vs DEF to attacker',
     fn: function(unit, target, animate) {
       let dmg = unit.getStat('atk');
       dmg = Math.max(0, dmg - target.getStat('def'));
@@ -236,6 +249,7 @@ const abilities = {
   'parry': {
     name: 'Parry',
     type: 'reaction',
+    desc: 'Inflict ATK -2 on attacker for next turn',
     fn: function(unit, target) {
       target.addStatus('atk -2', 2);
     }
@@ -243,6 +257,7 @@ const abilities = {
   'absorb': {
     name: 'Absorb',
     type: 'reaction',
+    desc: 'Increase RES by 1 (up to 3 times) when attacked',
     fn: function(unit, target, animate) {
       let text = '';
       if (unit.hasStatus('res +3')) {
@@ -270,6 +285,7 @@ const abilities = {
   'momentum': {
     name: 'Momentum',
     type: 'reaction',
+    desc: 'Increase SPD by 1 (up to 3 times) when attacked',
     fn: function(unit, target, animate) {
       let text = '';
       if (unit.hasStatus('spd +3')) {
