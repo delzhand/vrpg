@@ -1,50 +1,115 @@
+@-webkit-keyframes tap {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  60% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  90% {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
 @keyframes tap {
-  0% { transform: translateY(0px); }
-  60% { transform: translateY(0px); }
-  90% { transform: translateY(-3px); }
-  100% { transform: translateY(0px); }
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  60% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  90% {
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
-body {
-  background: url(../images/bg.png);
-  font-family: 'Titillium Web', sans-serif;
+#story {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
-#story {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1em;
-  padding-right: 1em;
-  max-width: 450px;
-  background: #FFF;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  position: relative;
+#story .start {
+  background: radial-gradient(rgba(155, 155, 155, 0.8), rgba(0, 0, 0, 0.8));
+  background-position: center;
+  background-size: 100% 200%;
+  width: calc(100% + 32px);
+  padding: 12px;
+  color: #FFF;
+  text-align: center;
+  font-weight: bold;
+  margin-left: -16px;
+  margin-right: -16px;
 }
+
 .line {
   position: relative;
   clear: both;
   margin-top: 20px;
   margin-bottom: 20px;
-  animation: fadeIn 1s;
-  animation-iteration-count: 1;
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   scroll-margin: 20px;
 }
+
 .line:first-child {
   margin-top: 0;
 }
@@ -61,7 +126,7 @@ body {
 
 .line.action {
   text-align: center;
-  font-style:italic;
+  font-style: italic;
 }
 
 .line.dialog {
@@ -72,12 +137,15 @@ body {
   margin-right: 30px;
   position: relative;
   margin-top: 30px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
+
 .line.dialog.rev {
   margin-right: 0;
   margin-left: 40px;
 }
+
 .line.dialog .speaker {
   font-weight: bold;
   background: #333;
@@ -88,6 +156,7 @@ body {
   top: -10px;
   left: -10px;
 }
+
 .line.dialog .speaker .image {
   height: 0;
   width: 40px;
@@ -97,6 +166,7 @@ body {
   vertical-align: middle;
   margin-right: -10px;
 }
+
 .line.dialog .speaker .image img {
   height: 100%;
   width: 100%;
@@ -107,12 +177,14 @@ body {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+
 .line.dialog .speaker .name {
   display: inline-block;
   vertical-align: middle;
   margin-left: 20px;
   margin-right: 20px;
 }
+
 .line.dialog .text {
   padding: 35px 30px 10px 10px;
 }
@@ -131,9 +203,12 @@ body {
   padding: 4px;
   border-radius: 50%;
   text-transform: uppercase;
-  animation: tap 2s;
-  animation-iteration-count: infinite;
+  -webkit-animation: tap 2s;
+          animation: tap 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
+
 .line.scene:last-child::after {
   bottom: -25px;
 }
@@ -141,9 +216,12 @@ body {
 .line.temp {
   height: 200px;
 }
-.line.temp span{
-  animation: spin 1s;
-  animation-iteration-count: infinite;
+
+.line.temp span {
+  -webkit-animation: spin 1s;
+          animation: spin 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   height: 20px;
   width: 20px;
   display: block;
@@ -163,6 +241,7 @@ body {
   padding-right: 20px;
   border-radius: 10px;
 }
+
 .line.vote .option {
   background: #d4d4d4;
   color: #000;
@@ -172,11 +251,13 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .line.vote .option .text,
 .line.vote .option .num {
   z-index: 2;
   position: relative;
 }
+
 .line.vote .option .num {
   font-weight: bold;
   display: inline-block;
@@ -189,6 +270,7 @@ body {
   border-radius: 50%;
   margin-right: 10px;
 }
+
 .line.vote .option .inner {
   position: absolute;
   top: 0;
@@ -197,3 +279,62 @@ body {
   background: #adadc5;
   border-radius: 20px;
 }
+
+.music {
+  text-align: center;
+}
+
+.music .inner {
+  position: relative;
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  border-radius: 10px;
+  line-height: 10px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.music .title {
+  padding: 3px 8px 4px;
+  display: inline-block;
+  margin-right: 40px;
+  line-height: 1em;
+}
+
+.music .title .note {
+  display: inline-block;
+  background: url(../images/note.svg);
+  height: 14px;
+  width: 14px;
+  margin-right: .5em;
+  position: relative;
+  top: 2px;
+}
+
+.music a {
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 8px;
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  right: 0;
+  top: 0;
+}
+
+.music a:hover {
+  background: gold;
+}
+
+.music a img {
+  height: 13px;
+  width: 13px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/*# sourceMappingURL=story.css.map */

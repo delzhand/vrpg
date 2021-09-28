@@ -11,11 +11,20 @@ src="https://code.jquery.com/jquery-2.2.4.min.js"
 integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 crossorigin="anonymous"></script>
 <link href="./css/theme.css" rel="stylesheet">
-<link href="./css/story.css" rel="stylesheet">
-<script src="./scenes.js"></script>
-<script src="./story.js"></script>
+<link href="./css/matchup.css" rel="stylesheet">
+<link href="./css/sprite.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+<script src="./unit.js"></script>
+<script src="./abilities.js"></script>
+<script src="./gear.js"></script>
+<script src="./combat.js"></script>
 
-<title>Anarchy JRPG | Story</title>
+<script>
+  function toggleFlicker() {
+    $('.frame').toggleClass('crt');
+  }
+</script>
+<title>Anarchy JRPG | Battle</title>
 </head>
 <body>
   <div class="header">
@@ -34,9 +43,24 @@ crossorigin="anonymous"></script>
       <a class="latest" href="#">Latest >></a>
     </div>
   </div>
+
   <div class="container">
-    <div id="story" class="main-content" onclick="advance()">
-      <div class="start">Tap/Click to Advance</div>
+    <div class="main-content">
+      <div class="deflicker" onclick="toggleFlicker()">[Toggle CRT Effect]</div>
+      <div class="frame crt" onclick="advance()">
+        <div class="visualizer">
+          <div class="tap-msg">Tap!</div>
+          <div class="battlefield"></div>
+          <div class="saoirse sprite left" style="top: 35%;">    <div class="hp"><span class="num">60</span></div><div class="image"></div></div>
+          <div class="parzeval sprite left" style="top: 50%;">   <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
+          <div class="garven sprite left" style="top: 65%;">     <div class="hp"><span class="num">79</span></div><div class="image"></div></div>
+          <div class="hanya sprite left" style="top: 80%;">      <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
+          <div class="bonewraith sprite right" style="top: 40%;"><div class="hp"><span class="num">150</span></div><div class="image"></div></div>
+          <div class="ichor sprite right" style="top: 65%;">     <div class="hp"><span class="num">165</span></div><div class="image"></div></div>
+          <div class="skills"></div>
+        </div>
+      </div>
+      <div class="queue"></div>  
     </div>
   </div>
   <div class="footer">
@@ -55,5 +79,10 @@ crossorigin="anonymous"></script>
     </div>
   </div>
   <script src="./contents.js"></script>
+  <script>
+    init();
+    fillQueue();
+    drawQueue();
+  </script>
 </body>
 </html>

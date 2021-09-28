@@ -1,0 +1,89 @@
+body {
+  font-family: 'Titillium Web', sans-serif;
+  background: #5a5a5a;
+  color: #FFF;
+  height: 100vh;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header,
+.footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  background: #191919;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  border-bottom: 1px solid black;
+  height: 170px;
+}
+
+.header .logo img {
+  display: inline-block;
+  height: 100px;
+  width: auto;
+}
+
+.footer {
+  -webkit-box-shadow: 0px -3px 5px black;
+          box-shadow: 0px -3px 5px black;
+  margin-top: auto;
+  height: 80px;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu a {
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.menu a:hover {
+  color: gold;
+}
+
+.menu a.active {
+  border-bottom: 2px solid #FFF;
+}
+
+.menu a[disabled] {
+  color: gray;
+}
+
+.main-content {
+  margin: 20px auto;
+  padding: 12px;
+  max-width: 450px;
+  background: #FFF;
+  color: #111;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+/*# sourceMappingURL=theme.css.map */

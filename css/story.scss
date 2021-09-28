@@ -1,0 +1,250 @@
+@keyframes tap {
+  0% { transform: translateY(0px); }
+  60% { transform: translateY(0px); }
+  90% { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+#story {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  
+  .start {
+    background: radial-gradient(rgba(155, 155, 155, 0.8), rgba(0, 0, 0, 0.8));    
+    background-position: center;
+    background-size: 100% 200%;
+    width: calc(100% + 32px);
+    padding: 12px;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+.line {
+  position: relative;
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s;
+  animation-iteration-count: 1;
+  scroll-margin: 20px;
+}
+.line:first-child {
+  margin-top: 0;
+}
+
+.line.scene {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+
+.line.expo {
+  font-style: italic;
+}
+
+.line.action {
+  text-align: center;
+  font-style:italic;
+}
+
+.line.dialog {
+  background: #d4d4d4;
+  border-radius: 10px;
+  color: #333;
+  margin-left: 10px;
+  margin-right: 30px;
+  position: relative;
+  margin-top: 30px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+.line.dialog.rev {
+  margin-right: 0;
+  margin-left: 40px;
+}
+.line.dialog .speaker {
+  font-weight: bold;
+  background: #333;
+  color: #FFF;
+  display: inline-block;
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+.line.dialog .speaker .image {
+  height: 0;
+  width: 40px;
+  padding-top: 40px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -10px;
+}
+.line.dialog .speaker .image img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.line.dialog .speaker .name {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.line.dialog .text {
+  padding: 35px 30px 10px 10px;
+}
+
+.line.scene:last-child::after,
+.line.dialog:last-child::after {
+  font-style: normal;
+  content: 'tap';
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 2;
+  background: #333;
+  color: #FFF;
+  font-size: 10px;
+  padding: 4px;
+  border-radius: 50%;
+  text-transform: uppercase;
+  animation: tap 2s;
+  animation-iteration-count: infinite;
+}
+.line.scene:last-child::after {
+  bottom: -25px;
+}
+
+.line.temp {
+  height: 200px;
+}
+.line.temp span{
+  animation: spin 1s;
+  animation-iteration-count: infinite;
+  height: 20px;
+  width: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #333;
+}
+
+.line.vote .title {
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  background: #2421ff;
+  color: #fff;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+.line.vote .option {
+  background: #d4d4d4;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.line.vote .option .text,
+.line.vote .option .num {
+  z-index: 2;
+  position: relative;
+}
+.line.vote .option .num {
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background: #FFF;
+  color: #000;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.line.vote .option .inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #adadc5;
+  border-radius: 20px;
+}
+
+.music {
+  text-align: center;
+  .inner {
+    position: relative;
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    border-radius: 10px;
+    line-height: 10px;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .title {
+    padding: 3px 8px 4px;
+    display: inline-block;
+    margin-right: 40px;
+    line-height: 1em;
+    .note {
+      display: inline-block;
+      background: url(../images/note.svg);
+      height: 14px;
+      width: 14px;
+      margin-right: .5em;
+      position: relative;
+      top: 2px;
+    }
+  }
+  a {
+    background: green;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 8px;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    right: 0;
+    top: 0;
+    &:hover {
+      background: gold;
+    }
+    img {
+      height: 13px;
+      width: 13px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
