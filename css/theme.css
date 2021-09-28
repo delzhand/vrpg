@@ -13,6 +13,11 @@ body {
           flex-direction: column;
 }
 
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .header,
 .footer {
   padding-top: 10px;
