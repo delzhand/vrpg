@@ -40,6 +40,7 @@ $('.header').append(`
 
 function populateLinks() {
   const currentPage = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+  console.log(currentPage);
   const contentIndex = contents.indexOf(currentPage);
   if (contentIndex === 0) {
     $('a.first-page').attr('disabled', 'disabled');
@@ -47,7 +48,7 @@ function populateLinks() {
     $('a.next-page').attr('href', contents[contentIndex+1]);
     $('a.latest-page').attr('href', contents[contents.length-1]);
   }
-  else if (contentIndex === contents.length - 1 || currentPage === 'index.html' || currentPage === '') {
+  else if (contentIndex === contents.length - 1 || currentPage === 'index.html') {
     $('a.first-page').attr('href', contents[0]);
     $('a.prev-page').attr('href', contents[contentIndex-1]);
     $('a.next-page').attr('disabled', 'disabled');
