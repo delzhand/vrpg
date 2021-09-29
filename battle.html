@@ -1,5 +1,5 @@
 <html>
-<head>
+  <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,20 @@ crossorigin="anonymous"></script>
 <script src="./abilities.js"></script>
 <script src="./gear.js"></script>
 <script src="./combat.js"></script>
+<script src="./contents.js"></script>
 
 <script>
+
+  let interval = false;
+  function toggleAuto() {
+    if (!interval) {
+      interval = setInterval(advance, 500);
+    }
+    else {
+      clearInterval(interval);
+      interval = false;
+    }
+  }
   function toggleFlicker() {
     $('.frame').toggleClass('crt');
   }
@@ -29,57 +41,50 @@ crossorigin="anonymous"></script>
 <body>
   <div class="header">
     <div class="logo"><a href="index.html"><img src="./images/logo.png"></a></div>
-    <div class="menu nav">
-      <a href="index.html">Home</a>
-      <a href="status.html">Party Status</a>
-      <a href="faq.html">FAQ</a>
-      <a href="archive.html">Archive</a>
-      <a href="updates.html">Updates</a>
-    </div>
-    <div class="menu pages">
-      <a class="first" href="#"><< First</a>
-      <a class="prev" href="#">< Prev</a>
-      <a class="next" href="#">Next ></a>
-      <a class="latest" href="#">Latest >></a>
-    </div>
   </div>
 
   <div class="container">
     <div class="main-content">
       <div class="deflicker" onclick="toggleFlicker()">[Toggle CRT Effect]</div>
+      <div class="autoadvance" onclick="toggleAuto()">[Toggle Auto-advance]</div>
       <div class="frame crt" onclick="advance()">
         <div class="visualizer">
+          <div class="status">
+            <div class="unit saoirse">
+              <div class="name">Saoirse</div>
+              <div class="hp">60</div><div class="mhp">/60</div>
+            </div>
+            <div class="unit parzeval">
+              <div class="name">Parzeval</div>
+              <div class="hp">51</div><div class="mhp">/51</div>
+            </div>
+            <div class="unit garven">
+              <div class="name">Garven</div>
+              <div class="hp">79</div><div class="mhp">/79</div>
+            </div>
+            <div class="unit hanya">
+              <div class="name">Hanya</div>
+              <div class="hp">51</div><div class="mhp">/51</div>
+            </div>
+          </div>
           <div class="tap-msg">Tap!</div>
           <div class="battlefield"></div>
-          <div class="saoirse sprite left" style="top: 35%;">    <div class="hp"><span class="num">60</span></div><div class="image"></div></div>
-          <div class="parzeval sprite left" style="top: 50%;">   <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
-          <div class="garven sprite left" style="top: 65%;">     <div class="hp"><span class="num">79</span></div><div class="image"></div></div>
-          <div class="hanya sprite left" style="top: 80%;">      <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
-          <div class="bonewraith sprite right" style="top: 40%;"><div class="hp"><span class="num">150</span></div><div class="image"></div></div>
-          <div class="ichor sprite right" style="top: 65%;">     <div class="hp"><span class="num">165</span></div><div class="image"></div></div>
+          <div class="saoirse sprite left" style="top: 15%;">    <div class="hp"><span class="num">60</span></div><div class="image"></div></div>
+          <div class="parzeval sprite left" style="top: 30%;">   <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
+          <div class="garven sprite left" style="top: 45%;">     <div class="hp"><span class="num">79</span></div><div class="image"></div></div>
+          <div class="hanya sprite left" style="top: 60%;">      <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
+          <div class="bonewraith sprite right" style="top: 20%;"><div class="hp"><span class="num">150</span></div><div class="image"></div></div>
+          <div class="ichor sprite right" style="top: 45%;">     <div class="hp"><span class="num">165</span></div><div class="image"></div></div>
           <div class="skills"></div>
         </div>
       </div>
       <div class="queue"></div>  
     </div>
   </div>
-  <div class="footer">
-    <div class="menu pages">
-      <a class="first" href="#"><< First</a>
-      <a class="prev" href="#">< Prev</a>
-      <a class="next" href="#">Next ></a>
-      <a class="latest" href="#">Latest >></a>
-    </div>
-    <div class="menu nav">
-      <a href="index.html">Home</a>
-      <a href="status.html">Party Status</a>
-      <a href="faq.html">FAQ</a>
-      <a href="archive.html">Archive</a>
-      <a href="updates.html">Updates</a>
-    </div>
-  </div>
-  <script src="./contents.js"></script>
+  <div class="footer"></div>
   <script>
+    drawNav();
+    populateLinks();
     init();
     fillQueue();
     drawQueue();

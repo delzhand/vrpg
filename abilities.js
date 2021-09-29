@@ -367,6 +367,7 @@ function animateStandardAttack(timer, unit, ability,  target, text) {
     $(`.sprite.${target.name.safeCSS()}`).append(`<div class="pop-text">${text}</div>`);
     $(`.sprite.${target.name.safeCSS()} .hp`).css('height', `calc(14px * ${target.chp / target.mhp})`);
     $(`.sprite.${target.name.safeCSS()} .hp .num`).html(target.chp);
+    $(`.status .${target.name.safeCSS()} .hp`).html(target.chp);
     if (target.chp <= 0) {
       $(`.sprite.${target.name.safeCSS()}`).addClass('down');
     }
@@ -400,6 +401,7 @@ function animateMultiple(timer, unit, ability,  targets, isAttack) {
       $(`.sprite.${targets[i].unit.name.safeCSS()}`).append(`<div class="pop-text">${targets[i].text}</div>`);
       $(`.sprite.${targets[i].unit.name.safeCSS()} .hp`).css('height', `calc(14px * ${targets[i].unit.chp/targets[i].unit.mhp})`);
       $(`.sprite.${targets[i].unit.name.safeCSS()} .hp .num`).html(targets[i].unit.chp);
+      $(`.status .${targets[i].unit.name.safeCSS()} .hp`).html(targets[i].unit.chp);
       if (targets[i].unit.chp <= 0) {
         $(`.sprite.${targets[i].unit.name.safeCSS()}`).addClass('down');
       }  
@@ -425,9 +427,13 @@ function finishAnimate() {
   if (isVictory()) {
     $('.visualizer').append('<div class="final">Victory!</div>');
     $('.queue .item').remove();
+    $('.main-content').append('<div class="next-nav"><a href="#" class="next-page">Next</a></div>');
+    populateLinks();
   }
   if (isDefeat()) {
     $('.visualizer').append('<div class="final">Defeated...</div>');
     $('.queue .item').remove();
+    $('.main-content').append('<div class="next-nav"><a href="#" class="next-page">Next</a></div>');
+    populateLinks();
   }
 }

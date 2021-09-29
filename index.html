@@ -14,46 +14,22 @@ crossorigin="anonymous"></script>
 <link href="./css/story.css" rel="stylesheet">
 <script src="./scenes.js"></script>
 <script src="./story.js"></script>
+<script src="./contents.js"></script>
 
 <title>Chaos Quest | Home</title>
 </head>
 <body>
   <div class="header">
     <div class="logo"><a href="index.html"><img src="./images/logo.png"></a></div>
-    <div class="menu nav">
-      <a href="index.html">Home</a>
-      <a href="status.html">Party Status</a>
-      <a href="faq.html">FAQ</a>
-      <a href="archive.html">Archive</a>
-      <a href="updates.html">Updates</a>
-    </div>
-    <div class="menu pages">
-      <a class="first" href="#"><< First</a>
-      <a class="prev" href="#">< Prev</a>
-      <a class="next" href="#">Next ></a>
-      <a class="latest" href="#">Latest >></a>
-    </div>
   </div>
   <div class="container">
-    <div id="story" class="main-content" onclick="advance()">
-      <div class="start">Tap/Click to Advance</div>
-    </div>
+    <div id="story" class="main-content" onclick="advance()"></div>
   </div>
-  <div class="footer">
-    <div class="menu pages">
-      <a class="first" href="#"><< First</a>
-      <a class="prev" href="#">< Prev</a>
-      <a class="next" href="#">Next ></a>
-      <a class="latest" href="#">Latest >></a>
-    </div>
-    <div class="menu nav">
-      <a href="index.html">Home</a>
-      <a href="status.html">Party Status</a>
-      <a href="faq.html">FAQ</a>
-      <a href="archive.html">Archive</a>
-      <a href="updates.html">Updates</a>
-    </div>
-  </div>
-  <script src="./contents.js"></script>
+  <div class="footer"></div>
+  <script>
+    drawNav();
+    populateLinks();
+    advance();
+  </script>
 </body>
 </html>

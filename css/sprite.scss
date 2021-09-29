@@ -34,6 +34,38 @@
   background: skyblue;
   transform-origin: top center;
   overflow: hidden;
+  .status {
+    color: #FFF;
+    font-weight: bold;
+    background: blue;
+    border: 1px solid #FFF;
+    border-radius: 2px;
+    font-size: 4px;
+    text-align: left;
+    width: 100%;
+    height: 26px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 6;
+    .unit {
+      padding-left: 2px;
+      .name {
+        display: inline-block;
+        width: 12px;
+      }
+      .hp {
+        display: inline-block;
+        text-align: right;
+        width: 20px;
+      }
+      .mhp {
+        display: inline-block;
+        text-align: left;
+        width: 20px;
+      }
+    }
+  }
   .tap-msg,
   .final {
     color: #FFF;
@@ -54,7 +86,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: 26px;
     left: 0;
     transform-origin: bottom;
     transform-style: preserve-3d;
@@ -102,6 +134,7 @@
       animation-iteration-count: 1;
     }
     .hp {
+      display: none;
       position: absolute;
       left: 24px;
       bottom: 2px;
@@ -127,6 +160,7 @@
         font-weight: bold;
         color: #FFF;
         transform: scaleX(-1);
+        display: none;
       }
     }
     .image {
@@ -175,6 +209,7 @@
       right: 30px;
       transform: translate(50%, 0%);
       .hp {
+        display: block;
         background-color: rgb(255, 80, 57);
         .num {
           transform: scaleX(1);
@@ -359,6 +394,7 @@
   animation: flicker 0.15s infinite;
 }
 
+.autoadvance,
 .deflicker {
   position: absolute;
   top: 2px;
@@ -366,4 +402,8 @@
   font-size: 10px;
   background: #FFF;
   cursor: pointer;
+}
+.autoadvance {
+  right: auto;
+  left: 12px;
 }

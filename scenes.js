@@ -15,7 +15,8 @@ const scenes = [
   ???|R: Hey, where are you from?!
   VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Ignore this. Just testing something.</p>&mdash; Derek Adams (@delzhand) <a href="https://twitter.com/delzhand/status/1439677007734902788?ref_src=twsrc%5Etfw">September 19, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
   
-  `SCENE: Southeast Granvista - Oxcorn Plains
+  `SCENE: Scene 1
+  SCENE: Southeast Granvista - Oxcorn Plains
   MUSIC: Final Fantasy III - Eternal Wind|https://www.youtube.com/watch?v=_VRWlmXuv8E
   EXPO: Saoirse wiped the sweat from her brow. Patrolling the main road through the Oxcorn Plains wasn't difficult work by any means, but today the sun beat down relentlessly. It didn't bother Parzival of course, his ice magic was enough to keep him cool with little effort. Hanya wore only a light tunic befitting the monks of her order. Garven, in his chainmail, seemed on the verge of passing out. Saoirse empathized.
   EXPO: The golden grass of the plain was stirred gently by some breeze she couldn't feel. It rippled across the miles of open land. Nary a cart was visible in either direction. Soairse put up a hand to block the sun. All it accomplished was that her hand began to feel as warm as her brow.
@@ -36,9 +37,11 @@ const scenes = [
   EXPO: Garven hefted his halberd, and as he did so, red light flared in the previously empty eye sockets. The skull darted quickly into the air out of Garven's reach and oriented itself facing the group. The remainder of a skeleton materialized, corkscrewing out from the brainpan as if its component matter had been stashed inside.
   SAOIRSE|R: And as sure as the sunrise, here comes the slime.
   EXPO: The skeleton bent over and disgorged a wet hunk of viscous semi-solid material. Whatever weird symbiotic relationship there was between slimes and cursed skeletons was a matter for scholars. The guard company tasked with keeping the road safe had a responsibility to get rid of both, wherever they appeared.
-  VOTE-CLOSED: Saoirse - Thrust%20|Saoirse - Flank%10|Parzeval - Ice Spear%10|Parzeval - Hailstorm%10|Garven - Crushing Blow%10|Garven - Protect%10|Hanya - Blazing Fist%20|Hanya - Mantra%10`,
+  VOTE-CLOSED: Saoirse - Thrust%20|Saoirse - Flank%10|Parzeval - Ice Spear%10|Parzeval - Hailstorm%10|Garven - Crushing Blow%10|Garven - Protect%10|Hanya - Blazing Fist%20|Hanya - Mantra%10
+  NEXT`,
 
-  `SCENE: Southeast Granvista - Oxcorn Plains
+  `SCENE: Scene 2
+  SCENE: Southeast Granvista - Oxcorn Plains
   MUSIC: Final Fantasy III - Eternal Wind|https://www.youtube.com/watch?v=_VRWlmXuv8E
   EXPO: Bits of bone lay strew across the path, intermingled with globs of (thankfully) inanimate slime. Something glittered in the sunlight, catching Saoirse's eye.
   SAOIRSE|L: Hey, what's this?

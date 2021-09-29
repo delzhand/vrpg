@@ -54,6 +54,10 @@ function advance() {
         }
       }
       break;
+    case 'NEXT':
+      $('#story').append(`<div class="line next-nav"><a class="next-page" href="#">Next ></a></div>`);
+      populateLinks();
+      break;
     default:
       let spos = line[0].split('|');
       const pos = (spos[1] === 'R') ? '' : 'rev';

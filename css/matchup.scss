@@ -7,7 +7,7 @@
   background: black;
   white-space: nowrap;
   font-size: 0;
-  height: 54px;
+  height: 48px;
   overflow: hidden;
   .item {
     display: inline-block;
@@ -16,7 +16,7 @@
     width: 90px;
     text-align: center;
     color: #FFF;
-    font-size: 14px;
+    font-size: 12px;
     transition-duration: .2s;
     transform: scaleX(1);
     transform-origin: left;
@@ -137,5 +137,19 @@
   .outcomes {
     font-size: 10px;
     flex: 1 1 0;
+  }
+}
+
+.next-nav {
+  text-align: center;
+  margin-top: 20px;
+  a {
+    font-weight: bold;
+    background: #333;
+    color: #FFF;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 4px 20px;
   }
 }

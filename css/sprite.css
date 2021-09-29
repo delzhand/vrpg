@@ -111,6 +111,43 @@
   overflow: hidden;
 }
 
+.visualizer .status {
+  color: #FFF;
+  font-weight: bold;
+  background: blue;
+  border: 1px solid #FFF;
+  border-radius: 2px;
+  font-size: 4px;
+  text-align: left;
+  width: 100%;
+  height: 26px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 6;
+}
+
+.visualizer .status .unit {
+  padding-left: 2px;
+}
+
+.visualizer .status .unit .name {
+  display: inline-block;
+  width: 12px;
+}
+
+.visualizer .status .unit .hp {
+  display: inline-block;
+  text-align: right;
+  width: 20px;
+}
+
+.visualizer .status .unit .mhp {
+  display: inline-block;
+  text-align: left;
+  width: 20px;
+}
+
 .visualizer .tap-msg,
 .visualizer .final {
   color: #FFF;
@@ -133,7 +170,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 26px;
   left: 0;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -204,6 +241,7 @@
 }
 
 .visualizer .sprite .hp {
+  display: none;
   position: absolute;
   left: 24px;
   bottom: 2px;
@@ -233,6 +271,7 @@
   color: #FFF;
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
+  display: none;
 }
 
 .visualizer .sprite .image {
@@ -301,6 +340,7 @@
 }
 
 .visualizer .sprite.right .hp {
+  display: block;
   background-color: #ff5039;
 }
 
@@ -686,6 +726,7 @@
           animation: flicker 0.15s infinite;
 }
 
+.autoadvance,
 .deflicker {
   position: absolute;
   top: 2px;
@@ -693,5 +734,10 @@
   font-size: 10px;
   background: #FFF;
   cursor: pointer;
+}
+
+.autoadvance {
+  right: auto;
+  left: 12px;
 }
 /*# sourceMappingURL=sprite.css.map */
