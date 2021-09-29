@@ -31,11 +31,16 @@ crossorigin="anonymous"></script>
       </div>
       <div>
         <h2>Does that mean random encounters?</h2>
-        <p>It does have battles, yes! What would a JRPG be without battles? Of course, as an audience-driven story, it's not combat you can actually <i>play</i>, but each combat will have a vote beforehand where you can choose to boost the priority of one of the party members' abilities. This matters because without votes, a unit will just use the basic attack command on every turn, reducing their earned XP. Each party member's ability pool will be based on all votes received, and the character who receives the most votes overall will have boosted stats. Once the votes are tallied, the next scene will be presented as a 2d sprite based battle that plays out based on a real combat engine.</p>
+        <p>I don't know about <i>random</i>, but it does have battles, yes! What would a JRPG be without battles? Of course, as an audience-driven story, it's not combat you can actually <i>play</i>, but each combat will have a vote beforehand where you can choose to boost the priority of one of the party members' abilities. Once the votes are tallied, the next scene will be presented as a 2d sprite based battle that plays out based on a real combat engine.</p>
       </div>
       <div>
-        <h2>How exactly does combat work?</h2>
-        <p>Under the hood, it's a charge-time based system like Final Fantasy Tactics. Units' CT increments based on their SPD, and when it reaches 100, they get a turn. An ability is chosen from that unit's ability pool, and that ability fires. The effectiveness is determined by the unit and target's stats (ATK, DEF, RES, SPD). Some units have reaction abilities, like counter attacks.</p>
+        <h2>How does combat work?</h2>
+        <p>Units get turns based on their SPD. On their turn, they'll automatically choose an action and perform it. The effectiveness is determined by the unit and target's stats (ATK, DEF, RES, SPD). Some units have reaction abilities, like counter attacks. There are also positive and negative status effects that can affect a character.</p>
+      </div>
+      <div>
+        <h2>How does voting affect combat? How do characters choose actions?</h2>
+        <p>When a character's turn comes up, they'll randomly select an action from their pool, which is dependent on votes received. A character who gets no votes has an ability pool that looks like this: [attack:100%, ability1:0%, ability2:0%]</p>
+        <p>If a character gets votes to use an ability, it increases the percentage chance of that ability being chosen. Say a character has two abilities: Thrust and Flank. If she gets 3 votes for Thrust and 2 votes for Flank (you can't vote for basic attack), her ability pool looks like [attack:17%, thrust:50%, flank:33%]. Every turn, she'll choose an ability randomly based on those percentages.</p>
       </div>
       <div>
         <h2>What happens if the party is defeated?</h2>

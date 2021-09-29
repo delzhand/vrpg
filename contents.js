@@ -39,9 +39,11 @@ $('.header').append(`
 }
 
 function populateLinks() {
-  const currentPage = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-  console.log(currentPage);
+  let currentPage = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
   const contentIndex = contents.indexOf(currentPage);
+  if (currentPage === '' || currentPage === '/') {
+    currentPage = 'index.html';
+  }
   if (contentIndex === 0) {
     $('a.first-page').attr('disabled', 'disabled');
     $('a.prev-page').attr('disabled', 'disabled');
