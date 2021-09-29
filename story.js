@@ -26,6 +26,7 @@ function advance() {
   }
   line = line.split(': ');
   switch (line[0]) {
+    case 'PROMPT':
     case 'EXPO':
     case 'SCENE':
     case 'ACTION':
@@ -53,6 +54,9 @@ function advance() {
           $('#story .vote').last().append(`<div class="option"><span class="num">${i + 1}</span><span class="text">${options[i].trim()}</span></div>`);
         }
       }
+      break;
+    case 'BREAK':
+      $('#story').append('<div class="line break"></div>');
       break;
     case 'NEXT':
       $('#story').append(`<div class="line next-nav"><a class="next-page" href="#">Next ></a></div>`);

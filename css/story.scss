@@ -56,6 +56,14 @@
 
 .line.expo {
   font-style: italic;
+  i {
+    font-style: normal;
+  }
+}
+.line.prompt {
+  color: #da3c00;
+  font-weight: bold;
+  text-align: center;
 }
 
 .line.action {
@@ -71,6 +79,9 @@
   margin-right: 30px;
   margin-top: 30px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  .smaller {
+    font-size: 12px;
+  }
 }
 .line.dialog.rev {
   margin-right: 0;
@@ -83,8 +94,9 @@
   display: inline-block;
   border-radius: 10px;
   position: absolute;
-  top: -10px;
+  top: 20px;
   left: -10px;
+  transform: translateY(-100%);
 }
 .line.dialog .speaker .image {
   height: 0;
@@ -112,7 +124,7 @@
   margin-right: 20px;
 }
 .line.dialog .text {
-  padding: 35px 30px 10px 10px;
+  padding: 25px 30px 10px 10px;
 }
 .line:not(.dialog):last-child {
   padding-bottom: 40px;
@@ -197,7 +209,9 @@
   background: #adadc5;
   border-radius: 20px;
 }
-
+.line.break {
+  border-top: 20px solid #333;
+}
 .music {
   text-align: center;
   .inner {
