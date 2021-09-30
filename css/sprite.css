@@ -179,7 +179,6 @@
   -webkit-transform: perspective(14cm) rotateX(44deg);
           transform: perspective(14cm) rotateX(44deg);
   background: #a99057;
-  display: none;
 }
 
 .visualizer .skill {
