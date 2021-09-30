@@ -35,7 +35,8 @@ const scenes = [
   `SCENE: Prologue
   EXPO: Saoirse rolled over in her bed, away from the morning sunlight. She had slept fitfully, and her dreams, though vivid in sleep, began to fade into the clarity of consciousness. She sat up after a moment, throwing off the heavy comforter.
   PROMPT: One of these is not a dream, but a memory. Who is Saoirse?
-  VOTE-OPEN: A machine-flying cartographer|A dungeon-delving relic seeker|A wyvern-riding monster hunter`,
+  VOTE-OPEN: A machine-flying cartographer|A dungeon-delving relic seeker|A wyvern-riding monster hunter
+  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The prologue has started - vote on the hero&#39;s backstory!<br><br>Who is Saoirse?</p>&mdash; chaosquest (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1443694245227945989?ref_src=twsrc%5Etfw">September 30, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
 ];
 const actors = {
   'SAOIRSE': {
