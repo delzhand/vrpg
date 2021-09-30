@@ -40,9 +40,8 @@ $('.header').append(`
 
 function populateLinks() {
   let currentPage = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-  console.log("page: [" + currentPage + "]");
   const contentIndex = contents.indexOf(currentPage);
-  if (currentPage === '' || currentPage === '/') {
+  if (currentPage.length === 0) {
     currentPage = 'index.html';
   }
   if (contentIndex === 0) {
