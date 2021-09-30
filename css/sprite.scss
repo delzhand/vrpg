@@ -52,20 +52,21 @@
     left: 0px;
     z-index: 6;
     .unit {
-      padding-left: 2px;
+      padding-left: 95px;
       .name {
         display: inline-block;
-        width: 12px;
+        width: 20px;
+        text-transform: uppercase;
       }
       .hp {
         display: inline-block;
         text-align: right;
-        width: 20px;
+        width: 14px;
       }
       .mhp {
         display: inline-block;
         text-align: left;
-        width: 20px;
+        width: 14px;
       }
     }
   }
@@ -139,13 +140,12 @@
       animation-iteration-count: 1;
     }
     .hp {
-      display: none;
       position: absolute;
       left: 24px;
       bottom: 2px;
       width: 3px;
       height: calc(14px * 1);
-      background-color: rgb(94, 191, 255);
+      background-color: rgb(255, 80, 57);
       &::after {
         content: "";
         width: 3px;
@@ -211,11 +211,7 @@
       right: 30px;
       transform: translate(50%, 0%);
       .hp {
-        display: block;
-        background-color: rgb(255, 80, 57);
-        .num {
-          transform: scaleX(1);
-        }
+        display: none;
       }
     }
     &.active {

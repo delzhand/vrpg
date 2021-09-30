@@ -415,7 +415,7 @@ function animateMultiple(timer, unit, ability,  targets, isAttack) {
 
 function startAnimate(unit, ability) {
   animationLocks++;
-  $('.skills').append(`<div class="skill ${unit.team === 'ally' ? 'left' : 'right'}">${ability}</div>`);
+  $('.skills').append(`<div class="skill ${unit.team === 'ally' ? 'right' : 'left'}">${ability}</div>`);
   $(`.sprite.${unit.name.safeCSS()}`).addClass('active');
 }
 
