@@ -66,11 +66,19 @@ function advance() {
       let spos = line[0].split('|');
       const pos = (spos[1] === 'R') ? '' : 'rev';
       const actor = actors[spos[0]];
-      if (actor) {
+      if (actor && actor.picture) {
         $('#story').append(`
           <div class="line dialog ${pos}">
             <div class="speaker">
               <div class="image"><img src="./images/${actor.picture}"></div>
+              <div class="name">${actor.name}</div>
+            </div>
+            <div class="text">${line[1]}</div>
+          </div>`);
+      } else if (actor) {
+        $('#story').append(`
+          <div class="line dialog ${pos}">
+            <div class="speaker">
               <div class="name">${actor.name}</div>
             </div>
             <div class="text">${line[1]}</div>
@@ -87,7 +95,8 @@ function advance() {
       break;
   }
   index++;
-  $('.line').last()[0].scrollIntoView(false);
+  // $('.line').last()[0].scrollIntoView(false);
+  window.scrollTo(0,document.body.scrollHeight);
   if (index > lines.length - 1) {
     $('.line').last().after('<div class="scene-end"></div>');
   }

@@ -1,7 +1,8 @@
 contents = [
+  'story.html?scene=0',
   'story.html?scene=1',
-  'battle.html?scene=1',
   'story.html?scene=2',
+  'story.html?scene=3',
 ];
 
 function drawNav() {
