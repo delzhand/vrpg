@@ -194,6 +194,7 @@
   text-align: center;
   width: 40%;
   position: absolute;
+  z-index: 4;
   top: 4px;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
