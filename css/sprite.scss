@@ -92,6 +92,7 @@
     transform-style: preserve-3d;
     transform: perspective(14cm) rotateX(44deg);
     background: #a99057;
+    display: none;
   }
   .skill {
     color: #FFF;
@@ -126,6 +127,7 @@
     transform-origin: bottom;
     transition-duration: .25s;
     opacity: 1;
+    z-index: 3;
     &.down {
       animation-delay: 1s;
       animation-name: down;

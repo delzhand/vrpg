@@ -179,6 +179,7 @@
   -webkit-transform: perspective(14cm) rotateX(44deg);
           transform: perspective(14cm) rotateX(44deg);
   background: #a99057;
+  display: none;
 }
 
 .visualizer .skill {
@@ -225,6 +226,7 @@
   -webkit-transition-duration: .25s;
           transition-duration: .25s;
   opacity: 1;
+  z-index: 3;
 }
 
 .visualizer .sprite.down {
