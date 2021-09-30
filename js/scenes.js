@@ -27,9 +27,9 @@ const scenes = [
   `SCENE: The Third Dream
   EXPO: Saoirse swatted a tree branch out of the way and gripped her reins tightly. She was on edge - the blood panther had been spotted in this forest only a few days ago. It had killed two cows and wounded a farmer in the nearby village. But she'd pursued it this far, and she wasn't about to let a tangle of scrub and fallen logs stop her now.
   EXPO: A hart, previously still with fear, darted away somewhere to her left. Her wyvern turned to follow it, and she gently tugged on the reins to bring its focus back to <i>her</i> hunt.
-  SAOIRSE|L: I know you're hungry, Espadi. Me too.
+  SAOIRSE|L: I know you're hungry, Ambrose. You can hunt once we're done.
   EXPO: She'd taken the job reluctantly. She didn't need the money at the moment, and blood panthers tended to hide during the day. But the village didn't have anyone capable of taking down a beast like this on their own. And left to their own devices, blood panthers would mate with regular panthers, always passing down their voracious appetite and wild strength to their offspring through some cruel trick of heredity.
-  EXPO: Espadi stopped and sniffed at the ground. Saoirse checked the straps on her scale mail and grabbed one of her spear from the saddle harness. Her prey was near. She clenched her teeth and dropped down from Espadi's back. The growl from the overhang was unmistakable, and she dug in her heels as the panther dropped towards her.
+  EXPO: Ambrose stopped and sniffed at the ground. His nostrils flared. Saoirse checked the straps on her scale mail and grabbed one of her spear from the saddle harness. Her prey was near. She clenched her teeth and dropped down from Ambrose's back. The growl from the overhang was unmistakable, and she dug in her heels as the panther dropped towards her.
   NEXT`,
 
   `SCENE: Prologue

@@ -133,14 +133,38 @@
   z-index: 6;
 }
 
-.visualizer .status .unit {
-  padding-left: 95px;
+.visualizer .status .allies,
+.visualizer .status .enemies {
+  position: absolute;
+  top: -1px;
+  border: 1px solid #FFF;
+  border-radius: 1px;
+  height: 32px;
+}
+
+.visualizer .status .allies {
+  right: -1px;
+  padding-left: 2px;
+}
+
+.visualizer .status .enemies {
+  left: -1px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.visualizer .status .enemies .unit .name {
+  width: 40px;
 }
 
 .visualizer .status .unit .name {
   display: inline-block;
-  width: 20px;
+  width: 30px;
   text-transform: uppercase;
+}
+
+.visualizer .status .unit .name.active {
+  color: gold;
 }
 
 .visualizer .status .unit .hp {
@@ -528,8 +552,8 @@
   position: absolute;
   left: 50%;
   top: 14px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translateX(-50%) scale(0.4);
+          transform: translateX(-50%) scale(0.4);
   display: inline-block;
   font-weight: bold;
   color: #FFF;
@@ -544,16 +568,17 @@
           animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
-  font-size: 8px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 1px;
-  padding: 1px 2px;
   line-height: 1;
+  -webkit-text-stroke: 1px black;
+  paint-order: stroke fill;
+  font-size: 18px;
+  font-family: impact;
+  text-shadow: 1px 1px 0 black;
 }
 
 .sprite.left .pop-text {
-  -webkit-transform: translateX(-50%) scaleX(-1);
-          transform: translateX(-50%) scaleX(-1);
+  -webkit-transform: translateX(-50%) scale(-0.4, 0.4);
+          transform: translateX(-50%) scale(-0.4, 0.4);
 }
 
 @-webkit-keyframes flicker {

@@ -415,12 +415,14 @@ function animateMultiple(timer, unit, ability,  targets, isAttack) {
 
 function startAnimate(unit, ability) {
   animationLocks++;
+  $(`.status .${unit.name.safeCSS()} .name`).addClass('active');
   $('.skills').append(`<div class="skill ${unit.team === 'ally' ? 'right' : 'left'}">${ability}</div>`);
   $(`.sprite.${unit.name.safeCSS()}`).addClass('active');
 }
 
 function finishAnimate() {
   animationLocks--;
+  $('.status .name').removeClass('active');
   $('.sprite').removeClass('active attack');
   $('.pop-text').remove();
   $('.skill').remove();
