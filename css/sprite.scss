@@ -92,6 +92,7 @@
     transform-style: preserve-3d;
     transform: perspective(14cm) rotateX(44deg);
     background: #a99057;
+    z-index: 1;
   }
   .skill {
     color: #FFF;
