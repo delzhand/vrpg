@@ -15,7 +15,10 @@ function rescroll() {
 }
 
 function advance() {
-  $('#story .start').remove();
+  if (index === 0) {
+    $('#pa-log').append(`<p>[url="${window.location.href}"]Interactive Version[/url]</p>`)
+    $('#story .start').remove();
+  }
   if (index > lines.length - 1) {
     return;
   }
@@ -31,10 +34,20 @@ function advance() {
     case 'SCENE':
     case 'ACTION':
       $('#story').append(`<div class="line ${line[0].toLowerCase()}">${line[1]}</div>`);
+      if (line[0] === 'SCENE') {
+        $('#pa-log').append(`<p>[b]${line[1].toPA()}[/b]</p>`);
+      }
+      else if (line[0] === 'PROMPT') {
+        $('#pa-log').append(`<p>[b][color=red]${line[1].toPA()}[/color][/b]</p>`);
+      }
+      else {
+        $('#pa-log').append(`<p>${line[1].toPA()}</p>`);
+      }
       break;
     case 'MUSIC':
       let link = line[1].split('|');
       $('#story').append(`<div class="line music"><span class="inner"><span class="title"><span class="note"></span>${link[0]}</span><a href="${link[1]}" target="_blank"><img src="./images/play.svg"></a></span></div>`);
+      $('#pa-log').append(`<p>${link[0]}<br>${link[1]}</p>`);
       break;
     case 'VOTE-TW':
       $('#story').append('<div class="line temp"><span class="spinner"></span></div>')
@@ -45,6 +58,7 @@ function advance() {
     case 'VOTE-CLOSED':
       $('#story').append(`<div class="line vote"><div class="title">${line[0]}</div></div>`);
       let options = line[1].split('|');
+      $('#pa-log').append('[list=1]<br>');
       for (let i = 0; i < options.length; i++) {
         const data = options[i].split('%');
         if (data.length === 2) {
@@ -53,7 +67,9 @@ function advance() {
         else {
           $('#story .vote').last().append(`<div class="option"><span class="num">${i + 1}</span><span class="text">${options[i].trim()}</span></div>`);
         }
+        $('#pa-log').append(`[*] ${options[i].trim()}<br/>`);
       }
+      $('#pa-log').append('[/list]');
       break;
     case 'BREAK':
       $('#story').append('<div class="line break"></div>');
@@ -75,8 +91,8 @@ function advance() {
             </div>
             <div class="text">${line[1]}</div>
           </div>`);
-      } else if (actor) {
-        $('#story').append(`
+        } else if (actor) {
+          $('#story').append(`
           <div class="line dialog ${pos}">
             <div class="speaker">
               <div class="name">${actor.name}</div>
@@ -91,7 +107,8 @@ function advance() {
             </div>
             <div class="text">${line[1]}</div>
           </div>`);
-      }
+        }
+      $('#pa-log').append(`<p>${spos[0]}: ${line[1].toPA()}</p>`);
       break;
   }
   index++;
@@ -100,6 +117,13 @@ function advance() {
   if (index > lines.length - 1) {
     $('.line').last().after('<div class="scene-end"></div>');
   }
+}
+
+String.prototype.toPA = function() {
+  return this.replaceAll('<i>', '[i]')
+    .replaceAll('</i>', '[/i]')
+    .replaceAll('<b>', '[b]')
+    .replaceAll('</b>', '[/b]');
 }
 
 function getUrlVars() {

@@ -1,5 +1,5 @@
 const scenes = [
-  `SCENE: The First Dream
+  `SCENE: The First Vision
   EXPO: Saoirse crouched near the middle of the ancient subterranean plaza, near a crumbling stone wall. A skeleton hobbled past her clumsily, dim embers in its eyes.
   EXPO: She ignored it, and surveyed the area. The skeletons weren't a <i>huge</i> threat alone, for the most part they could just be knocked over, or if you wanted a laugh, you could grab their skulls and punt them into the pools of milky cave water nearby.
   EXPO: The statues were another story. The stone sentinels patrolled these ruins, even centuries after the fall of their kingdom. Had their creators intended them to wander the dark indefinitely, or was it just an oversight?
@@ -10,10 +10,10 @@ const scenes = [
   SAOIRSE|L: I thought cats were naturally curious. Don't you want to see the Kingsword?
   EXPO: The eyes turned towards the shrine. There was a flicker in the shadow, the merest suggestion of a twitching tail.
   LIMINI|R: <span class="smaller">...a little bit.</span>
-  EXPO: The spectral cat took on a more substantial form and bounded off towards the patrolling automaton, which mindlessly gave chase. Saoirse grinned and tightened her cloak, and sprinted for the shrine.
+  EXPO: The spectral cat took on a more substantial form and bounded off towards the patrolling automaton, which mindlessly gave chase. Saoirse grinned and tightened her cloak, then sprinted for the shrine.
   NEXT`,
 
-  `SCENE: The Second Dream
+  `SCENE: The Second Vision
   EXPO: Saoirse stood at the top of the sand dune and looked east, over the rooftops of the fishing village. The ocean was choppy, and summer's heat had given way to more moderate weather. But the wind was high, which was exactly what she wanted. Today was the day.
   EXPO: She'd discovered the craft while mapping the woods further inland. It had been badly damaged, abandoned long ago. Long ago enough that the forest had almost claimed it entirely, much like its former rider's bones. But it called to her, begged to be restored.
   EXPO: Several other residents of the fishing village had come to the dune to watch. There was a general sense of optimism - Saoirse's previous attempts had met with halting, cautious success. But today was the real test.
@@ -24,7 +24,7 @@ const scenes = [
   EXPO: The engine flared, and the arc-halo lifted the craft off the ground. This was going to make charting the island much easier.
   NEXT`,
 
-  `SCENE: The Third Dream
+  `SCENE: The Third Vision
   EXPO: Saoirse swatted a tree branch out of the way and gripped her reins tightly. She was on edge - the blood panther had been spotted in this forest only a few days ago. It had killed two cows and wounded a farmer in the nearby village. But she'd pursued it this far, and she wasn't about to let a tangle of scrub and fallen logs stop her now.
   EXPO: A hart, previously still with fear, darted away somewhere to her left. Her wyvern turned to follow it, and she gently tugged on the reins to bring its focus back to <i>her</i> hunt.
   SAOIRSE|L: I know you're hungry, Ambrose. You can hunt once we're done.
