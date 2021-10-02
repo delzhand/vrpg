@@ -31,7 +31,6 @@ h2 {
 
 .header {
   border-bottom: 1px solid black;
-  height: 170px;
 }
 
 .header .logo img {
@@ -76,6 +75,15 @@ h2 {
 
 .menu a[disabled] {
   color: gray;
+  cursor: not-allowed;
+}
+
+.menu.pages a {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #333;
+  padding: 6px 10px;
+  border-radius: 10px;
 }
 
 .main-content {
@@ -90,5 +98,16 @@ h2 {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+}
+
+.first-time {
+  text-align: center;
+  background: #333;
+  padding: 8px 16px;
+  font-size: 18px;
+}
+
+.first-time a {
+  color: #FFF;
 }
 /*# sourceMappingURL=theme.css.map */

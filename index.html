@@ -33,6 +33,10 @@ crossorigin="anonymous"></script>
     <div id="story" class="main-content" onclick="advance()"></div>
   </div>
   <script>
+    if (localStorage.getItem('has-visited') === null) {
+      $('.header').after('<div class="first-time">Is this your first time here? Start the story <a href="#" class="first-page">at the beginning</a>.</div>');
+      localStorage.setItem('has-visited', true);
+    }
     drawNav();
     populateLinks();
     advance();
