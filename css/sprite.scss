@@ -114,7 +114,7 @@
     position: absolute;
     bottom: 0px;
     left: 0;
-    background: url(../images/desert-bg.png);
+    background: url(../images/beach-bg.png);
     background-position: center;
     background-size: cover;
     z-index: 1;
@@ -200,7 +200,7 @@
       animation-iteration-count: infinite;
     }
     &.saoirse .image {
-      background-image: url('../images/saoirse-sprite.png');
+      background-image: url('../images/saoirse2-sprite.png');
     }
     &.hanya .image {
       background-image: url('../images/hanya-sprite.png');
@@ -213,6 +213,11 @@
     }
     &.ichor .image {
       background-image: url('../images/slime-sprite.png');
+    }
+    &.oceanjellya .image,
+    &.oceanjellyb .image,
+    &.oceanjellyc .image {
+      background-image: url('../images/slime2-sprite.png');
     }
     &.bonewraith .image {
       background-image: url('../images/skeleton-sprite.png');

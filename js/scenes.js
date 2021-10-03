@@ -35,10 +35,56 @@ const scenes = [
   `SCENE: Prologue
   EXPO: Saoirse rolled over in her bed, away from the morning sunlight. She had slept fitfully, and her dreams, though vivid in sleep, began to fade into the clarity of consciousness. She sat up after a moment, throwing off the heavy comforter.
   PROMPT: One of these is not a dream, but a memory. Who is Saoirse?
-  VOTE-OPEN: A machine-flying cartographer|A dungeon-delving relic seeker|A wyvern-riding monster hunter
-  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The prologue has started - vote on the hero&#39;s backstory!<br><br>Who is Saoirse?</p>&mdash; chaosquest (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1443694245227945989?ref_src=twsrc%5Etfw">September 30, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
+  VOTE-CLOSED: A machine-flying cartographer%66|A dungeon-delving relic seeker%33|A wyvern-riding monster hunter
+  NEXT`,
+
+  `SCENE: Saoirse's House | Bolba Village
+  EXPO: Saoirse swung her legs over the edge of the bed and looked blearily around the small thatched roof hut that she called home. Her clothes, rumpled and untidy, lay in a pile. Her cartography instruments, meticulously organized, lay on her desk, along with rolls of paper, maps in various degrees of completion. A pair of crutches stood in the corner, crutches she no longer needed.
+  EXPO: It had been two months since the near-disastrous test flight.
+  EXPO: Saoirse stretched and sat down in a wicker chair by the kitchen window. The fishing village was already bustling with activity - men and women setting sail in one- and two-person crafts, mending and emptying nets, or chatting with one another about this or that topic.
+  EXPO: She noticed a shadow fall across the gap between the canvas flap that served as a door and the floor.
+  ???|R: Saoirse! You awake?
+  SAOIRSE|L: Just a minute, Parzeval!
+  EXPO: She pulled a tunic and breeches off the floor and quickly pulled them on. Parzeval would no doubt be seeking company for some errand. As the village chief's son, he seemed to have endless responsibility, despite being no older than she was.
+  EXPO: She pushed past the canvas flap and onto the sand strew planks of her porch. Parzeval awaited her, wearing his customary easy grin.
+  PARZEVAL|R: How's the leg?
+  SAOIRSE|L: I'm still being careful. Probably more careful than I need to be, honestly!
+  PARZEVAL|R: And Branford?
+  EXPO: Saoirse stepped towards the coverend object on the porch and pulled the tarp off. She knocked twice on the aeroframe's headlamp.
+  BRANFORD|L: Good morning, rider.
+  EXPO: Parzeval winced. Branford's left front wing had been torn off completely in the accident.
+  SAOIRSE|L: We won't be soaring until I can figure out how to fashion new wing, but we can still skim along the surface.
+  PARZEVAL|R: Good, then you can come down to the beach and help me clear a nest of ocean jellies. Father said the fishermen discovered it under the pier.
+  EXPO: Saoirse groaned. Ocean jellies weren't dangerous, but they'd cling to the pier supports and calcify, emitting a horrendous odor all the while.
+  PARZEVAL|R: Please? He let me borrow the Stormstaff.
+  SAOIRSE|L: I can see that.
+  EXPO: He wore the staff across his back, its lapis blue gem gleaming in the sun. It was a symbol of the village chief's authority and contained some small amount of magic. 
+  SAOIRSE|L: Fine, fine. Let me just grab a shovel. I'll meet you by the pier.
+  EXPO: Parzeval's grin broadened.
+  PARZEVAL|R: Excellent. I owe you one!
+  NEXT`,
+
+  `SCENE: Pier | Bolba Village
+  EXPO: It took the better part of an hour, but eventually the jellies had all been dislodged. Saoirse had used the flat of the shovel like a catapult, hurling them into deeper waters, while Parzeval had pounded them with magic from his father's staff. Presently they sat on the pier, Saoirse reclining in Branford's seat, Parzeval dangling his legs off the pier.
+  PARZEVAL|L: So let me get this straight. You crashed because you tried to fly over water?
+  BRANFORD|R: Correct.
+  PARZEVAL|L: And you fly using magic...
+  BRANFORD|R: The arc-halo is not magic. It is an elemental construct. I bond with the earth at two points, ahead and behind. The circle on the ground is simply a visual artifact of the energies expended.
+  PARZEVAL|L: That sounds like magic to me.
+  BRANFORD|R: You ambulate by shifting your weight over your legs, is that "magic"?
+  EXPO: Parzeval pondered this.
+  PARZEVAL|L: Nope, still don't get it.
+  EXPO: A lonely gull squawked overhead. Saoirse watched it drift further down the beach, riding the wind, barely needed to moving its wings.
+  SAOIRSE|L: ...Branford, are there others like you?
+  EXPO: For a moment, there was silence, except for the waves. 
+  BRANFORD|R: Rider, I do not wish to discuss this topic. May we discuss another?
+  VOTE-OPEN: "Why do you call me 'rider'? I have a name."|"So, about your last rider..."|"How far is this island from your home?"|"How can I repair you?"`
 ];
 const actors = {
+  'SAOIRSE': {
+    name: 'Saoirse',
+    picture: 'saoirse-2.png',
+  },
   'SAOIRSE-1': {
     name: 'Saoirse',
     picture: 'saoirse-1.png',
@@ -53,7 +99,7 @@ const actors = {
   },
   'PARZEVAL': {
     name: 'Parzeval',
-    picture: 'areval.jpeg',
+    picture: 'parzeval.png',
   },
   'GARVEN': {
     name: 'Garven',

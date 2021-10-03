@@ -3,6 +3,10 @@ const gear = {
     name: 'Rusted Sword',
     atk: 2
   },
+  'shovel': {
+    name: 'Shovel',
+    atk: 2,
+  },
   'estoc': {
     name: 'Estoc',
     atk: 4,
@@ -10,6 +14,10 @@ const gear = {
   'frost staff': {
     name: 'Frost Staff',
     atk: 4,
+  },
+  'stormstaff': {
+    name: 'Stormstaff',
+    atk: 3,
   },
   'halberd': {
     name: 'Halberd',
