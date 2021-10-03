@@ -78,7 +78,8 @@ const scenes = [
   SAOIRSE|L: ...Branford, are there others like you?
   EXPO: For a moment, there was silence, except for the waves. 
   BRANFORD|R: Rider, I do not wish to discuss this topic. May we discuss another?
-  VOTE-OPEN: "Why do you call me 'rider'? I have a name."|"So, about your last rider..."|"How far is this island from your home?"|"How can I repair you?"`
+  VOTE-OPEN: "Why do you call me 'rider'? I have a name."|"So, about your last rider..."|"How far is this island from your home?"|"How can I repair you?"
+  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Branford doesn&#39;t want to talk about his origins. What does Saoirse ask instead?</p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1444509571310043137?ref_src=twsrc%5Etfw">October 3, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
 ];
 const actors = {
   'SAOIRSE': {
