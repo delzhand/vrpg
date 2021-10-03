@@ -1,20 +1,28 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="manifest" href="favicons/site.webmanifest">
+<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script
 src="https://code.jquery.com/jquery-2.2.4.min.js"
 integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
-<link href="./css/shared.css" rel="stylesheet">
+<link href="./css/theme.css" rel="stylesheet">
 <link href="./css/profile.css" rel="stylesheet">
 <script src="./js/abilities.js"></script>
 <script src="./js/gear.js"></script>
 <script src="./js/unit.js"></script>
+<script src="./js/contents.js"></script>
 
 <script>
   const input = {
@@ -24,70 +32,37 @@ crossorigin="anonymous"></script>
       {
         name: 'Saoirse',
         level: 5,
-        job: 'Fencer',
-        picture: 'surtia.jpeg',
+        job: 'Explorer',
+        picture: 'saoirse-full.png',
         team: 'ally',
         vit: 10,
         atk: 10,
         def: 6,
         res: 3,
         spd: 6,
-        pool: ['weapon', 'thrust', 'thrust', 'flank'],
-        abilities: ['thrust', 'flank', 'counter'],
-        arms: 'estoc',
-        armor: 'doublet',
-        xp: 0,
+        pool: ['weapon'],
+        abilities: [],
+        arms: 'shovel',
+        armor: 'tunic',
+        xp: 12,
       },
       {
         name: 'Parzeval',
         level: 5,
-        job: 'Mage',
-        picture: 'areval.jpeg',
+        job: 'Adept',
+        picture: 'parzeval-full.png',
         team: 'ally',
         vit: 9,
         atk: 10,
         def: 6,
         res: 6,
         spd: 4,
-        pool: ['magic', 'ice spear', 'hailstorm'],
-        abilities: ['ice spear', 'hailstorm', 'absorb'],
-        arms: 'frost staff',
+        pool: ['magic'],
+        abilities: [],
+        arms: 'stormstaff',
         armor: 'tunic',
-        xp: 0,
-      },
-      {
-        name: 'Garven',
-        level: 5,
-        job: 'Knight',
-        picture: 'graven.jpeg',
-        team: 'ally',
-        vit: 13,
-        atk: 5,
-        def: 8,
-        res: 5,
-        spd: 4,
-        pool: ['weapon', 'crushing blow', 'protect'],
-        abilities: ['crushing blow', 'protect', 'parry'],
-        arms: 'halberd',
-        armor: 'chainmail',
-        xp: 0,
-      },
-      {
-        name: 'Hanya',
-        level: 5,
-        job: 'Monk',
-        picture: 'hanya.jpeg',
-        team: 'ally',
-        vit: 9,
-        atk: 10,
-        def: 6,
-        res: 6,
-        spd: 4,
-        pool: ['weapon', 'blazing fist', 'blazing fist', 'mantra'],
-        abilities:  ['blazing fist', 'mantra', 'momentum'],
-        arms: 'tunic',
-        armor: 'baghnakhs',
-        xp: 0,
+        xp: 12,
+        hp: 41
       },
     ]
   };
@@ -103,7 +78,7 @@ crossorigin="anonymous"></script>
 
   function drawInit() {
     for (let i = 0; i < units.length; i++) {
-      $('.profiles').append(units[i].drawProfile(true, true));
+      $('.profiles').append(units[i].drawProfile(false, false));
     }
   }
 
@@ -119,41 +94,21 @@ crossorigin="anonymous"></script>
   }
 
 </script>
-<title>V-RPG | Status</title>
+
+<title>Chaos Quest | Party Status</title>
 </head>
 <body>
-<div class="container">
-  <div class="profile ability-list">
-    <div class="equip">
-      <span class="icon attack"></span> Thrust: Deals 150% damage vs DEF
-    </div>
-    <div class="equip">
-      <span class="icon attack"></span> Flank: Causes target's next action to fail
-    </div>
-    <div class="equip">
-      <span class="icon magic"></span> Ice Spear: Deals 100% damage vs RES and inflicts ATK -1 for 1 turn
-    </div>
-    <div class="equip">
-      <span class="icon magic"></span> Hailstorm: Deals 30% damage to all foes and ignores reaction abilities
-    </div>
-    <div class="equip">
-      <span class="icon attack"></span> Crushing Blow: Deals 100% damage vs DEF and inflicts DEF -1 for 1 turn
-    </div>
-    <div class="equip">
-      <span class="icon support"></span> Protect: Grants ally with lowest HP a shield that absorbs up to 15 damage
-    </div>
-    <div class="equip">
-      <span class="icon hybrid"></span> Blazing Fist: Deals 120% damage vs lower of DEF or RES
-    </div>
-    <div class="equip">
-      <span class="icon support"></span> Mantra: Restores 10 HP to all allies
-    </div>
+  <div class="header">
+    <h1 class="title">Chaos Quest</h1>
+    <div class="logo"><a href="index.html"><img src="./images/logo.png"></a></div>
   </div>
-
-  <div class="profiles"></div>
-</div>
-<script>
-  init();
-</script>
+  <div class="container">
+    <div class="profiles"></div>
+  </div>
+  <script>
+    drawNav();
+    populateLinks();
+    init();
+  </script>
 </body>
 </html>

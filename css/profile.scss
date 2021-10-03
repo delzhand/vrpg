@@ -23,18 +23,18 @@
     position: relative;
     width: 100%;
     height: 0;
-    padding-top: 100%;  
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 35px;
-      background: rgb(0,0,0);
-      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(51,51,51,0) 100%);
-      z-index: 1;
-    }
+    padding-top: 142%;  
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 35px;
+    //   background: rgb(0,0,0);
+    //   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(51,51,51,0) 100%);
+    //   z-index: 1;
+    // }
     img {
       display: block;
       position: absolute;
@@ -229,6 +229,10 @@
   }
 }
 
+.profile+.profile {
+  margin-left: 12px;
+}
+
 .profile.ability-list {
   width: 500px;
   .equip {
@@ -251,4 +255,9 @@
   .equip+.equip {
     margin-top: 10px;
   }
+}
+
+.profiles {
+  display: flex;
+  justify-content: left;
 }

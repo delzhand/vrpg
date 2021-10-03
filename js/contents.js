@@ -8,38 +8,38 @@ contents = [
   'story.html?scene=5',
 ];
 
+homeIndex = 4;
+
 function drawNav() {
   $('.footer').append(`
-  <div class="menu pages">
-    <a class="first-page" ><< First</a>
-    <a class="prev-page" >< Prev</a>
-    <a class="next-page" >Next ></a>
-    <a class="latest-page" >Latest >></a>
-  </div>
-  <div class="menu nav">
-    <a href="index.html">Home</a>
-    <a  disabled>Party Status</a>
-    <a href="about.html">About</a>
-    <a  disabled>Archive</a>
-    <a  disabled>Updates</a>
-  </div>
-`);
+    <div class="menu pages">
+      <a class="first-page" ><< First</a>
+      <a class="prev-page" >< Prev</a>
+      <a class="next-page" >Next ></a>
+      <a class="latest-page" >Latest >></a>
+    </div>
+    <div class="menu nav">
+      <a href="index.html">Home</a>
+      <a href="status.html">Party Status</a>
+      <a href="updates.html">Updates</a>
+      <a href="about.html">About</a>
+    </div>
+  `);
 
-$('.header').append(`
-  <div class="menu nav">
-    <a href="index.html">Home</a>
-    <a  disabled>Party Status</a>
-    <a href="about.html">About</a>
-    <a  disabled>Archive</a>
-    <a  disabled>Updates</a>
-  </div>
-  <div class="menu pages">
-    <a class="first-page" ><< First</a>
-    <a class="prev-page" >< Prev</a>
-    <a class="next-page" >Next ></a>
-    <a class="latest-page" >Latest >></a>
-  </div>
-`);
+  $('.header').append(`
+    <div class="menu nav">
+      <a href="index.html">Home</a>
+      <a href="status.html">Party Status</a>
+      <a href="updates.html">Updates</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="menu pages">
+      <a class="first-page" ><< First</a>
+      <a class="prev-page" >< Prev</a>
+      <a class="next-page" >Next ></a>
+      <a class="latest-page" >Latest >></a>
+    </div>
+  `);
 }
 
 function populateLinks() {
@@ -67,10 +67,10 @@ function populateLinks() {
     $('a.latest-page').attr('href', contents[contents.length-1]);
   }
   else {
-    $('a.first').attr('href', contents[0]);
-    $('a.prev').attr('disabled', 'disabled');
-    $('a.next').attr('disabled', 'disabled');
-    $('a.latest').attr('href', contents[contents.length-1]);
+    $('a.first-page').attr('href', contents[0]);
+    $('a.prev-page').attr('disabled', 'disabled');
+    $('a.next-page').attr('disabled', 'disabled');
+    $('a.latest-page').attr('href', contents[contents.length-1]);
   }
   
   $(`a[href="${currentPage}"]`).addClass('active');  

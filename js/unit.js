@@ -116,7 +116,12 @@ class Unit {
       }
       else {
         abilities[ability].fn(this);          
-        if (this.team === 'ally' && ability.name !== 'weapon' && ability.name !== 'magic') {
+        if (this.team === 'ally') {
+          let xp = 5;
+          xp = Math.floor(xp * input.xpMultiplier);
+          if (ability.name === 'weapon' || ability.name === 'magic') {
+            xp = Math.floor(xp / 2);
+          }
           this.xp += 5 * input.xpMultiplier;
         }
       }
@@ -274,11 +279,16 @@ class Unit {
     }
     return output;
   }
-  drawSkills() {
+  drawSkills(detail = false) {
     let output = '';
     for (let i = 0; i < this.abilities.length; i++) {
       const ability = abilities[this.abilities[i]];
-      output += `<div class="equip"><span class="icon ${ability.type}"></span> ${ability.name}: ${ability.desc}</div>`
+      if (detail) {
+        output += `<div class="equip"><span class="icon ${ability.type}"></span> ${ability.name}: ${ability.desc}</div>`
+      }
+      else {
+        output += `<div class="equip"><span class="icon ${ability.type}"></span> ${ability.name}</div>`        
+      }
     }
     return output;
   }
