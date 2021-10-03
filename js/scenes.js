@@ -74,7 +74,7 @@ const scenes = [
   BRANFORD|R: You ambulate by shifting your weight over your legs, is that "magic"?
   EXPO: Parzeval pondered this.
   PARZEVAL|L: Nope, still don't get it.
-  EXPO: A lonely gull squawked overhead. Saoirse watched it drift further down the beach, riding the wind, barely needed to moving its wings.
+  EXPO: A lonely gull squawked overhead. Saoirse watched it drift further down the beach, riding the wind, barely needing to move its wings.
   SAOIRSE|L: ...Branford, are there others like you?
   EXPO: For a moment, there was silence, except for the waves. 
   BRANFORD|R: Rider, I do not wish to discuss this topic. May we discuss another?
