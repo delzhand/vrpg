@@ -427,7 +427,13 @@ function finishAnimate() {
   $('.pop-text').remove();
   $('.skill').remove();
   if (isVictory()) {
-    $('.visualizer').append('<div class="final">Victory!</div>');
+    let message = 'Victory!';
+    for (let i = 0; i < units.length; i++) {
+      if (units[i].team === 'ally') {
+        message += `<br>${units[i].name} gained ${units[i].xp} XP!`;
+      }
+    }
+    $('.visualizer').append(`<div class="final">${message}<br></div>`);
     $('.queue .item').remove();
     $('.main-content').append('<div class="next-nav"><a href="#" class="next-page">Next</a></div>');
     populateLinks();
