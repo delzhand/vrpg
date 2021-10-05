@@ -80,7 +80,7 @@ function advance() {
       break;
     default:
       let spos = line[0].split('|');
-      const pos = (spos[1] === 'R') ? '' : 'rev';
+      const pos = (spos[1] === 'L') ? '' : 'rev';
       const actor = actors[spos[0]];
       if (actor && actor.picture) {
         $('#story').append(`

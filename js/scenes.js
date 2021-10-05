@@ -79,7 +79,56 @@ const scenes = [
   EXPO: For a moment, there was silence, except for the waves. 
   BRANFORD|R: Rider, I do not wish to discuss this topic. May we discuss another?
   PROMPT: Branford doesn't want to talk about his origins. What does Saoirse ask instead?
-  VOTE-CLOSED: "Why do you call me 'rider'? I have a name."%25|"So, about your last rider..."|"How far is this island from your home?"%25|"How can I repair you?"%50`
+  VOTE-CLOSED: "Why do you call me 'rider'? I have a name."%25|"So, about your last rider..."|"How far is this island from your home?"%25|"How can I repair you?"%50
+  NEXT`,
+
+  `SCENE: Pier | Bolba Village
+  SAOIRSE|L: What's it going to take to get you into the air again, I wonder?
+  BRANFORD|R: I suppose one of your engineers could craft a replacement wing.
+  PARZEVAL|L: "Engineer"?
+  BRANFORD|R: The men and women who fashion your boats out of wood. Is that not the right word? What do you call them?
+  PARZEVAL|L: Anyone can make a boat with practice. We don't have a special name for them.
+  SAOIRSE|L: I suppose I could take the measurements of your right wing and draw something up. It's kind of like making a map...
+  BRANFORD|R: That is logical, yes. Though I suspect the mismatched weight might be an issue.
+  SAOIRSE|L: You're an amazing machine, Branford. I'd love to meet the person who created you originally.
+  EXPO: The seconds stretched out in silence. Parzeval stood up and put his hands on his hips, staring out past the gentle waves.
+  PARZEVAL|R: I suppose I've rested long enough. Father will expect me back before too long.
+  EXPO: Saoirse started Branford's engine and he rose gently to idle a foot or so above the pier.
+  SAOIRSE|L: I think I'll ask Garven to help with the wing.
+  PARZEVAL|R: You might be waiting a while. He's deep-fishing with Yuda today. Why don't you ask your grimma?
+  EXPO: Saoirse sighed.
+  PARZEVAL|R: You can't avoid her forever.
+  SAOIRSE|L: I can try.
+  EXPO: She revved Branford's engine and shot down the pier, then took a hard turn, kicking up sand. Parzeval watched her fly down the beach, shaking his head.
+  NEXT`,
+
+  `SCENE: Hoay Cliffs | Northern Bolba
+  BRANFORD|L: What is a "grimma"?
+  EXPO: Saoirse was crouched by a fallen tree, holding a knotted string against it.
+  SAOIRSE|R: It means your father's mother or your mother's mother.
+  BRANFORD|L: I see. A "grandmother".
+  SAOIRSE|R: It sounds weird when you say it like that. Gur-and muth-err.
+  BRANFORD|L: And you dislike your "grimma"?
+  EXPO: Saoirse frowned and stood up. She'd ridden Branford north to where the cliffs pushed up sharply, enclosing the tiny village of Bolba against the forest to the east. A recent storm had pushed over some of the trees here, and while the ones large enough to be carved into canoes had all been dragged back to the village, she hoped to find a leftover piece suitable for whittling down into a wing.
+  SAOIRSE|R: I don't dislike her.
+  BRANFORD|L: But you are avoiding her?
+  SAOIRSE|R: <i>I do not wish to discuss this topic.</i>
+  BRANFORD|L: I understand.
+  EXPO: Saoirse bit her lip and walked past Branford to another log. She brushed off the sandy soil and held the measuring string against it.
+  SAOIRSE|R: I think this one will work. What do you think? It won't be as shiny as your original wing, but we can paint it! Maybe blue?
+  BRANFORD|L: Can you describe blue to me?
+  SAOIRSE|R: Describe... blue?
+  BRANFORD|L: Rider... I do not have eyes. I do not see as you do.
+  EXPO: Saoirse sat down on the log and stared at Branford. This machine, this evidence of a world beyond the island... She had so many questions, and yet every time she pressed...
+  SAOIRSE|R: Well, if I was going to describe a color, blue is probably the easiest. It's the color of a clear sky, the color of the ocean when the sun is high... the color of your stripe, if we can get the hue right.
+  BRANFORD|L: If you find the color pleasing and it allows me to fly again, that will be enough for me.
+  EXPO: Saoirse nodded.
+  SAOIRSE|R: Then that's what we'll do. We'll bring Garven out here this evening and he can help me get this log back to the village.
+  SAOIRSE|R: In the meantime... let's see. We could try to get rid of the mossfox that's been attacking the chickens. Or we could try to map some more of the forest.
+  BRANFORD|L: I could instruct you in some ground maneuvers, if you desire.
+  PROMPT: How will Saoirse spend the rest of the day?
+  VOTE-OPEN: Fight the mossfox (+XP)|Map the forest (+ITEM)|Rider training (+SKILL)
+  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse begins thinking of a way to repair Branford and get airborne again. (2 pages)<br><br>How will Saoirse spend the rest of her day?<a href="https://t.co/lLuALWZw8A">https://t.co/lLuALWZw8A</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1445513868931846147?ref_src=twsrc%5Etfw">October 5, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
 ];
 const actors = {
   'SAOIRSE': {
