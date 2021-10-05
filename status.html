@@ -30,58 +30,25 @@ integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 crossorigin="anonymous"></script>
 <link href="./css/theme.css" rel="stylesheet">
 <link href="./css/profile.css" rel="stylesheet">
+<script src="./js/lib.js"></script>
 <script src="./js/abilities.js"></script>
 <script src="./js/gear.js"></script>
 <script src="./js/unit.js"></script>
+<script src="./js/party.js"></script>
 <script src="./js/contents.js"></script>
 
 <script>
-  const input = {
-    xpMultiplier: 1,
-    seed: '5',
-    units: [
-      {
-        name: 'Saoirse',
-        level: 5,
-        job: 'Explorer',
-        picture: 'saoirse-full.png',
-        team: 'ally',
-        vit: 10,
-        atk: 10,
-        def: 6,
-        res: 3,
-        spd: 6,
-        pool: ['weapon'],
-        abilities: [],
-        arms: 'shovel',
-        armor: 'tunic',
-        xp: 15,
-      },
-      {
-        name: 'Parzeval',
-        level: 5,
-        job: 'Adept',
-        picture: 'parzeval-full.png',
-        team: 'ally',
-        vit: 9,
-        atk: 10,
-        def: 6,
-        res: 6,
-        spd: 4,
-        pool: ['magic'],
-        abilities: [],
-        arms: 'stormstaff',
-        armor: 'tunic',
-        xp: 15,
-        hp: 41
-      },
-    ]
-  };
+  q = getUrlVars();
+  d = q.data;
+  if (!d) {
+    d = party.length-1;
+  }
+  let data = party[d];
 
   function init() {
     units = [];
-    for (let i = 0; i < input.units.length; i++) {
-      const unit = input.units[i];
+    for (let i = 0; i < data.length; i++) {
+      const unit = data[i];
       units.push(new Unit(unit.name, unit.level, unit.job, unit.picture, unit.team, unit.hp, unit.vit, unit.atk, unit.def, unit.res, unit.spd, unit.xp, unit.pool, unit.abilities, unit.arms, unit.armor));
     }
     drawInit();
@@ -92,18 +59,6 @@ crossorigin="anonymous"></script>
       $('.profiles').append(units[i].drawProfile(false, false));
     }
   }
-
-  function getRandomInt() {
-    return 0;
-  }
-
-  String.prototype.safeCSS = function() {
-  return encodeURIComponent(this)
-    .toLowerCase()
-    .replace('\'', '')
-    .replace(/\.|%[0-9a-z]{2}/gi, '');
-  }
-
 </script>
 
 <title>Chaos Quest | Party Status</title>

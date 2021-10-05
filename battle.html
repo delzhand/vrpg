@@ -32,10 +32,13 @@ crossorigin="anonymous"></script>
 <link href="./css/matchup.css" rel="stylesheet">
 <link href="./css/sprite.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+<script src="./js/lib.js"></script>
+<script src="./js/party.js"></script>
+<script src="./js/encounters.js"></script>
 <script src="./js/unit.js"></script>
 <script src="./js/abilities.js"></script>
 <script src="./js/gear.js"></script>
-<script src="./js/combat.js"></script>
+<script src="./js/battle.js"></script>
 <script src="./js/contents.js"></script>
 
 <script>
@@ -68,42 +71,12 @@ crossorigin="anonymous"></script>
       <a class="autoadvance" onclick="toggleAuto()">Toggle Auto-advance</a>
       <div class="frame crt" onclick="advance()">
         <div class="visualizer">
-          <div class="status">
-            <div class="enemies">
-              <div class="unit oceanjellya"><div class="name">Ocean Jelly A</div></div>
-              <div class="unit oceanjellyb"><div class="name">Ocean Jelly B</div></div>
-              <div class="unit oceanjellyc"><div class="name">Ocean Jelly C</div></div>
-            </div>
-            <div class="allies">
-              <div class="unit saoirse">
-                <div class="name">Saoirse</div>
-                <div class="hp">56</div><div class="mhp">/56</div>
-              </div>
-              <div class="unit parzeval">
-                <div class="name">Parzeval</div>
-                <div class="hp">51</div><div class="mhp">/51</div>
-              </div>
-              <!-- <div class="unit garven">
-                <div class="name">Garven</div>
-                <div class="hp">79</div><div class="mhp">/79</div>
-              </div>
-              <div class="unit hanya">
-                <div class="name">Hanya</div>
-                <div class="hp">51</div><div class="mhp">/51</div>
-              </div> -->
-            </div>
-          </div>
           <div class="tap-msg">Tap!</div>
           <div class="battlefield"></div>
-          <div class="saoirse sprite right" style="top: 30%;">    <div class="hp"><span class="num">60</span></div><div class="image"></div></div>
-          <div class="parzeval sprite right" style="top: 45%;">   <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
-          <!-- <div class="garven sprite right" style="top: 40%;">     <div class="hp"><span class="num">79</span></div><div class="image"></div></div>
-          <div class="hanya sprite right" style="top: 55%;">      <div class="hp"><span class="num">51</span></div><div class="image"></div></div>
-          <div class="bonewraith sprite left" style="top: 15%;"><div class="hp"><span class="num">150</span></div><div class="image"></div></div>
-          <div class="ichor sprite left" style="top: 40%;">     <div class="hp"><span class="num">165</span></div><div class="image"></div></div> -->
-          <div class="oceanjellya sprite left" style="top: 25%;">     <div class="hp"><span class="num">40</span></div><div class="image"></div></div>
-          <div class="oceanjellyb sprite left" style="top: 40%;">     <div class="hp"><span class="num">40</span></div><div class="image"></div></div>
-          <div class="oceanjellyc sprite left" style="top: 55%;">     <div class="hp"><span class="num">40</span></div><div class="image"></div></div>
+          <div class="status">
+            <div class="enemies"></div>
+            <div class="allies"></div>
+          </div>
           <div class="skills"></div>
         </div>
       </div>
@@ -116,6 +89,7 @@ crossorigin="anonymous"></script>
     init();
     fillQueue();
     drawQueue();
+    drawField();
   </script>
 </body>
 </html>

@@ -8,36 +8,19 @@ contents = [
   'story.html?scene=5',
 ];
 
-homeIndex = 4;
-
 function drawNav() {
-  $('.footer').append(`
-    <div class="menu pages">
-      <a class="first-page" ><< First</a>
-      <a class="prev-page" >< Prev</a>
-      <a class="next-page" >Next ></a>
-      <a class="latest-page" >Latest >></a>
-    </div>
-    <div class="menu nav">
-      <a href="index.html">Home</a>
-      <a href="status.html">Party Status</a>
-      <a href="updates.html">Updates</a>
-      <a href="about.html">About</a>
-    </div>
-  `);
-
   $('.header').append(`
     <div class="menu nav">
       <a href="index.html">Home</a>
       <a href="status.html">Party Status</a>
-      <a href="updates.html">Updates</a>
       <a href="about.html">About</a>
+      <a href="https://twitter.com/chaos_quest" class="twitter">Twitter</a>
     </div>
     <div class="menu pages">
-      <a class="first-page" ><< First</a>
-      <a class="prev-page" >< Prev</a>
-      <a class="next-page" >Next ></a>
-      <a class="latest-page" >Latest >></a>
+      <a class="first-page"><< First</a>
+      <a class="prev-page">< Prev</a>
+      <a class="next-page">Next ></a>
+      <a class="latest-page">Latest >></a>
     </div>
   `);
 }
@@ -54,7 +37,7 @@ function populateLinks() {
     $('a.next-page').attr('href', contents[contentIndex+1]);
     $('a.latest-page').attr('href', contents[contents.length-1]);
   }
-  else if (contentIndex === contents.length - 1 || currentPage === 'index.html') {
+  else if (contentIndex === contents.length - 1) {
     $('a.first-page').attr('href', contents[0]);
     $('a.prev-page').attr('href', contents[contents.length-2]);
     $('a.next-page').attr('disabled', 'disabled');

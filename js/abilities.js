@@ -75,6 +75,9 @@ const abilities = {
       target.addStatus('flanked');
       log(`<div>${unit.name} targets ${target.name} with Flank</div>`);
       target.react(unit, animate);
+      if (animate) {
+        animateStandardAttack(0, unit, 'Flank', target, 'Flanked');
+      }
     },
   },
   'ice spear': {
@@ -231,6 +234,10 @@ const abilities = {
       target.addStatus('spd -1', 2);
       log(`<div>${unit.name} targets ${target.name} with Bootslop - SPD decreased</div>`);
       target.react(unit, animate);
+      if (animate) {
+        animateStandardAttack(0, unit, 'Bootslop', target, 'SPD -1');
+      }
+
     },
   },
   'counter': {

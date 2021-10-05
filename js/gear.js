@@ -1,4 +1,7 @@
 const gear = {
+  'unarmed': {
+    name: 'Unarmed',
+  },
   'rusted sword': {
     name: 'Rusted Sword',
     atk: 2

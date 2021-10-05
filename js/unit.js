@@ -18,7 +18,10 @@ class Unit {
     this.armor = armor;
     this.status = [];
 
-    this.ct = getRandomInt(50);
+    if (typeof seedRand === 'function') {
+      this.ct = getRandomInt(50);
+      this.xp = 0;
+    }
     this.mhp = this.getStat('mhp');
     this.getStartHP(hp);
   }
@@ -122,7 +125,7 @@ class Unit {
           if (ability.name === 'weapon' || ability.name === 'magic') {
             xp = Math.floor(xp / 2);
           }
-          this.xp += 5 * input.xpMultiplier;
+          this.xp += input.xpMultiplier;
         }
       }
       this.endRound();

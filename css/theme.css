@@ -40,7 +40,7 @@ h2 {
 
 .header .logo img {
   display: inline-block;
-  height: 100px;
+  height: 80px;
   width: auto;
 }
 
@@ -55,15 +55,17 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 350px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }
 
 .menu a {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
   font-weight: bold;
   font-size: 16px;
   text-decoration: none;
@@ -75,7 +77,7 @@ h2 {
 }
 
 .menu a.active {
-  border-bottom: 2px solid #FFF;
+  color: gold;
 }
 
 .menu a[disabled] {
@@ -83,9 +85,21 @@ h2 {
   cursor: not-allowed;
 }
 
+.menu a.twitter {
+  background-image: url(../images/twitter.svg);
+  display: block;
+  height: 24px;
+  width: 24px;
+  background-size: contain;
+  font-size: 0;
+}
+
+.menu.nav {
+  background: #333;
+}
+
 .menu.pages a {
   margin-top: 10px;
-  margin-bottom: 10px;
   background: #333;
   padding: 6px 10px;
   border-radius: 10px;
@@ -114,5 +128,80 @@ h2 {
 
 .first-time a {
   color: #FFF;
+}
+
+#system-log {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#system-log .item {
+  position: relative;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background: #FFF;
+  color: #111;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px;
+  overflow: hidden;
+}
+
+#system-log .item .date {
+  font-size: 12px;
+}
+
+#system-log .item.party, #system-log .item.system {
+  background: #bbb;
+  padding: 0;
+}
+
+#system-log .item.party .date,
+#system-log .item.party .txt, #system-log .item.system .date,
+#system-log .item.system .txt {
+  padding: 0px 12px;
+  line-height: 24px;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#system-log .item.party .date, #system-log .item.system .date {
+  background: #666;
+  color: #FFF;
+}
+
+#system-log .item.vote {
+  border-left: 10px solid #1DA1F2;
+}
+
+#system-log .item.story {
+  border-left: 10px solid purple;
+  font-weight: bold;
+}
+
+#system-log .item.story a {
+  position: relative;
+  left: 100%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  display: inline-block;
+  background: #333;
+  color: #FFF;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#system-log .item.story a:hover {
+  color: gold;
+}
+
+#system-log .item + .item {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=theme.css.map */

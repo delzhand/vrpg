@@ -33,7 +33,7 @@ h2 {
   border-bottom: 1px solid black;
   .logo img {
     display: inline-block;
-    height: 100px;
+    height: 80px;
     width: auto;
   }
 }
@@ -44,11 +44,13 @@ h2 {
 }
 .menu {
   display: flex;
-  justify-content: space-between;
-  max-width: 350px;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   a {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -57,18 +59,28 @@ h2 {
       color: gold;
     }
     &.active {
-      border-bottom: 2px solid #FFF;
+      color: gold;
     }
     &[disabled] {
       color: gray;
       cursor: not-allowed;
     }
+    &.twitter {
+      background-image: url(../images/twitter.svg);
+      display: block;
+      height: 24px;
+      width: 24px;
+      background-size: contain;
+      font-size: 0;
+    }
   }
+}
+.menu.nav {
+  background: #333;
 }
 .menu.pages {
   a {
     margin-top: 10px;
-    margin-bottom: 10px;
     background: #333;
     padding: 6px 10px;
     border-radius: 10px;
@@ -93,5 +105,67 @@ h2 {
   font-size: 18px;
   a {
     color: #FFF;
+  }
+}
+#system-log {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .item {
+    position: relative;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    background: #FFF;
+    color: #111;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+    overflow: hidden;
+    .date {
+      font-size: 12px;
+    }
+    &.party,
+    &.system {
+      background: #bbb;
+      padding: 0;
+      .date,
+      .txt {
+        padding: 0px 12px;
+        line-height: 24px;
+        font-size: 12px;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .date {
+        background: #666;
+        color: #FFF;
+      }
+    }
+    &.vote {
+      border-left: 10px solid #1DA1F2;
+    }
+    &.story {
+      border-left: 10px solid purple;
+      font-weight: bold;
+      a {
+        position: relative;
+        left: 100%;
+        transform: translateX(-100%);
+        display: inline-block;
+        background: #333;
+        color: #FFF;
+        text-decoration: none;
+        border-radius: 20px;
+        padding: 4px 12px;
+        font-weight: bold;        
+        font-size: 14px;
+        &:hover {
+          color: gold;
+        }
+      }
+    }
+  }
+  .item+.item {
+    margin-top: 10px;
   }
 }
