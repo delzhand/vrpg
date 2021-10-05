@@ -79,7 +79,7 @@ const scenes = [
   EXPO: For a moment, there was silence, except for the waves. 
   BRANFORD|R: Rider, I do not wish to discuss this topic. May we discuss another?
   PROMPT: Branford doesn't want to talk about his origins. What does Saoirse ask instead?
-  VOTE-CLOSED: "Why do you call me 'rider'? I have a name."%25|"So, about your last rider..."|"How far is this island from your home?"%25|"How can I repair you?%50"
+  VOTE-CLOSED: "Why do you call me 'rider'? I have a name."%25|"So, about your last rider..."|"How far is this island from your home?"%25|"How can I repair you?"%50`
 ];
 const actors = {
   'SAOIRSE': {
