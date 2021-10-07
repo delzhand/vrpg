@@ -171,7 +171,8 @@ const scenes = [
   EXPO: Saoirse looked over her shoulder at the cave. The fox had gone down a passage that was large enough for Branford, barely. There was another passage that <i>seemed</i> to lead upwards. She'd never mapped this cave, but it stood to reason that there might be an exit that way.
   EXPO: There was no time to wait. She gripped Branford's handles...
   PROMPT: How will Saoirse and Branford deal with the rising tide?
-  VOTE-OPEN: One wing, full throttle, let's fly.|Trust to nature. Follow the fox.|The passage upwards is the only logical choice here.`,
+  VOTE-OPEN: One wing, full throttle, let's fly.|Trust to nature. Follow the fox.|The passage upwards is the only logical choice here.
+  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse decides to help out a village farmer, even if it means tackling a small predator. But the tide is coming in... (3 pages)<br><br>How will she and Branford escape?<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/fictionlive?src=hash&amp;ref_src=twsrc%5Etfw">#fictionlive</a> <a href="https://twitter.com/hashtag/serialized?src=hash&amp;ref_src=twsrc%5Etfw">#serialized</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1446235722638368774?ref_src=twsrc%5Etfw">October 7, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
 ];
 const actors = {
   'SAOIRSE': {
