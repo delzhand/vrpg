@@ -153,7 +153,25 @@ const scenes = [
   EXPO: Saoirse nodded, and swung Branford around in a tight circle.
   SAOIRSE|L: Just you wait! We'll take care of it!
   EXPO: For the second time that day, she sped away from someone who was left quietly shaking their head.
-  NEXT`
+  NEXT`,
+
+  `SCENE: Shalebed | Southern Bolba
+  BRANFORD|R: Rider, should we not have consulted the tide-charts before coming down here?
+  EXPO: Saoirse clenched her teeth and she pressed a scrap of cloth to her arm. Despite Joban's warnings, she hadn't been prepared for the fox to actually jump up on Branford and begin biting her. She had flung the creature away long enough to safely lower Branford onto the wet rock of the grotto's floor, and then taken a few swings with her trusty shovel. She had missed it each time, craftly little bugger, but when she struck the stone hard enough to make the metal spade head send off a few tiny sparks, the creature decided it had had enough, and darted away down one of the cave's passages. She had let it go.
+  EXPO: Her hand wasn't bleeding badly, but she could probably expect some redness and swelling. She emptied a canteen of fresh water over the wound and pulled the cloth bandage tight using her teeth. She flexed her fingers experimentally. Her leg had only just healed, she did not like the prospect of being laid up unable to ride Branford should there be any sign of infection.
+  BRANFORD|R: Rider?
+  SAOIRSE|L: We'll be fine. High tide shouldn't be for another few hours.
+  BRANFORD|R: Perhaps, but we are not at the high tide waterline, we are far below it. And I'm detecting an increase in elemental water energy.
+  EXPO: Saoirse's eyes went wide. How could she be so foolish?
+  SAOIRSE|L: Damn it!
+  EXPO: She jumped on Branford's seat and started his engine, but foamy water was already beginning to slosh into the cave entrance.
+  BRANFORD|R: I may not be able to generate enough lift to carry us over the water at anything less than full throttle, rider.
+  SAOIRSE|L: What if we crash again? I dropped you on land last time, but you told me that if your core is flooded with water...
+  BRANFORD|R: I will become inert, yes. But we have little choice. If this cavern floods, the same fate awaits for certain.
+  EXPO: Saoirse looked over her shoulder at the cave. The fox had gone down a passage that was large enough for Branford, barely. There was another passage that <i>seemed</i> to lead upwards. She'd never mapped this cave, but it stood to reason that there might be an exit that way.
+  EXPO: There was no time to wait. She gripped Branford's handles...
+  PROMPT: How will Saoirse and Branford deal with the rising tide?
+  VOTE-OPEN: One wing, full throttle, let's fly.|Trust to nature. Follow the fox.|The passage upwards is the only logical choice here.`,
 ];
 const actors = {
   'SAOIRSE': {

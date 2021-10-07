@@ -94,7 +94,7 @@ const party = [
       xp: 15,
     },
   ],
-  // 2
+  // 3
   [
     {
       name: 'Saoirse',
@@ -112,6 +112,7 @@ const party = [
       arms: 'shovel',
       armor: 'tunic',
       xp: 8,
+      hp: 21
     },
   ]
   
