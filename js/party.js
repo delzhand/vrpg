@@ -93,5 +93,26 @@ const party = [
       armor: 'tunic',
       xp: 15,
     },
+  ],
+  // 2
+  [
+    {
+      name: 'Saoirse',
+      level: 6,
+      job: 'Explorer',
+      picture: 'saoirse-full.png',
+      team: 'ally',
+      vit: 11,
+      atk: 10,
+      def: 6,
+      res: 3,
+      spd: 6,
+      pool: ['weapon'],
+      abilities: [],
+      arms: 'shovel',
+      armor: 'tunic',
+      xp: 8,
+    },
   ]
+  
 ]
