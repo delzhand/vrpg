@@ -348,6 +348,10 @@
   background-image: url("../images/skeleton-sprite.png");
 }
 
+.visualizer .sprite.mossfox .image {
+  background-image: url("../images/fox2-sprite.png");
+}
+
 .visualizer .sprite.hit {
   position: absolute;
   bottom: 0;

@@ -45,7 +45,7 @@ const encounters = [
       },
     ]
   },
-  { //0
+  { //1
     xpMultiplier: 1,
     seed: '5',
     partyData: 1,
@@ -79,4 +79,25 @@ const encounters = [
       }  
     ]
   },  
+  { //2
+    xpMultiplier: 1.2,
+    seed: '',
+    partyData: 2,
+    units: [
+      {
+        name: 'Moss Fox',
+        level: 6,
+        job: 'Beast',
+        team: 'enemy',
+        vit: 14,
+        atk: 8,
+        def: 7,
+        res: 5,
+        spd: 6,
+        pool: ['weapon', 'weapon'],
+        abilities: ['counter'],
+      },
+    ]
+  },  
+
 ];

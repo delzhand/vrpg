@@ -127,8 +127,33 @@ const scenes = [
   SAOIRSE|R: In the meantime... let's see. We could try to get rid of the mossfox that's been attacking the chickens. Or we could try to map some more of the forest.
   BRANFORD|L: I could instruct you in some ground maneuvers, if you desire.
   PROMPT: How will Saoirse spend the rest of the day?
-  VOTE-OPEN: Fight the mossfox (+XP)|Map the forest (+ITEM)|Rider training (+SKILL)
-  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse begins thinking of a way to repair Branford and get airborne again. (2 pages)<br><br>How will Saoirse spend the rest of her day?<a href="https://t.co/lLuALWZw8A">https://t.co/lLuALWZw8A</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1445513868931846147?ref_src=twsrc%5Etfw">October 5, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
+  VOTE-CLOSED: Fight the mossfox (+XP)%57|Map the forest (+ITEM)%14|Rider training (+SKILL)%29
+  NEXT`,
+
+  `SCENE: Joban's Farm | Bolba Village
+  EXPO: Saoirse eased up on the throttle as she approached the farmhouse, and the arc-halo shrank below Branford's floating chassis. Joban was tending to the raised beds, rows of neat wooden boxes filled with sprouting vegetables. He pulled a wagon behind him, heaped high with the dark, rich loam Joban mixed every spring. He stopped at one of the beds and scattered a few handfuls of the stuff.
+  SAOIRSE|L: Joban! 
+  EXPO: Joban was a man of middle age, broad shouldered and tan. He stood and dusted off his hands.
+  JOBAN|R: Afternoon, Saorise. Heard you and Parzeval knocked those slimes on the pier into next week!
+  SAOIRSE|L: Sure did! I thought we'd swing by and see if we can help with <i>your</i> pest problem, too.
+  EXPO: Joban looked past her.
+  JOBAN|R: Did you leave Parzeval in the dust?
+  SAOIRSE|L: Huh?
+  JOBAN|R: I thought you said "we"?
+  SAOIRSE|L: No, me and Branford.
+  EXPO: Joban frowned, and Saoirse was reminded that not everyone viewed Branford the same way she did. There was a merchant who visited the island on a modestly sized ship about once a year to trade for the various crafts the village produced. He had a machine similar to Branford, though it didn't speak - or perhaps it only spoke to the trader, in that strange, fluttering native tongue of his. The villagers regarded even <i>that</i> with suspicion.
+  EXPO: When she'd first discovered Branford in the forest, Joban had helper Saoirse get them back to the village, suggesting that he could be fitted with a plow and used to till the earth. Saoirse had argued against it, and, well... the tension had never <i>really</i> been resolved.
+  EXPO: Still, though, Joban was a friendly sort, and not a holder of grudges, even if he didn't quite accept the Branford as a real member of the village.
+  SAOIRSE|L: So... what's the story with the mossfox? Have you seen it recently?
+  EXPO: Joban leaned on the raised bed and scratched his nose.
+  JOBAN|R: Yeah, it was here... three nights afore. I set up a whole mess of strings and bell-shells around henhouse, and sure enough it got to janglin'. I ran outside and chased it off before it could snatch up another chicken. It ran off to the southeast. If you're gonna chase it down, the first place I'd look is Shalebed.
+  EXPO: Shalebed was a series of flat stones that jutted out of the beach along the island's southern edge. As low tide, a small grotto could be accessed, perhaps a decent hideout for a fox to grow fat on pilfered poultry.
+  SAOIRSE|L: I'll head that way then. Let's see if I can frighten that thing off for good.
+  JOBAN|R: Well, don't be afraid to smack it with that shovel if you have to. It's still a wild animal, and it's got teeth as pointing as anything.
+  EXPO: Saoirse nodded, and swung Branford around in a tight circle.
+  SAOIRSE|L: Just you wait! We'll take care of it!
+  EXPO: For the second time that day, she sped away from someone who was left quietly shaking their head.
+  NEXT`
 ];
 const actors = {
   'SAOIRSE': {

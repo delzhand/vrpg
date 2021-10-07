@@ -8,6 +8,8 @@ contents = [
   'story.html?scene=5',
   'story.html?scene=6',
   'story.html?scene=7',
+  'story.html?scene=8',
+  'battle.html?data=2',
 ];
 
 function drawNav() {

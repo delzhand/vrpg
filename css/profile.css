@@ -184,21 +184,9 @@
 
 .profile.hz .picture {
   width: 124px;
-  height: 124px;
+  height: 174px;
   vertical-align: top;
   padding-top: 0;
-}
-
-.profile.hz .name,
-.profile.hz .level {
-  position: absolute;
-  z-index: 3;
-  left: 16px;
-  top: 116px;
-}
-
-.profile.hz .name {
-  top: 96px;
 }
 
 .profile.hz .data {
@@ -210,9 +198,13 @@
 
 .profile.hz .loadout {
   display: inline-block;
-  width: 400px;
+  width: 200px;
   vertical-align: top;
   margin-left: 12px;
+}
+
+.profile.hz .name {
+  line-height: 1;
 }
 
 .icon {
