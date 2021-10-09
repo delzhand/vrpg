@@ -72,7 +72,7 @@ function advance() {
       $('#pa-log').append('[/list]');
       break;
     case 'BREAK':
-      $('#story').append('<div class="line break"></div>');
+      $('#story').append('<div class="line break">---</div>');
       break;
     case 'NEXT':
       $('#story').append(`<div class="line next-nav"><a class="next-page" href="#">Next ></a></div>`);

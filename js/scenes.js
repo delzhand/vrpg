@@ -171,8 +171,37 @@ const scenes = [
   EXPO: Saoirse looked over her shoulder at the cave. The fox had gone down a passage that was large enough for Branford, barely. There was another passage that <i>seemed</i> to lead upwards. She'd never mapped this cave, but it stood to reason that there might be an exit that way.
   EXPO: There was no time to wait. She gripped Branford's handles...
   PROMPT: How will Saoirse and Branford deal with the rising tide?
-  VOTE-OPEN: One wing, full throttle, let's fly.|Trust to nature. Follow the fox.|The passage upwards is the only logical choice here.
-  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse decides to help out a village farmer, even if it means tackling a small predator. But the tide is coming in... (3 pages)<br><br>How will she and Branford escape?<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/fictionlive?src=hash&amp;ref_src=twsrc%5Etfw">#fictionlive</a> <a href="https://twitter.com/hashtag/serialized?src=hash&amp;ref_src=twsrc%5Etfw">#serialized</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1446235722638368774?ref_src=twsrc%5Etfw">October 7, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`,
+  VOTE-CLOSED: One wing, full throttle, let's fly.%40|Trust to nature. Follow the fox.%60|The passage upwards is the only logical choice here.%0
+  NEXT`,
+
+  `SCENE: Shalebed | Southern Bolba
+  EXPO: Saoirse flipped the tiny metal switch that activated Branford's headlamp and pointed him down the descending passageway.
+  SAOIRSE|L: If that fox has been living in here, I bet it knows another way out.
+  EXPO: She rode Branford forward. The opening was barely wide enough to accommodate his lone right wing. He was definitely not designed for such small spaces. However, past the initial squeeze, the cavern widened somewhat. The headlamp illuminated a long, fairly straight shaft that descended slightly, with a few stalactites as the only notable features.
+  EXPO: Branford's lamp was the lone source of light after a minute of slow riding. The luminous yellow cone revealed no further landmarks, and Saoirse released the throttle. Branford decelerated to a stop.
+  SAOIRSE|L: This seems like a safe place to wait out the tide. It doesn't look like anything else is living in here.
+  BRANFORD|R: I detect no dangers, as well.
+  EXPO: Saoirse kicked down the stand and hopped off Branford. The arc-engine's humming ceased.
+  EXPO: Saoirse rummaged through the machine's panniers for a moment, muttering to herself.
+  SAOIRSE|L: I can't see a damn thing.
+  EXPO: She pulled the saddlebags free and dragged them in front of Branford's lamp.
+  SAOIRSE|L: I've got flint and tinder, but I doubt we'll find enough kindling for a fire. I've got a lantern with a tiny bit of oil. I'm going to look around. Get a sense of what's in here. I can't believe I never thought to map this place.
+  BRANFORD|R: Rider, do be careful. If anything should happen to you...
+  EXPO: Saoirse nodded, despite knowing that her companion couldn't see the gesture.
+  SAOIRSE|L: I'll be careful.
+  NEXT`,
+  
+  `EXPO: The lantern's dim light reached far shorter than Branford's arc-lamp, but what it lacked in brightness, it made up for in range. While Branford's lamp illuminated a lengthy cone in front of him, it did little for anything behind or beside the rider. Saoirse raised the lamp, illuminating a circle around her, broken only by her own shadow.
+  EXPO: She could see Branford's light some distance away, and made a note not to stray so far that she ever lost sight of it. Underground, it was her only compass.
+  EXPO: She walked perpendicular to the path she'd taken into the cave, counting her steps. What she'd assumed was a narrow tunnel was actually a fairly wide open cavern, the few stalactites they'd passed on the way in were in fact a small number of many. Eventually she reached a wall. It was slick with cave-water, layered green and orange and white stone. She turned to confirm that she could still see Branford in the distance, then began counting steps along the wall.
+  EXPO: It eventually curved away, and something blocked her line of sight to the aeroframe. She walked back until she could see it again, and held her lamp out, but couldn't see what it was that had blocked her view only a few steps back.
+  SAOIRSE|L: Branford?
+  EXPO: There was no response. She could see the bright yellow path of his light, but heard nothing. It occurred to her that she'd never communicated with him from anything more than a few feet away. Perhaps his hearing was more limited than hers, or perhaps he was simply unable to raise his voice? She began walking back towards him.
+  NEXT`,
+  
+  `EXPO: She kept her lantern trained on the hard edge where Branford was blocked from view, and about halfway back to the spot where he was, Saoirse gasped as the obstruction caught the lantern light.
+  PROMPT: What is the object in the cavern?
+  VOTE-OPEN: An ink-dark crystal containing a human figure|A sturdy metal door set into the cave wall|A mausoleum carved with strange symbols`
 ];
 const actors = {
   'SAOIRSE': {

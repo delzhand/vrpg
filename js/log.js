@@ -9,6 +9,7 @@ log = [
   {type: 'system', date: '10/03/2021', txt: 'Party Status screen unlocked!'},
   {type: 'story', date: '10/04/2021', txt: 'Saoirse begins thinking of a way to repair Branford and get airborne again.<br><a href="story.html?scene=6">Page 1 of 2</a>'},
   {type: 'story', date: '10/07/2021', txt: 'Saoirse decides to help out a village farmer, even if it means tackling a small predator.<br><a href="story.html?scene=8">Page 1 of 3</a>'},
+  {type: 'story', date: '10/09/2021', txt: `Saoirse takes shelter in a cave, but there's something else in here...<br><a href="story.html?scene=10">Page 1 of 3</a>`},
 ];
 
 function drawUpdates() {
