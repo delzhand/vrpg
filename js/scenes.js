@@ -201,8 +201,7 @@ const scenes = [
 
   `EXPO: She kept her lantern trained on the hard edge where Branford was blocked from view, and about halfway back to the spot where he was, Saoirse gasped as the obstruction caught the lantern light.
   PROMPT: What is the object in the cavern?
-  VOTE-OPEN: An ink-dark crystal containing a human figure|A sturdy metal door set into the cave wall|A mausoleum carved with strange symbols
-  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse takes shelter in a cave, but there&#39;s something else in here... (3 pages)<br><br>What is it?<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/fictionlive?src=hash&amp;ref_src=twsrc%5Etfw">#fictionlive</a> <a href="https://twitter.com/hashtag/serialized?src=hash&amp;ref_src=twsrc%5Etfw">#serialized</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1446942467652206592?ref_src=twsrc%5Etfw">October 9, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
+  VOTE-CLOSED: An ink-dark crystal containing a human figure%20|A sturdy metal door set into the cave wall%27|A mausoleum carved with strange symbols%53`,
 ];
 const actors = {
   'SAOIRSE': {
