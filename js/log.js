@@ -12,7 +12,8 @@ log = [
   {type: 'story', date: '10/07/2021', txt: 'Saoirse decides to help out a village farmer, even if it means tackling a small predator.<br><a href="story.html?scene=8">Page 1 of 3</a>'},
   {type: 'party', date: '10/09/2021', txt: `Saoirse learned [Arc-Flash]`},
   {type: 'story', date: '10/09/2021', txt: `Saoirse takes shelter in a cave, but there's something else in here...<br><a href="story.html?scene=10">Page 1 of 3</a>`},
-  {type: 'system', date: '10/03/2021', txt: 'Bestiary page unlocked!'},
+  {type: 'system', date: '10/10/2021', txt: 'Bestiary page unlocked!'},
+  {type: 'story', date: '10/11/2021', txt: `The crypt housed a terrifying guardian! Though wounded from earlier, Saorise fights back...<br><a href="story.html?scene=13">Page 1 of 1</a>`},
 ];
 
 function drawUpdates() {

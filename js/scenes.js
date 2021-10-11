@@ -202,6 +202,34 @@ const scenes = [
   `EXPO: She kept her lantern trained on the hard edge where Branford was blocked from view, and about halfway back to the spot where he was, Saoirse gasped as the obstruction caught the lantern light.
   PROMPT: What is the object in the cavern?
   VOTE-CLOSED: An ink-dark crystal containing a human figure%20|A sturdy metal door set into the cave wall%27|A mausoleum carved with strange symbols%53`,
+
+  `EXPO: Saoirse stared at the structure. In the color-devouring blackness of the cave, it appeared to be a burial chamber of some sort. It seemed desperately out of place - all polished marble with a wrought iron gate, untouched by moss, rust, or even time.
+  EXPO: Most strangely of all, though, was the angle. It was tilted ever so slightly, as if it had sunken into the ground on one side.
+  EXPO: She lifted her lantern above her head. The top of the mausoleum was hidden, engulfed by the cave ceiling - no, not engulfed, it looked as if it had displaced the very stone.
+  SAOIRSE|L: Branford?
+  BRANFORD|R: I am here, rider.
+  EXPO: Branford's voice was quiet at this distance. She set the lantern down near the iron gate and walked back to the aeroframe.
+  SAOIRSE|L: I found something strange. Come on. I need your light.
+  EXPO: She hopped onto the seat and let the engine's idle float them gently towards the mausoleum.
+  SAOIRSE|L: What do you think?
+  BRANFORD|R: Whatever it is, it seems incongruous with the environs.
+  SAOIRSE|L: What does it look like to you?
+  BRANFORD|R: I can perceive only the outside. That's strange. Usually I can identify internal structures, though not with high accuracy. Here, though... nothing.
+  SAOIRSE|L: There's nothing like this anywhere else on any part of the island that I've found. These carvings don't look like our language.
+  EXPO: She traced her hands over the carvings.
+  SAOIRSE|L: Though skulls are a pretty universal symbol, I suppose...
+  EXPO: Her gaze drifted to the gate.
+  SAOIRSE|L: I want to see what's inside. Parzival's gonna love this.
+  EXPO: She grabbed the handles of the gate and pulled. It was heavy and cold to the touch, and the blood soaked bandage on her right hand prickled as she strained.
+  EXPO: Suddenly, the resistance fell away and the gates swung open easily on silent hinges.
+  BRANFORD|R: Rider, watch out! I'm detecting-
+  EXPO: A skeletal figured burst from the open crypt and barreled into Saoirse.
+  SKELETON|R: CAN MY MISTRESS FIND NO RESPITE?
+  EXPO: The skeleton was taller than any man Saoirse had ever met, and carried itself with a prouder bearing than one expected of animated bones. It brandished a long, needle-like blade.
+  SKELETON|R: OPENED BY BLOOD WAS THE GATE, ONLY BY SELFSAME BLOOD MAY IT BE RE-SEALED.
+  EXPO: It thrust its sword at Saorise, who threw herself backwards towards Branford and grabbed for her shovel. She tightened her grip and readied herself as the skeleton lunged.
+  PROMPT: There's no escape and only one chance to gain an advantage. What will Saorise do?
+  VOTE-OPEN: Swing low, for the legs (-SPD)|Swing high, for the head (-DEF)|Swing mid, for its weapon/arm (-ATK)`
 ];
 const actors = {
   'SAOIRSE': {
