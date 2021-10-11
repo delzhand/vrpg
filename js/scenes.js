@@ -134,7 +134,7 @@ const scenes = [
   EXPO: Saoirse eased up on the throttle as she approached the farmhouse, and the arc-halo shrank below Branford's floating chassis. Joban was tending to the raised beds, rows of neat wooden boxes filled with sprouting vegetables. He pulled a wagon behind him, heaped high with the dark, rich loam Joban mixed every spring. He stopped at one of the beds and scattered a few handfuls of the stuff.
   SAOIRSE|L: Joban! 
   EXPO: Joban was a man of middle age, broad shouldered and tan. He stood and dusted off his hands.
-  JOBAN|R: Afternoon, Saorise. Heard you and Parzeval knocked those slimes on the pier into next week!
+  JOBAN|R: Afternoon, Saoirse. Heard you and Parzeval knocked those slimes on the pier into next week!
   SAOIRSE|L: Sure did! I thought we'd swing by and see if we can help with <i>your</i> pest problem, too.
   EXPO: Joban looked past her.
   JOBAN|R: Did you leave Parzeval in the dust?
@@ -227,8 +227,8 @@ const scenes = [
   SKELETON|R: CAN MY MISTRESS FIND NO RESPITE?
   EXPO: The skeleton was taller than any man Saoirse had ever met, and carried itself with a prouder bearing than one expected of animated bones. It brandished a long, needle-like blade.
   SKELETON|R: OPENED BY BLOOD WAS THE GATE, ONLY BY SELFSAME BLOOD MAY IT BE RE-SEALED.
-  EXPO: It thrust its sword at Saorise, who threw herself backwards towards Branford and grabbed for her shovel. She tightened her grip and readied herself as the skeleton lunged.
-  PROMPT: There's no escape and only one chance to gain an advantage. What will Saorise do?
+  EXPO: It thrust its sword at Saoirse, who threw herself backwards towards Branford and grabbed for her shovel. She tightened her grip and readied herself as the skeleton lunged.
+  PROMPT: There's no escape and only one chance to gain an advantage. What will Saoirse do?
   VOTE-OPEN: Swing low, for the legs (-SPD)|Swing high, for the head (-DEF)|Swing mid, for its weapon/arm (-ATK)
   VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The crypt housed a terrifying guardian! Though wounded from earlier, Saoirse fights back (1 page)<br><br>Can she gain an advantage?<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/rpg?src=hash&amp;ref_src=twsrc%5Etfw">#rpg</a> <a href="https://twitter.com/hashtag/serialfiction?src=hash&amp;ref_src=twsrc%5Etfw">#serialfiction</a> <a href="https://twitter.com/hashtag/groupfiction?src=hash&amp;ref_src=twsrc%5Etfw">#groupfiction</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1447698197829328898?ref_src=twsrc%5Etfw">October 11, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
 ];
