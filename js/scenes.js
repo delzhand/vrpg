@@ -219,7 +219,7 @@ const scenes = [
   EXPO: She traced her hands over the carvings.
   SAOIRSE|L: Though skulls are a pretty universal symbol, I suppose...
   EXPO: Her gaze drifted to the gate.
-  SAOIRSE|L: I want to see what's inside. Parzival's gonna love this.
+  SAOIRSE|L: I want to see what's inside. Parzeval's gonna love this.
   EXPO: She grabbed the handles of the gate and pulled. It was heavy and cold to the touch, and the blood soaked bandage on her right hand prickled as she strained.
   EXPO: Suddenly, the resistance fell away and the gates swung open easily on silent hinges.
   BRANFORD|R: Rider, watch out! I'm detecting-
@@ -229,7 +229,8 @@ const scenes = [
   SKELETON|R: OPENED BY BLOOD WAS THE GATE, ONLY BY SELFSAME BLOOD MAY IT BE RE-SEALED.
   EXPO: It thrust its sword at Saorise, who threw herself backwards towards Branford and grabbed for her shovel. She tightened her grip and readied herself as the skeleton lunged.
   PROMPT: There's no escape and only one chance to gain an advantage. What will Saorise do?
-  VOTE-OPEN: Swing low, for the legs (-SPD)|Swing high, for the head (-DEF)|Swing mid, for its weapon/arm (-ATK)`
+  VOTE-OPEN: Swing low, for the legs (-SPD)|Swing high, for the head (-DEF)|Swing mid, for its weapon/arm (-ATK)
+  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The crypt housed a terrifying guardian! Though wounded from earlier, Saoirse fights back (1 page)<br><br>Can she gain an advantage?<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/rpg?src=hash&amp;ref_src=twsrc%5Etfw">#rpg</a> <a href="https://twitter.com/hashtag/serialfiction?src=hash&amp;ref_src=twsrc%5Etfw">#serialfiction</a> <a href="https://twitter.com/hashtag/groupfiction?src=hash&amp;ref_src=twsrc%5Etfw">#groupfiction</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1447698197829328898?ref_src=twsrc%5Etfw">October 11, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
 ];
 const actors = {
   'SAOIRSE': {
