@@ -21,6 +21,7 @@ function drawNav() {
     <div class="menu nav">
       <a href="index.html">Home</a>
       <a href="status.html">Party Status</a>
+      <a href="bestiary.html">Bestiary</a>
       <a href="about.html">About</a>
       <a href="https://twitter.com/chaos_quest" class="twitter">Twitter</a>
     </div>

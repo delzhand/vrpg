@@ -44,6 +44,11 @@
       width: 100%;
     }
   }
+  &.team-enemy {
+    .picture {
+      display: none;
+    }
+  }
   .name {
     font-size: 20px;
     font-weight: bold;
@@ -142,6 +147,10 @@
       display: inline-block;
       margin-right: 6px;
     }
+    .detail {
+      margin-left: 24px;
+      padding-bottom: 4px;
+    }
   }
   .status {
     .effect {
@@ -162,7 +171,7 @@
     }
   }
   &.hz {
-    width: auto;
+    width: 496px;
     .picture {
       width: 124px;
       height: 174px;
@@ -222,10 +231,6 @@
   }
 }
 
-.profile+.profile {
-  margin-left: 12px;
-}
-
 .profile.ability-list {
   width: 500px;
   .equip {
@@ -251,6 +256,16 @@
 }
 
 .profiles {
-  display: flex;
-  justify-content: center;
+  &.flex {
+    display: flex;
+    justify-content: center;
+    .profile+.profile {
+      margin-left: 12px;
+    }    
+  }
+  &.full {
+    width: 496px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

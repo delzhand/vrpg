@@ -38,12 +38,41 @@ crossorigin="anonymous"></script>
 <script src="./js/contents.js"></script>
 
 <script>
-  q = getUrlVars();
-  d = q.data;
-  if (!d) {
-    d = party.length-1;
-  }
-  let data = party[d];
+  // q = getUrlVars();
+  // d = q.data;
+  // if (!d) {
+  //   d = party.length-1;
+  // }
+  // let data = party[d];
+
+  const data = [
+    {
+      name: 'Moss Fox',
+      level: 6,
+      job: 'Beast',
+      team: 'enemy',
+      vit: 14,
+      atk: 8,
+      def: 7,
+      res: 5,
+      spd: 6,
+      pool: ['weapon', 'weapon'],
+      abilities: ['counter'],
+    },
+    {
+      name: 'Ocean Jelly',
+      level: 2,
+      job: 'Monster',
+      team: 'enemy',
+      vit: 8,
+      atk: 7,
+      def: 6,
+      res: 6,
+      spd: 3,
+      pool: ['magic', 'magic', 'bootslop'],
+      abilities: ['bootslop'],
+    },
+  ];
 
   function init() {
     units = [];
@@ -56,12 +85,12 @@ crossorigin="anonymous"></script>
 
   function drawInit() {
     for (let i = 0; i < units.length; i++) {
-      $('.profiles').append(units[i].drawProfile(true, false));
+      $('.profiles').append(units[i].drawProfile(false, false));
     }
   }
 </script>
 
-<title>Chaos Quest | Party Status</title>
+<title>Chaos Quest | Bestiary</title>
 </head>
 <body>
   <div class="header">
@@ -69,7 +98,7 @@ crossorigin="anonymous"></script>
     <div class="logo"><a href="index.html"><img src="./images/logo.png"></a></div>
   </div>
   <div class="container">
-    <div class="profiles full"></div>
+    <div class="profiles flex"></div>
   </div>
   <script>
     drawNav();

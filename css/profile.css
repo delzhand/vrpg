@@ -39,6 +39,10 @@
   width: 100%;
 }
 
+.profile.team-enemy .picture {
+  display: none;
+}
+
 .profile .name {
   font-size: 20px;
   font-weight: bold;
@@ -159,6 +163,11 @@
   margin-right: 6px;
 }
 
+.profile .equip .detail {
+  margin-left: 24px;
+  padding-bottom: 4px;
+}
+
 .profile .status .effect {
   background: #4d4dff;
   border-radius: 2px;
@@ -179,7 +188,7 @@
 }
 
 .profile.hz {
-  width: auto;
+  width: 496px;
 }
 
 .profile.hz .picture {
@@ -250,10 +259,6 @@
   background-image: url("../images/hybrid.png");
 }
 
-.profile + .profile {
-  margin-left: 12px;
-}
-
 .profile.ability-list {
   width: 500px;
 }
@@ -281,12 +286,22 @@
   margin-top: 10px;
 }
 
-.profiles {
+.profiles.flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.profiles.flex .profile + .profile {
+  margin-left: 12px;
+}
+
+.profiles.full {
+  width: 496px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*# sourceMappingURL=profile.css.map */

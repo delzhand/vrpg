@@ -41,6 +41,14 @@ const abilities = {
       }
     }
   },
+  'arc flash': {
+    name: 'Arc-Flash',
+    type: 'attack',
+    desc: 'Stuns all enemies',
+    fn: function(unit, animate = false) {
+
+    }
+  },
   'thrust': {
     name: 'Thrust',
     type: 'attack',

@@ -167,7 +167,7 @@ class Unit {
   }
   drawProfile(h = false, full = false) {
     return `
-      <div class="profile ${h ? 'hz' : ''} unit-${this.name.safeCSS()}">
+      <div class="profile ${h ? 'hz' : ''} unit-${this.name.safeCSS()} team-${this.team}">
         ${this.drawPicture()}
         <div class="data">
           <div class="name">${this.name}</div>
@@ -275,23 +275,43 @@ class Unit {
   drawGear() {
     let output = '';
     if (this.arms) {
-      output += `<div class="equip"><span class="icon weapon"></span> ${gear[this.arms].name}</div>`;
+      output += `<div class="equip"><span class="icon weapon"></span> <b>${gear[this.arms].name}</b><div class="detail">${this.drawGearDetail(gear[this.arms])}</div></div>`;
     }
     if (this.armor) {
-      output += `<div class="equip"><span class="icon armor"></span> ${gear[this.armor].name}</div>`;
+      output += `<div class="equip"><span class="icon armor"></span> <b>${gear[this.armor].name}</b><div class="detail">${this.drawGearDetail(gear[this.armor])}</div></div>`;
     }
     return output;
   }
-  drawSkills(detail = false) {
+  drawGearDetail(gear) {
+    const bonuses = [];
+    if (gear.mhp) {
+      bonuses.push('HP ' + this.posOrNeg(gear.mhp));
+    }
+    if (gear.atk) {
+      bonuses.push('ATK ' + this.posOrNeg(gear.atk));
+    }
+    if (gear.def) {
+      bonuses.push('DEF ' + this.posOrNeg(gear.def));
+    }
+    if (gear.res) {
+      bonuses.push('RES ' + this.posOrNeg(gear.res));
+    }
+    if (gear.spd) {
+      bonuses.push('SPD ' + this.posOrNeg(gear.spd));
+    }
+    return bonuses.join(' ');
+  }
+  posOrNeg(num) {
+    if (num > 0) {
+      return "+" + num;
+    }
+    return num;
+  }
+  drawSkills() {
     let output = '';
     for (let i = 0; i < this.abilities.length; i++) {
       const ability = abilities[this.abilities[i]];
-      if (detail) {
-        output += `<div class="equip"><span class="icon ${ability.type}"></span> ${ability.name}: ${ability.desc}</div>`
-      }
-      else {
-        output += `<div class="equip"><span class="icon ${ability.type}"></span> ${ability.name}</div>`        
-      }
+      output += `<div class="equip"><span class="icon ${ability.type}"></span> <b>${ability.name}</b><div class="detail">${ability.desc}</div></div>`
     }
     return output;
   }
