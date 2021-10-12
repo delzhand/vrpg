@@ -201,7 +201,8 @@ const scenes = [
 
   `EXPO: She kept her lantern trained on the hard edge where Branford was blocked from view, and about halfway back to the spot where he was, Saoirse gasped as the obstruction caught the lantern light.
   PROMPT: What is the object in the cavern?
-  VOTE-CLOSED: An ink-dark crystal containing a human figure%20|A sturdy metal door set into the cave wall%27|A mausoleum carved with strange symbols%53`,
+  VOTE-CLOSED: An ink-dark crystal containing a human figure%20|A sturdy metal door set into the cave wall%27|A mausoleum carved with strange symbols%53
+  NEXT`,
 
   `EXPO: Saoirse stared at the structure. In the color-devouring blackness of the cave, it appeared to be a burial chamber of some sort. It seemed desperately out of place - all polished marble with a wrought iron gate, untouched by moss, rust, or even time.
   EXPO: Most strangely of all, though, was the angle. It was tilted ever so slightly, as if it had sunken into the ground on one side.
