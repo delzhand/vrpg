@@ -253,7 +253,8 @@ const scenes = [
   EXPO: Then, later, soft blankets and salt breeze. In the distance, arguing voices.
   EXPO: Later still, pain and bitter herbs, and the smell of medicine...
   PROMPT: While Saoirse recovers, another player takes the stage. Who is it?
-  VOTE-OPEN: Hanya, a flirtatious catgirl monk|Galfred, a merchant himbo who loves travel as much as profit|Azakir, an aging hermit swordsman`
+  VOTE-OPEN: Hanya, a flirtatious catgirl monk|Galfred, a merchant himbo who loves travel as much as profit|Azakir, an aging hermit swordsman
+  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse defeats the Tomb Guardian, but will she survive? And later, a new player appears... (1 battle + 2 pages)<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/livefiction?src=hash&amp;ref_src=twsrc%5Etfw">#livefiction</a> <a href="https://twitter.com/hashtag/serialstory?src=hash&amp;ref_src=twsrc%5Etfw">#serialstory</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1448100207003066373?ref_src=twsrc%5Etfw">October 13, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
 ];
 const actors = {
   'SAOIRSE': {
