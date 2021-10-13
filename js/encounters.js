@@ -99,5 +99,27 @@ const encounters = [
       },
     ]
   },  
+  { //3
+    xpMultiplier: 1.2,
+    seed: '1',
+    partyData: 4,
+    bg: 'cave-bg.png',
+    units: [
+      {
+        name: 'Tomb Guardian',
+        level: 6,
+        job: 'Undead',
+        team: 'enemy',
+        vit: 17,
+        atk: 5,
+        def: 6,
+        res: 5,
+        spd: 4,
+        pool: ['weapon', 'weapon'],
+        abilities: [],
+        arms: 'regal rapier'
+      },
+    ]
+  },  
 
 ];

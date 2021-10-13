@@ -352,6 +352,10 @@
   background-image: url("../images/fox2-sprite.png");
 }
 
+.visualizer .sprite.tombguardian .image {
+  background-image: url("../images/tombguard-sprite.png");
+}
+
 .visualizer .sprite.hit {
   position: absolute;
   bottom: 0;

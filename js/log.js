@@ -14,6 +14,10 @@ log = [
   {type: 'story', date: '10/09/2021', txt: `Saoirse takes shelter in a cave, but there's something else in here...<br><a href="story.html?scene=10">Page 1 of 3</a>`},
   {type: 'system', date: '10/10/2021', txt: 'Bestiary page unlocked!'},
   {type: 'story', date: '10/11/2021', txt: `The crypt housed a terrifying guardian! Though wounded from earlier, Saoirse fights back...<br><a href="story.html?scene=13">Page 1 of 1</a>`},
+  {type: 'party', date: '10/09/2021', txt: `Saoirse learned [Skull Smasher]`},
+  {type: 'party', date: '10/09/2021', txt: `Saoirse gained 30 XP and leveled up! (+1 RES)`},
+  {type: 'party', date: '10/09/2021', txt: `Saoirse acquired a [Regal Rapier]`},
+  {type: 'story', date: '10/11/2021', txt: `Saoirse defeats the Tomb Guardian, but will she survive? And later, a new player appears...<br><a href="battle.html?data=3">Page 1 of 2</a>`},
 ];
 
 function drawUpdates() {

@@ -46,7 +46,18 @@ const abilities = {
     type: 'attack',
     desc: 'Stuns all enemies',
     fn: function(unit, animate = false) {
-
+      let targets = [];
+      for (let i = 0; i < units.length; i++) {
+        if (units[i].team != unit.team && units[i].chp > 0) {
+          const target = units[i];
+          target.ct -= 80;
+          targets.push({unit: units[i], text: 'STUN'});
+        }
+      }
+      log(`<div>${unit.name} targets foes with Arc-Flash</div>`);
+      if (animate) {
+        animateMultiple(0, unit, 'Arc-Flash', targets, true);
+      }
     }
   },
   'thrust': {
@@ -265,6 +276,19 @@ const abilities = {
       }
     }
   },
+  'skull smasher': {
+    name: 'Skull Smasher',
+    type: 'reaction',
+    desc: 'Inflict DEF -2 on attacker for next turn',
+    fn: function(unit, target, animate) {
+      target.addStatus('def -2', 2);
+      console.log(animate);
+      if (animate) {
+        animateStandardAttack(1500, unit, 'Skull Smasher', target, 'DEF -2');
+      }
+    }
+  },
+
   'parry': {
     name: 'Parry',
     type: 'reaction',

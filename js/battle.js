@@ -82,7 +82,9 @@ function init() {
     $('.frame').css('padding-top', '720px');
   }
   $('.visualizer').css('transform', `translateX(-50%) scale(${width})`);
-
+  if (input.bg) {
+    $('.visualizer .battlefield').css('background', `url(./images/${input.bg})`);
+  }
 }
 
 function drawInit() {

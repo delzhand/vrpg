@@ -244,6 +244,9 @@ class Unit {
     if (stat === 'spd' && this.hasStatus('spd +3')) {
       bonus += 3;
     }
+    if (stat === 'def' && this.hasStatus('def -2')) {
+      bonus -= 2;
+    }
     if (stat === 'atk' && this.hasStatus('atk -2')) {
       bonus -= 2;
     }

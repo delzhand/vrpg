@@ -14,6 +14,10 @@ const gear = {
     name: 'Estoc',
     atk: 4,
   },
+  'regal rapier': {
+    name: 'Regal Rapier',
+    atk: 3,
+  },
   'frost staff': {
     name: 'Frost Staff',
     atk: 4,
