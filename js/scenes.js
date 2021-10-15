@@ -284,7 +284,8 @@ const scenes = [
   ILYON|R: You are ready for this technique. Study it well as you travel, and demonstrate your mastery of it when you return.
   PROMPT: What secret technique does Master Ilyon offer Hanya?
   IMAGE: ability-choose-1.png
-  VOTE-OPEN: Blazing Fist|Lion Dance|Haste`
+  VOTE-OPEN: Blazing Fist|Lion Dance|Haste
+  VOTE-TW: <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Which ability will Hanya learn?</p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1448818724300070915?ref_src=twsrc%5Etfw">October 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
 ];
 const actors = {
   'SAOIRSE': {
