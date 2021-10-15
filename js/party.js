@@ -175,7 +175,6 @@ const party = [
       arms: 'baghnakhs',
       armor: 'tunic',
       xp: 0,
-      hp: 1
     },
   ]
     
