@@ -119,6 +119,12 @@
   font-weight: bold;
 }
 
+.line.image img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .line.expo {
   font-style: italic;
 }

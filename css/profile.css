@@ -154,6 +154,10 @@
   line-height: 1;
 }
 
+.profile .equip.choose {
+  background: #006dad;
+}
+
 .profile .equip img {
   border: 1px solid #FFF;
   border-radius: 50%;

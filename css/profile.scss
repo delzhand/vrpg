@@ -139,6 +139,9 @@
     background: #333;
     border-radius: 10px;
     line-height: 1;
+    &.choose {
+      background: #006dad;
+    }
     img {
       border: 1px solid #FFF;
       border-radius: 50%;

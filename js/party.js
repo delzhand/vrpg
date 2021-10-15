@@ -156,6 +156,27 @@ const party = [
       xp: 8,
       hp: 1
     },
+  ],
+  // 6
+  [
+    {
+      name: 'Hanya',
+      level: 7,
+      job: 'Monk',
+      picture: 'hanya-full.png',
+      team: 'ally',
+      vit: 10,
+      atk: 10,
+      def: 5,
+      res: 5,
+      spd: 7,
+      pool: ['weapon', 'weapon', 'mantra'],
+      abilities: ['mantra'],
+      arms: 'baghnakhs',
+      armor: 'tunic',
+      xp: 0,
+      hp: 1
+    },
   ]
     
 ]

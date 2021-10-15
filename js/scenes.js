@@ -247,14 +247,44 @@ const scenes = [
   BRANFORD|R: Rider?
   BRANFORD|R: Rider?
   NEXT`,
+
   `EXPO: Soairse drifted in and out of consciousness.
   EXPO: She heard a voice, or maybe two, calling her name.
   EXPO: She was aware of being hauled up by gentle hands, carried over someone's shoulder. She saw Branford's headlamp growing distant, and then nothing.
   EXPO: Then, later, soft blankets and salt breeze. In the distance, arguing voices.
   EXPO: Later still, pain and bitter herbs, and the smell of medicine...
   PROMPT: While Saoirse recovers, another player takes the stage. Who is it?
-  VOTE-OPEN: Hanya, a flirtatious catgirl monk|Galfred, a merchant himbo who loves travel as much as profit|Azakir, an aging hermit swordsman
-  VOTE-TW: <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saoirse defeats the Tomb Guardian, but will she survive? And later, a new player appears... (1 battle + 2 pages)<a href="https://t.co/lLuALXh7xa">https://t.co/lLuALXh7xa</a><a href="https://twitter.com/hashtag/chaosquest?src=hash&amp;ref_src=twsrc%5Etfw">#chaosquest</a> <a href="https://twitter.com/hashtag/jrpg?src=hash&amp;ref_src=twsrc%5Etfw">#jrpg</a> <a href="https://twitter.com/hashtag/livefiction?src=hash&amp;ref_src=twsrc%5Etfw">#livefiction</a> <a href="https://twitter.com/hashtag/serialstory?src=hash&amp;ref_src=twsrc%5Etfw">#serialstory</a></p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1448100207003066373?ref_src=twsrc%5Etfw">October 13, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
+  VOTE-CLOSED: Hanya, a flirtatious catgirl monk%67|Galfred, a merchant himbo who loves travel as much as profit|Azakir, an aging hermit swordsman%33
+  NEXT`,
+
+  `SCENE: Ao Monastery | Northeastern Bolba
+  EXPO: Hanya's tail flicked back and forth as she sat atop the sandstone wall surrounding the monastery. She wasn't technically allowed up there, but she'd proven time and again to be the most agile of Master Ilyon's disciples, the the chances of her getting caught we almost nil. 
+  EXPO: She watched the younger monks practicing their basic forms in the courtyard. Brother Fang walked among them, straightening shoulders, bending arms, adjusting footing. He knocked his staff against the shin of one student who kept falling out of time with the others.
+  EXPO: Hanya had felt that staff many times. Brother Fang was sparse with praise and quick with discipline, but this was nothing compared to how Master Ilyon trained the older students.
+  EXPO: Hanya's ear twitched and she instinctively flattened down, out of sight. Someone had said her name, though the YAH!s and HA!s from the courtyard obliterated the context. She caught another voice.
+  ???|L: ...Hanya. She's the...
+  ???|R: ...Bolba in two...
+  EXPO: Hanya hopped down on the exterior side of the wall and tried to look nonchalant as she re-entered the monastery via the heavy, studded iron gates. Master Ilyon and Brother Bagan stood just inside. Ilyon was slender with muscles like iron cord and his once luxurious mane was now thinning and gray. Bagan was as different as was possible - heavyset, closely cropped black hair, full hume with no Felid traits. 
+  EXPO: Bagan had a piece of paper in his hand. Hanya bowed respectfully to her master, and nodded to Bagan.
+  HANYA|L: Adana, Master. Adana, Brother Bagan.
+  BAGAN|R: Adana, Sister Hanya.
+  ILYON|R: Hanya. Stay off the monastery walls. You set a bad example for the youths.
+  HANYA|L: Was it that obvious?
+  EXPO: Ilyon reached out an picked a tiny chip of sandstone off sandstone, and flicked it away.
+  ILYON|R: To me, it is. However, in place of punishment, I have an important task for you. You can thank Bagan later, it was he who recommended you for the task.
+  ILYON|R: You will go to Bolba village, on the far side of the island. One of the villagers, a young woman, has been wounded badly, and they have requested our healing arts.
+  EXPO: Hanya looked at Bagan. Any chance to get out of the monastery was not to be turned down, especially if it meant avoiding punishment, but a task like this was hardly her specialty.
+  HANYA|L: Why me? My mantra is... not the strongest. 
+  BAGAN|R: It will be enough. The injured villager's strength is failing fast. Better to have a competent healer in two days than a strong one in four.
+  EXPO: Master Ilyon nodded in agreement.
+  ILYON|R: That which is not tested grows no stronger. Your mantra cannot be practiced on the already healthy.
+  ILYON|R: There is one thing I would like you to have before you go. Bagan?
+  EXPO: Bagan pulled a capped ceramic cylinder from his robe and held it forward with both hands. Hanya recognized it instantly. She turned to Ilyon.
+  HANYA|L: Master...?
+  ILYON|R: You are ready for this technique. Study it well as you travel, and demonstrate your mastery of it when you return.
+  PROMPT: What secret technique does Master Ilyon offer Hanya?
+  IMAGE: ability-choose-1.png
+  VOTE-OPEN: Blazing Fist|Lion Dance|Haste`
 ];
 const actors = {
   'SAOIRSE': {
@@ -283,7 +313,7 @@ const actors = {
   },
   'HANYA': {
     name: 'Hanya',
-    picture: 'hanya.jpeg',
+    picture: 'hanya.png',
   },
   'LIMINI': {
     name: 'Limini',

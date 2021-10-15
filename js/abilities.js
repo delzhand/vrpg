@@ -124,7 +124,7 @@ const abilities = {
   'hailstorm': {
     name: 'Hailstorm',
     type: 'magic',
-    desc: 'Deals 30% damage to all foes and ignores reaction abilities',
+    desc: 'Deals 30% damage vs RES to all foes and ignores reactions',
     fn: function(unit, animate = false) {
       let dmg = unit.getStat('atk');
       let targets = [];
@@ -229,6 +229,11 @@ const abilities = {
       }
     },
   },
+  'lions dance': {
+    name: `Lion's Dance`,
+    type: 'attack',
+    desc: 'Deals 30% damage vs DEF to all foes and ignores reactions',
+  },
   'grave dirt': {
     name: 'Grave Dirt',
     type: 'support',
@@ -327,6 +332,11 @@ const abilities = {
         animateBuff(1500, unit, 'Absorb', unit, text);
       }
     }
+  },
+  'haste': {
+    name: 'Haste',
+    type: 'reaction',
+    desc: 'Increases CT by up to 50 when attacked',
   },
   'momentum': {
     name: 'Momentum',

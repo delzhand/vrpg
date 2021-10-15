@@ -33,7 +33,7 @@ const gear = {
   },
   'baghnakhs': {
     name: 'Baghnakhs',
-    atk: 3,
+    atk: 2,
     spd: 1,
   },
   'doublet': {

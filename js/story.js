@@ -54,6 +54,9 @@ function advance() {
       $('#story').append(line[1]);
       interval = setInterval(rescroll, 2000);
       break;
+    case 'IMAGE':
+      $('#story').append(`<div class="line image"><img src="./images/story/${line[1]}"/></div>`);
+      break;
     case 'VOTE-OPEN':
     case 'VOTE-CLOSED':
       $('#story').append(`<div class="line vote"><div class="title">${line[0]}</div></div>`);
