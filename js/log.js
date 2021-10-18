@@ -20,6 +20,9 @@ log = [
   {type: 'story', date: '10/11/2021', txt: `Saoirse defeats the Tomb Guardian, but will she survive? And later, a new player appears...<br><a href="battle.html?data=3">Page 1 of 3</a>`},
   {type: 'party', date: '10/14/2021', txt: `Hanya is now the party leader`},
   {type: 'story', date: '10/11/2021', txt: `Hanya, a monk from the far side of the island, is tasked with healing Saoirse by her master...<br><a href="story.html?scene=16">Page 1 of 1</a>`},
+  {type: 'party', date: '10/14/2021', txt: `Hanya learned [Blazing Fist]`},
+  {type: 'story', date: '10/11/2021', txt: `Hanya contemplates her task and meets a stranger on the road...<br><a href="story.html?scene=17">Page 1 of 2</a>`},
+  
 ];
 
 function drawUpdates() {

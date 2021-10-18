@@ -14,7 +14,7 @@ const scenes = [
   NEXT`,
 
   `SCENE: The Second Vision
-  EXPO: Saoirse stood at the top of the sand dune and looked east, over the rooftops of the fishing village. The ocean was choppy, and summer's heat had given way to more moderate weather. But the wind was high, which was exactly what she wanted. Today was the day.
+  EXPO: Saoirse stood at the top of the sand dune and looked west, over the rooftops of the fishing village. The ocean was choppy, and summer's heat had given way to more moderate weather. But the wind was high, which was exactly what she wanted. Today was the day.
   EXPO: She'd discovered the craft while mapping the woods further inland. It had been badly damaged, abandoned long ago. Long ago enough that the forest had almost claimed it entirely, much like its former rider's bones. But it called to her, begged to be restored.
   EXPO: Several other residents of the fishing village had come to the dune to watch. There was a general sense of optimism - Saoirse's previous attempts had met with halting, cautious success. But today was the real test.
   EXPO: She pulled her goggles down and knocked back the kickstand with her heel. She placed a gloved palm on the machine's nameplate. The whirring magical engine at the heart of the machine whispered to her.
@@ -284,8 +284,35 @@ const scenes = [
   ILYON|R: You are ready for this technique. Study it well as you travel, and demonstrate your mastery of it when you return.
   PROMPT: What secret technique does Master Ilyon offer Hanya?
   IMAGE: ability-choose-1.png
-  VOTE-OPEN: Blazing Fist|Lion Dance|Haste
-  VOTE-TW: <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">Which ability will Hanya learn?</p>&mdash; Chaos Quest II (@chaos_quest) <a href="https://twitter.com/chaos_quest/status/1448818724300070915?ref_src=twsrc%5Etfw">October 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
+  VOTE-CLOSED: Blazing Fist%50|Lion Dance%50|Haste%0
+  NEXT`,
+
+  `SCENE: Juun Mountain Path | Eastern Bolba
+  EXPO: Hanya moved quickly down the mountain path that lead to the monastery. It was fully autumn now, and the fallen leaves had covered the road in a crunchy layer of brown-gold. Fall rain would soon come, and the leaves would soon flatten, break down, and become slick, rendering the path impassable to all but the monks.
+  EXPO: Not that the monastery received any visitors. Bolba village was the only other settlement on the island, and when they needed assistance they always sent a messenger gull.
+  EXPO: Hanya re-read the letter. The villager was a girl, barely an adult, stabbed, though by who had not been mentioned. This concerned her. The monks were often called to administer justice if a crime had been committed that the villagers could't handle on their own, but she didn't want to become involved in their affairs. It was a hume village, and Master Ilyon said there was still some distrust of Felids there.
+  EXPO: She just wanted to make it to the village, heal the girl, practice the new technique she'd learned, and perhaps watch the men work on the beach, with their rippling muscles, sweat glistening on their bodies, clothes wet and clinging...
+  EXPO: Hanya shook her head. Maybe if the girl could be helped there would be time for indulgences later. It wouldn't reflect well on the monastery if she showed up, bedded a handsome young man, and then failed to achieve anything with her mantra.
+  NEXT`,
+  
+  `SCENE: Inland Forest | Central Bolba
+  HANYA|L: You there!
+  EXPO: A man in a ragged robe on the path ahead of her turned around as she approached. He was dark of skin, his grey hair dangling heavily in dreadlocks over his shoulders. She couldn't tell if the robe concealed a tail, but she didn't see tufted ears.
+  ???|R: Didn't think I'd see an Ao monk so far down the mountain.
+  HANYA|L: I didn't expect to encounter the island hermit. Isn't your home a ways north of here, uh...
+  AZAKIR|R: Azakir. And yes, it is. But I'm going to the village. There's some work I gotta do there.
+  HANYA|L: Do you need an escort? I'm afraid I'm in a hurry.
+  EXPO: The man drew the blade she hadn't even seen in a flash, cutting cleanly through a falling seedpod. Hanya watched the two halves fall onto the ground.
+  AZAKIR|R: These bones, they're old, but they ain't feeble. I'll make it there in my own time, but I gotta say, I'd turn back if I were you.
+  EXPO: Hanya studied him carefully. He was old, but not as old as Master Ilyon. His robe was a style apart from what they wore in the village, and it was threadbare around the elbows and sleeves. Everyone knew of the island hermit, but he caught his own fish and tended his own crops, and that made him a rarely seen figure.
+  HANYA|L: Turn back? Why? There's a girl who needs my help.
+  EXPO: He sheathed his single-edged blade with single smooth motion.
+  AZAKIR|R: Shouldn't talk of it. It's bad luck, s'pose. Could be nothin'. Go on ahead, help your girl. If I'm wrong, maybe we'll see each other there.
+  EXPO: Hanya nodded.
+  HANYA|L: Well, Azakir, I hope everything works out alright and I see you in the village. Stay safe!
+  EXPO: She gave a small wave and walked on a bit before breaking out into a jog again.
+  PROMPT: What obstacle lies between the forest and the village?
+  VOTE-OPEN: A broken bridge|A nesting wyvern|a malevolent wraith`
 ];
 const actors = {
   'SAOIRSE': {
@@ -322,5 +349,9 @@ const actors = {
   },
   'BRANFORD': {
     name: 'Branford',
+  },
+  'AZAKIR': {
+    name: 'Azakir',
+    picture: 'azakir.png'
   }
 }
