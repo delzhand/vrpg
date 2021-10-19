@@ -312,7 +312,43 @@ const scenes = [
   HANYA|L: Well, Azakir, I hope everything works out alright and I see you in the village. Stay safe!
   EXPO: She gave a small wave and walked on a bit before breaking out into a jog again.
   PROMPT: What obstacle lies between the forest and the village?
-  VOTE-OPEN: A broken bridge|A nesting wyvern|a malevolent wraith`
+  VOTE-OPEN: A broken bridge%62|A nesting wyvern%38|a malevolent wraith%0
+  NEXT`,
+
+  `SCENE: Makrus Gorge | Central Bolba
+  EXPO: Hanya blew out her breath and kicked a rock over the edge. It took several seconds for it to reach the river below. Hanya scowled.
+  EXPO: The Makrus Gorge cut the island more or less in half. She'd made such good time so far, only to discover that the summer storms had taken their toll on an over-long oak branch, which had dropped directly on the only bridge for miles. The abundant part of the bridge itself dangled off the far side, still attached to the far supports, but the broken planks at the end twisting in the wind. The smaller part was on her side, mere ropes left.
+  EXPO: Hanya paced back and forth, considering her options.
+  EXPO: It was too far to leap across, obviously. She didn't have the expertise or tools to repair the bridge. The rapids far below were too dangerous to cross even if she scaled down the side of the gorge, an already dangerous feat. Following the gorge to the shore and crossing there would add days to her journey - days that the wounded girl likely didn't have.
+  EXPO: If there was a solution here, she wasn't seeing it. She sat down, cross-legged, and closed her eyes.
+  BREAK
+  EXPO: Despite her training, she'd always found meditation difficult. Stillness was not a virtue she possessed. She considered the environment. The gorge was a break in the forest treetops, exposing a cloudy gray sky. The air was cool but damp with the mist from the raging waters below. The smell of mossy tree trunks, bark, pitch, mud...
+  ???|L: Adana!
+  EXPO: Her eyes snapped open at the greeting. The old man couldn't have caught up already, she thought. But sure enough, he ambled easily down the path.
+  HANYA|R: You know the Ao greeting?
+  AZAKIR|L: Learned it years ago, I reckon. I just didn't want to catch you off guard. Odd spot to meditate in, gotta say.
+  HANYA|R: The bridge is out.
+  EXPO: He closed the gap between them and looked at the frayed ropes trailing from the near supports. He pushed on the supports to see if they were stable, peered down into the gorge, and then looked up towards the remainder of the broken branch. He grunted.
+  HANYA|R: Any ideas?
+  EXPO: Azakir set down his pack and rummaged through it. He pulled out a long coil of rope with a metal hook at one end.
+  AZAKIR|L: How's your throwing arm?
+  HANYA|R: You... just happened to have a grapnel?
+  AZAKIR|L: S'called experience. Comes with bein' old. I highly recommend it.
+  HANYA|R: Experience, or being old?
+  AZAKIR|L: You figure out how to get the former without the latter comin' along, you let me know.
+  EXPO: He handed her the hook.
+  AZAKIR|L: Can you walk a tightrope, or do you want to go hand over hand?
+  HANYA|R: You can see my tail, right?
+  AZAKIR|L: Didn't want to assume. Once you're on the other side, you throw this back, and we can hoist the bridge back up. It won't be perfect but it'll do for now.
+  BREAK
+  EXPO: True to her word and species, Hanya easily crossed the gorge on the rope. The next half hour she spent tying knots at Azakir's instruction, and before long, they managed to thread the rope around the eastern supports and back and forth through the remaining slats.
+  EXPO: Azakir tested his work cautiously before stepping across the hole in the bridge. If he had any fear of heights, he didn't show it, but he did hurry across with grim determination on his face.
+  AZAKIR|L: Looks like we're travel partners after all.
+  HANYA|R: Seems like it. Never thought I'd be walking with the island hermit.
+  AZAKIR|L: I don't mind a little company now and then. It's a lonely life, being a goddessbane...
+  EXPO: Hanya's jaw dropped.
+  PROMPT: How does Hanya respond?
+  VOTE-OPEN: I thought the goddesses were all dead?|But the goddesses are the source of all life!|I wish I had the skill to be a goddessbane...`
 ];
 const actors = {
   'SAOIRSE': {
