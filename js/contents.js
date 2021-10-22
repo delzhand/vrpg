@@ -22,6 +22,7 @@ contents = [
   'story.html?scene=17',
   'story.html?scene=18',
   'story.html?scene=19',
+  'story.html?scene=20',
 ];
 
 function drawNav() {

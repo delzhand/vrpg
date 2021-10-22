@@ -348,7 +348,44 @@ const scenes = [
   AZAKIR|L: I don't mind a little company now and then. It's a lonely life, being a goddessbane...
   EXPO: Hanya's jaw dropped.
   PROMPT: How does Hanya respond?
-  VOTE-OPEN: I thought the goddesses were all dead?|But the goddesses are the source of all life!|I wish I had the skill to be a goddessbane...`
+  VOTE-CLOSED: I thought the goddesses were all dead?%50|But the goddesses are the source of all life!%25|I wish I had the skill to be a goddessbane...%25
+  NEXT`,
+
+  `HANYA|L: Goddessbane...? Aren't the goddesses all dead?
+  EXPO: Azakir scratched his cheek with a fingernail idly as they walked through the woods together.
+  AZAKIR|R: That's the trouble with the divine, I s'pose. They don't stay dead.
+  HANYA|L: Huh. I guess I don't know much about them.
+  AZAKIR|R: Doesn't surprise me. The last Goddess War was well before your time.
+  HANYA|L: The "Goddess War"?
+  AZAKIR|R: Yeah. Let's see, where to begin... How about you tell me what you know? I'll fill in the gaps.
+  EXPO: Hanya stepped over an exposed tree root and continued walking.
+  HANYA|L: The goddesses came from another realm and grant the wishes of their worshippers, right? But they're not around anymore.
+  EXPO: Azakir stopped.
+  AZAKIR|R: Is that what they taught you at the monastery?
+  HANYA|L: I wouldn't say taught. That's just what I've heard from the other monks.
+  AZAKIR|R: As for where they came from, I can't rightly say. But they sure don't grant their worshippers wishes. They grant the wishes of their captors, and their strength is based on the worshippers' zeal.
+  HANYA|L: Captors?
+  AZAKIR|R: The goddesses are bound to relics. Every now and then someone finds one, and it always seems to wind up in the hands of a chieftain or king.
+  AZAKIR|R: Dunno if it's magic or just something 'bout how people are. But it's always the kinda person who wants to control others. And goddesses ain't too picky.
+  HANYA|L: Could they refuse?
+  EXPO: Azakir shrugged.
+  AZAKIR|R: What always ends up happening is that someone who's got a goddess on their side grows their nation, their tribe, their whatever. My people try to put a stop to things before they run into someone else who's doing the same thing.
+  HANYA|L: That's a Goddess War, then.
+  AZAKIR|R: Ayup. My ancestors figured out how to kill a goddess way back when, started training what people call goddessbanes. Hard on a person, though. Usually only one or two people a generation ever figure it out. Yer lookin' at one.
+  HANYA|L: Wow. I had no idea. Are there others alive today?
+  EXPO: Azakir laughed.
+  AZAKIR|R: I hope so! I ain't gonna be kickin' around too much longer. You don't go back home once you leave the homeland though. But, uh, sometimes there ain't enough of us.
+  HANYA|L: Wait, the Three Nation War on the mainland, was that...?
+  EXPO: Azakir let out a heavy breath and scratched his face again.
+  AZAKIR|R: Yeah. It was real bad business. Three goddesses living at once on the same landmass. Only two banes. Just me, an... well...
+  EXPO: He seemed lost in thought.
+  AZAKIR|R: Sorry, still some painful memories there. But hey, like you said, there ain't none floating around right now.
+  HANYA|L: And if there were, they're sure not on a tiny island in the middle of nowhere!
+  EXPO: Azakir let the conversation fall into silence as they continued along the path.
+  BREAK
+  EXPO: Eventually the faint sound of the ocean reached their ears. They were getting close to the village, but the sky had faded from the orange and red sky of sunset to the purple-blue gradient of dusk, and night would quickly chase even that faint light away. Hanya helped Azakir gather wood for a fire, and when it was set she climbed the pine overhead and settled in to take her own ease, reflecting on their earlier conversation. It wasn't terribly important, she supposed. She ought to have been focusing on her healing mantra, but there was something she had meant to ask Azakir...
+  PROMPT: What was the question?
+  VOTE-OPEN: What are the goddesses like?|How do you actually kill a goddess?|How many goddesses are there?`
 ];
 const actors = {
   'SAOIRSE': {
