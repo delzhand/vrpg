@@ -385,7 +385,51 @@ const scenes = [
   BREAK
   EXPO: Eventually the faint sound of the ocean reached their ears. They were getting close to the village, but the sky had faded from the orange and red sky of sunset to the purple-blue gradient of dusk, and night would quickly chase even that faint light away. Hanya helped Azakir gather wood for a fire, and when it was set she climbed the pine overhead and settled in to take her own ease, reflecting on their earlier conversation. It wasn't terribly important, she supposed. She ought to have been focusing on her healing mantra, but there was something she had meant to ask Azakir...
   PROMPT: What was the question?
-  VOTE-OPEN: What are the goddesses like?|How do you actually kill a goddess?|How many goddesses are there?`
+  VOTE-CLOSED: What are the goddesses like?%50|How do you actually kill a goddess?%50|How many goddesses are there?%0
+  NEXT`,
+
+  `EXPO: Hanya descended from the tree the next morning, stretched her arms and legs, and looked around. Azakir was nowhere to be seen. Had he awoken early and gone to the village alone? She was a light sleeper, it was hard to imagine he was so quiet that his departure escaped her notice. And yet, the campfire was cold, and he was nowhere to be seen.
+  EXPO: She waited for a few minutes for any sound of his approach, in case he'd simply taken a morning walk, but when she heard nothing other than the morning birds' songs and the scuttle of forest critters, she gathered her pack and set her heels to the path.
+  BREAK
+  SCENE: Outskirts | Bolba Village
+  EXPO: The forest path eventually yielded to a packed-earth road that led into the center of the village. She stopped at one of the outermost huts, where a middle-aged man was hanging laundry out to dry.
+  HANYA|L: Adana, besman!
+  EXPO: Besman was the greeting for non-monks. She didn't know if this man would know that, but he looked past the damp tunics and trousers, saw her temple garb, and waved back.
+  MAN|R: The hermit and a monk in the same morning. What a strange day!
+  EXPO: So he <i>had</i> departed for the village ahead of her. She wondered why, but her main concern now was the girl.
+  HANYA|L: The Ao have sent me to do what I can for a wounded girl. Do you know where I might find her?
+  MAN|R: That would be Saoirse. You'll want to follow this road down to the village square. Ask anyone down that way, they'll get you the rest of the way there.
+  EXPO: Hanya nodded, waved, and continued on the road.
+  BREAK
+  SCENE: Town Square | Bolba Village
+  EXPO: She arrived to find the town square in commotion. A crowd had gathered, although she couldn't see why. She tapped one of the bystanders on the shoulder. Hopefully she could avoid becoming involved in whatever was happening her, though a nagging voice in her head told her that was unlikely.
+  HANYA|L: Adana, besman. Can you tell me where to find a girl named Saoirse?
+  EXPO: The woman, wizened by years in the sun, pointed to the center of the crowd. Hanya tried to smile as she offered her thanks, hoping it was convincing.
+  EXPO: She pushed her way through the crowd. At the center, Azakir and an old woman were arguing with a red-haired young woman in a blue tunic. An even younger girl, perhaps not even ten years old, with similar hair and features, stood behind the other girl. Sisters, then? She had her arms wrapped around the girl in blue's leg.
+  OLD WOMAN|R: Saoirse, you must let Azakir take the girl. It is for the good of the village.
+  SAOIRSE|L: I won't, grimma! She's scared of him, look!
+  EXPO: True enough, the girl was hiding her face. She looked different, somehow, than the rest of the villagers, though Hanya couldn't put her finger on why.
+  AZAKIR|R: Don't be difficult, girl. The child belongs with me.
+  EXPO: His voice was different. Gone was the affectation of a solitary mountain man's lazy speech. He held himself straighter, just as when she'd seen him demonstrate his sword skill.
+  HANYA|L: Azakir?
+  AZAKIR|R: Hanya - say nothing. Leave this to me.
+  SAOIRSE|L: I won't turn her over to a stranger! She needs a home with other people, not to be whisked away to live on a mountain with a creepy old man!
+  EXPO: <i>Whisked away to live on a mountain?</i>
+  EXPO: A young man in red stepped past the edge of the crowd, followed by his senior. Hanya recognized the elder's staff - so this was the chieftain and his son.
+  SAOIRSE|L: Parzeval! The hermit is trying to take Isla!
+  EXPO: The boy raised his hands, quieting the crowd.
+  CHIEFTAIN|R: This is not a matter to be decided here and now. We will go to the town hall after lunch. Everyone else, back to your duties.
+  EXPO: The crowd lingered. There was some movement, but somehow no one actually left. The red clad boy took the staff from his father and waved it overhead.
+  PARZEVAL|L: Go home before I bring the rainclouds down on your heads! Don't you have work to do?
+  EXPO: There were murmurs and grumbles as the crowd began to disperse. Hanya watched the people leave until only she and the small party involved in the argument remained.
+  EXPO: The chieftain calmly took the staff back from Parzeval, and patted him on the back. He approached Hanya. She cursed her luck internally, outwardly trying to maintain a placid expression.
+  CHIEFTAIN|R: Adana, Ao. As you can see, things have changed somewhat since we wrote the monastery. Perhaps you will still come with us and hear the story?
+  EXPO: <i>Absolutely not</i>, she thought to herself, which were not the words she said out loud.
+  HANYA: Adana, besman-do. Of course.
+  CHIEFTAIN|R: Par, take Saoirse and Isla, get something to eat and meet us in the hall in an hour. Akazir, Ciara, sister Ao, please come with me.
+  EXPO: Hanya looked at the older of the red haired girls, and caught her pleading eyes. A short distance away, Azakir and the old woman stood, hard eyed and stoop-shouldered respectively, but unified in purpose. The younger girl... she couldn't possibly be a goddess, right? She was the furthest thing from a goddess Hanya could have imagined.
+  PROMPT: Change POV?
+  VOTE-OPEN: Follow Saoirse's story|Follow Hanya's story`
 ];
 const actors = {
   'SAOIRSE': {
