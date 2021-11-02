@@ -429,7 +429,38 @@ const scenes = [
   CHIEFTAIN|R: Par, take Saoirse and Isla, get something to eat and meet us in the hall in an hour. Akazir, Ciara, sister Ao, please come with me.
   EXPO: Hanya looked at the older of the red haired girls, and caught her pleading eyes. A short distance away, Azakir and the old woman stood, hard eyed and stoop-shouldered respectively, but unified in purpose. The younger girl... she couldn't possibly be a goddess, right? She was the furthest thing from a goddess Hanya could have imagined.
   PROMPT: Change POV?
-  VOTE-OPEN: Follow Saoirse's story|Follow Hanya's story`
+  VOTE-CLOSED: Follow Saoirse's story%33|Follow Hanya's story%67
+  NEXT`,
+
+  `SCENE: Elder's House | Bolba Village
+  EXPO: Hanya sat at the Elder's table, flanked by Azakir and the old woman the elder had called Ciara.
+  AZAKIR|L: Glevarn, is it wise to leave the child in her care?
+  EXPO: The elder put a teapot on the stove and fed a log into the firebox.
+  GLEVARN|R: Saoirse will be fine. She's not going anywhere.
+  AZAKIR|L: My concern is for the village at large.
+  EXPO: Hanya leaned forward.
+  HANYA|R: I'm sorry, I'm lost. Azakir, what's going on with that girl? Isn't she the one that was injured?
+  GLEVARN|R: The fault is mine. I have not even asked your name.
+  HANYA|R: Hanya, disciple of Ilyon.
+  GLEVARN|R: Well, Hanya, it seems that Bolba is now host to a recently reborn goddess.
+  CIARA|L: And it has imprinted on my granddaughter, Saoirse.
+  GLEVARN|R: She seems to attract the strange. Months ago she discovered a flying machine from the mainland that had crashed here. She fixed it up and has been riding it around the village.
+  GLEVARN|R: A few days ago, she rode it into a cave down by the beach. She was missing for hours before we figured out where she'd gone. When my son Parzeval found her, she'd been severely wounded. Stabbed, somehow, by the sword she now carries everywhere. Par brought her back to the village, and that's when we sent the letter to Ao.
+  CIARA|L: I went to the cave the next day. Saorise was mumbling about Branford, the aeroframe. It's a kingdom machine - which is to say it's got a personality, and she didn't want it left down in the dark. She was restless and agitated, and I thought if I could bring Branford back to the surface she'd focus on getting better.
+  CIARA|L: When I eventually got it back to the village, there was a girl I'd never seen before in Saoirse's house. She looked like Saoirse, but younger. Saoirse's fever had broken, and her wounds no longer pained her.
+  HANYA|R: A goddess...
+  AZAKIR|L: One of limited power, it seems. Which means that my job should be much easier. But Saoirse is entranced, and she wants to protect her. That's how they work.
+  EXPO: Hanya considered the implications. The goddess had the appearance and behavior of a young girl. It turned her stomach to imagine her head on the chopping block.
+  HANYA|R: You want to take her into the woods and execute her there?
+  AZAKIR|L: Not only that. I have to destroy her relic. I believe it's the sword Saoirse carries.
+  CIARA|R: You don't know my granddaughter. She's stubborn to a fault, and she doesn't trust you. She'll never hand either over willingly.
+  AZAKIR|L: I don't need anyone's help. I'm only here to declare my intent. I would prefer to do this peacefully, but leaving a goddess in the care of the village is not something I will abide.
+  CIARA|R: Watch yourself, Azakir. That sounded very close to a threat. If you harm Saorise, you'll never see a friendly face in this village again.
+  HANYA|R: Will a goddess still gain strength without worshippers? Does she still know she's a goddess?
+  AZAKIR|L: I told Saoirse that the child could live a normal life away from others, that's why I told you not to say anything, Hanya. She may not know the truth about herself now, but the goddess will eventually find out what she is.
+  EXPO: Hanya felt very put out. It was clear that her presence wasn't necessary here, but Azakir's plan didn't sit right with her. But the danger a goddess posed couldn't be ignored. What would Master Ilyon do?
+  PROMPT: What does Hanya decide to do?
+  VOTE-OPEN: Convince Saoirse to part with Isla|Tell Saoirse the truth, let her make her own decision|Help Saoirse keep Isla from Azakir|Take neither side`
 ];
 const actors = {
   'SAOIRSE': {

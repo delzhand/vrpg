@@ -27,6 +27,7 @@ log = [
   {type: 'story', date: '10/21/2021', txt: `Azakir and Hanya discuss the problems caused by the goddesses.<br><a href="story.html?scene=20">Page 1 of 1</a>`},  
   {type: 'party', date: '10/24/2021', txt: `Azakir has left the party`},
   {type: 'story', date: '10/24/2021', txt: `Hanya finds Azakir gone in the morning. Later, in the village, she finds him at the center of a crowd...<br><a href="story.html?scene=21">Page 1 of 1</a>`},  
+  {type: 'story', date: '11/02/2021', txt: `Hanya and the elders discuss the situation, and Hanya must make a decision...<br><a href="story.html?scene=22">Page 1 of 1</a>`},  
 ];
 
 function drawUpdates() {
