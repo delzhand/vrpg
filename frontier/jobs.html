@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Test</title>
+<link href="./theme.css" rel="stylesheet">
+<link href="./icomoon/style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="./code.js"></script>
+<script>
+  function drawBars(count, max) {
+    let markup = "";
+    for (let i = 0; i < max; i++) {
+      if (i < count) {
+        markup += '<span class="bar filled"></span>';
+      }
+      else {
+        markup += '<span class="bar empty"></span>';
+      }
+    }
+    return markup;
+  }
+
+  $(document).ready(function() {
+    let jobs = getJobDetails();
+    for (let i = 0; i < jobs.length; i++) {
+      job = jobs[i];
+      $job = $('.job.hidden').clone().removeClass('hidden').appendTo('.jobs');
+      $job.find('.name').html(`<span class="icon-${job.name}"></span> ${job.name}`);
+      $job.find('.desc').html(job.description);
+      $job.find('.hpg .val').html(drawBars(job.hpGrowth, 4));
+      $job.find('.hpb .val').html(drawBars(job.hpBonus, 4));
+      $job.find('.strg .val').html(drawBars(job.strGrowth, 4));
+      $job.find('.strb .val').html(drawBars(job.strBonus, 4));
+      $job.find('.lckg .val').html(drawBars(job.lckGrowth, 4));
+      $job.find('.lckb .val').html(drawBars(job.lckBonus, 4));
+      $job.find('.sklg .val').html(drawBars(job.sklGrowth, 4));
+      $job.find('.sklb .val').html(drawBars(job.sklBonus, 4));
+      $job.find('.mov .val').html(drawBars(job.move-1, 4));
+      $job.find('.evd .val').html(drawBars(job.evade/5, 4));
+      for (let j = 0; j < job.abilities.length; j++) {
+        $ability = $('.ability.hidden').clone().removeClass('hidden').appendTo($job.find('.abilities'));
+        $ability.find('.name').html(job.abilities[j].name);
+        $ability.find('.desc').html(job.abilities[j].desc.replaceAll('*pow', '<span class="pow">').replaceAll('pow*', '</span>').replaceAll('*heal', '<span class="heal">').replaceAll('heal*', '</span>'));
+      }
+    }
+  });
+</script>
+</head>
+<body>
+
+  <div class="jobs">
+    <div class="ability hidden">
+      <div class="name"></div>
+      <div class="desc"></div>
+    </div>
+    <div class="job hidden">
+      <div class="text">
+        <div class="name"></div>
+        <div class="desc"></div>
+      </div>
+      <div class="stats">
+        <div class="hpg"><span class="label">HP Growth</span><span class="val"></span></div>
+        <div class="hpb"><span class="label">HP Bonus</span><span class="val"></span></div>
+        <div class="strg"><span class="label">Strength Growth</span><span class="val"></span></div>
+        <div class="strb"><span class="label">Strength Bonus</span><span class="val"></span></div>
+        <div class="sklg"><span class="label">Skill Growth</span><span class="val"></span></div>
+        <div class="sklb"><span class="label">Skill Bonus</span><span class="val"></span></div>
+        <div class="lckg"><span class="label">Luck Growth</span><span class="val"></span></div>
+        <div class="lckb"><span class="label">Luck Bonus</span><span class="val"></span></div>
+        <div class="mov"><span class="label">Move</span><span class="val"></span></div>
+        <div class="evd"><span class="label">Evade</span><span class="val"></span></div>
+      </div>
+      <div class="abilities">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
