@@ -68,11 +68,11 @@ function getBaseUnit(job) {
   }
   const unit = {
     name: '',
-    hp: 100,
+    hp: 91 + randomInt(10),
     move: 4,
-    luck: 60,
-    strength: 60,
-    skill: 60,
+    luck: 51 + randomInt(10),
+    strength: 51 + randomInt(10),
+    skill: 51 + randomInt(10),
     evade: 6,
     xp: 0,
     level: 1,
@@ -285,9 +285,9 @@ function getJobs() {
       bonus: {hp: 1.3, luck: 1.1, strength: 1.2, skill: 1.1, mov: 4, evd: 5},
       growth: {hp: 3, luck: 1, strength: 3, skill: 2},
       abilities: [
-        {name: 'Haymaker', desc: 'Attack *powSTRpow* an adjacent target and inflict SKL Down'},
-        {name: 'Bull Rush', desc: 'Move up to three tiles in a straight line and attack *powSTRpow* first target with a chance to inflict LCK Down'},
-        {name: 'Grapple', desc: 'Inflict Stop on self and an adjacent target, inflicts HP Down on target'}
+        {name: 'Haymaker', desc: 'Attack *powSTR*8pow* an adjacent target and inflict SKL Down'},
+        {name: 'Bull Rush', desc: 'Move up to three tiles in a straight line and attack *powSTR*7pow* first target, +10% bonus damage for each tile of distance traveled.'},
+        {name: 'Corkscrew', desc: 'Attack *powSTR*6pow* an adjacent target and inflict Stop'}
       ]
     },
     {
@@ -296,9 +296,9 @@ function getJobs() {
       bonus: {hp: 1.2, luck: 1.2, strength: 1.1, skill: 1.1, mov: 3, evd: 10},
       growth: {hp: 3, luck: 2, strength: 1, skill: 3},
       abilities: [
-        {name: 'Arrow Shot', desc: 'Attack *powSTR/SKLpow* a target in LOS within 9 tiles'},
-        {name: 'Snare', desc: 'Inflict Stop on target within 3 tiles'},
-        {name: 'Hatchet', desc: 'Attack *powSTRpow* an adjacent target and inflict ATK Down on target'},
+        {name: 'Arrow Shot', desc: 'Attack *powSTR*3+SKL*3pow* a target in LOS within 9 tiles'},
+        {name: 'Snare', desc: 'Inflict MOV Down on target within 3 tiles'},
+        {name: 'Hatchet', desc: 'Attack *powSTR*6pow* an adjacent target and inflict ATK Down on target'},
       ]
     },
     {
@@ -307,9 +307,9 @@ function getJobs() {
       bonus: {hp: 1.2, luck: 1.2, strength: 1.2, skill: 1.1, mov: 3, evd: 5},
       growth: {hp: 2, luck: 1, strength: 4, skill: 2},
       abilities: [
-        {name: 'Cleave', 'desc': 'Attack *powSTRpow* an adjacent target and deal 20% damage to targets adjacent to target'},
-        {name: 'Flying Cutter', 'desc': 'Attack *powSKLpow* all targets in a straight line'},
-        {name: 'Killing Blow', 'desc': 'Attack *powSTRpow* an adjacent target with a chance to inflict KO on target'},
+        {name: 'Cleave', 'desc': 'Attack *powSTR*7pow* an adjacent target and deal 20% damage to targets adjacent to target'},
+        {name: 'Flying Cutter', 'desc': 'Attack *powSKL*5pow* all targets in a straight line'},
+        {name: 'Killing Blow', 'desc': 'Attack *powSTR*4+SKL*2pow* an adjacent target with a chance to inflict KO on target'},
       ]
     },
     {
@@ -329,8 +329,8 @@ function getJobs() {
       bonus: {hp: 1.1, luck: 1.2, strength: 1.1, skill: 1.1, mov: 5, evd: 20},
       growth: {hp: 1, luck: 4, strength: 2, skill: 2},
       abilities: [
-        {name: 'Sickle', desc: 'Attack *powSTR/SKLpow* an adjacent target, deals 200% damage if target has no allies within 3 tiles'},
-        {name: 'Sneakstep', desc: 'Grant Stride and EVD Up to self'},
+        {name: 'Sickle', desc: 'Attack *powSTR*2+SKL*4pow* an adjacent target, deals +100% damage if target has no allies within 3 tiles'},
+        {name: 'Sneakstep', desc: 'Grant MOV Up and EVD Up to self'},
         {name: 'Pepper Bomb', desc: 'Inflict Blind and LCK Down on all adjacent targets'},
       ]
     },
@@ -340,9 +340,9 @@ function getJobs() {
       bonus: {hp: 1.2, luck: 1.3, strength: 1.1, skill: 1.1, mov: 4, evd: 10},
       growth: {hp: 3, luck: 2, strength: 2, skill: 2},
       abilities: [
-        {name: 'Scythe', desc: 'Attack *powSTRpow* a target within 2 tiles'},
+        {name: 'Scythe', desc: 'Attack *powSTR*6pow* a target within 2 tiles'},
         {name: 'Bounty', desc: 'Restore 25% of max HP and remove negative status effects from target within 4 tiles'},
-        {name: 'Bonfire', desc: 'Attack *powSKLpow* a target within 4 tiles'},
+        {name: 'Bonfire', desc: 'Attack *powSKL*8pow* a target within 4 tiles'},
       ]
     },
     {
@@ -351,9 +351,9 @@ function getJobs() {
       bonus: {hp: 1, luck: 1.3, strength: 1, skill: 1.2, mov: 5, evd: 20},
       growth: {hp: 1, luck: 3, strength: 2, skill: 3},
       abilities: [
-        {name: 'Perforate', desc: 'Attack *powSTRpow* an adjacent target and inflict HP Down'},
-        {name: 'Disarm', desc: 'Attack an *powSKLpow* an adjacent target and inflict ATK Down'},
-        {name: 'Knife Throw', desc: 'Attack *powSKLpow* a target in LOS within 3 tiles, chance for ±50% damage'},
+        {name: 'Perforate', desc: 'Attack *powSKL*5pow* an adjacent target and inflict HP Down'},
+        {name: 'Disarm', desc: 'Attack an *powSKL*3+LCK*2pow* an adjacent target and inflict ATK Down'},
+        {name: 'Throwing Knives', desc: 'Attack *powSTR*2+SKL*2pow* up to 3 targets in LOS within 3 tiles'},
       ]
     },
     {
@@ -373,8 +373,8 @@ function getJobs() {
       bonus: {hp: 1.1, luck: 1.1, strength: 1.2, skill: 1.3, mov: 3, evd: 5},
       growth: {hp: 2, luck: 2, strength: 1, skill: 4},
       abilities: [
-        {name: 'Wicked Wisp', desc: 'Attack *powSKLpow* a target within 3 tiles'},
-        {name: 'Lunar Scream', desc: 'Attack *powSKLpow* all targets in a 5 tile area within 4 tiles'},
+        {name: 'Wicked Wisp', desc: 'Attack *powSKL*6pow* a target within 3 tiles'},
+        {name: 'Lunar Scream', desc: 'Attack *powSKL*4pow* all targets in a 5 tile area within 4 tiles'},
         {name: 'Misfire', desc: 'Inflict Misfire on all targets in a 5 tile area'},
       ]
     },
@@ -384,8 +384,8 @@ function getJobs() {
       bonus: {hp: 1.1, luck: 1.2, strength: 1.2, skill: 1.2, mov: 4, evd: 5},
       growth: {hp: 2, luck: 3, strength: 1, skill: 3},
       abilities: [
-        {name: 'Winter Wolf', desc: 'Attack *powSKLpow* all adjacent enemies'},
-        {name: 'Red Hawk', desc: 'Grant MOV Up to target within 4 tiles'},
+        {name: 'Winter Wolf', desc: 'Attack *powSKL*3pow* all enemies in a 9 tile area within 3 tiles'},
+        {name: 'Red Hawk', desc: 'Grant Quick to target within 4 tiles'},
         {name: 'Black Bear', desc: 'Grant Shield to allies and inflict HP Down on enemies in a 5 tile area within 3 tiles'},
       ]
     },
@@ -395,8 +395,8 @@ function getJobs() {
       bonus: {hp: 1.4, luck: 1.1, strength: 1.1, skill: 1.1, mov: 4, evd: 0},
       growth: {hp: 4, luck: 1, strength: 3, skill: 1},
       abilities: [
-        {name: 'Crushing Blow', desc: 'Attack *powSTRpow* an adjacent target'},
-        {name: 'Toughen Up', desc: 'Grants Shield to all allies within 2 tiles'},
+        {name: 'Crushing Blow', desc: 'Attack *powSTR*8pow* an adjacent target'},
+        {name: 'Toughen Up', desc: 'Grants Shield to all allies within 2 tiles, not including self'},
         {name: 'Defend', desc: 'Switch places with adjacent target and grant Shield to self'},
       ]
     },
@@ -407,7 +407,7 @@ function getJobs() {
       growth: {hp: 3, luck: 2, strength: 1, skill: 2},
       abilities: [
         {name: 'Intimidate', desc: 'Inflicts Cowardice on enemy within 5 tiles'},
-        {name: 'Stall', desc: 'Inflicts Stop on all enemies within 5 tiles'},
+        {name: 'Stall', desc: 'Inflicts Stop on all a single target within 5 tiles'},
         {name: 'Persuade', desc: 'Chance to inflict Turncoat on enemy within 5 tiles (chance increases as target HP decreases)'},
       ]
     },
